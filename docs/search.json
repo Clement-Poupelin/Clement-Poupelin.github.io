@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "about",
+    "section": "",
+    "text": "Tableau avec identité un peu type CV\nparler du parcous etc….."
+  },
+  {
+    "objectID": "Open16S.html",
+    "href": "Open16S.html",
+    "title": "Open16S",
+    "section": "",
+    "text": "parler du stage puis contrat et mettre les liens vers les blog"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "mettre les futures publications (ont y croit)"
+  },
+  {
     "objectID": "projects.html#project-2",
     "href": "projects.html#project-2",
     "title": "Projects",
@@ -16,7 +37,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "About Me",
+    "title": "Clément Poupelin",
     "section": "",
     "text": "Thanks for checking out my web site!"
   }
