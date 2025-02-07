@@ -2,6 +2,10 @@ project:
   type: website
   output-dir: docs
 
+theme:
+  dark: darkly
+  light: flatly
+  
 website:
   site-url: https://Clement-Poupelin.github.io/
   favicon: img/logo_univ_lille2.png
@@ -38,44 +42,12 @@ website:
 
 format:
   html:
+    # theme: cerulean
     toc: true
 
+
+  
 execute:
   freeze: auto
 
-
-
-
-
-
-# project:
-#   type: website
-#   output-dir: docs
-#   
-# website:
-#   title: "Clément Poupelin"
-#   navbar:
-#     left:
-#       - href: index.qmd
-#         text: Home
-#       - projects.qmd
-#     tools:
-#       - icon: instagram
-#         href: https://twitter.com/
-#       - icon: github
-#         href: https://github.com/YOURUSERNAME/YOURREPO
-#       - icon: gitlab
-#         href: https://github.com/YOURUSERNAME/YOURREPO
-#       - icon: linkdin
-#         href: https://github.com/YOURUSERNAME/YOURREPO
-#   page-footer:
-#     right: "Built with [Quarto](https://quarto.org/)"
-#     left: "&copy; Copyright 2023, YOUR NAME"
-# 
-# format:
-#   html:
-#     theme: cerulean
-#     toc: true
-# 
-# editor: source
 
