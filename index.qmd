@@ -21,17 +21,4 @@ about:
 ---
 
 
-
-
-
-
-<!-- --- -->
-<!-- title: "About Me" -->
-<!-- about: -->
-<!--   id: me -->
-<!--   template: broadside -->
-<!--   image: img/IMG_1154.jpg -->
-<!-- --- -->
-
-
 Thanks for checking out my web site!
