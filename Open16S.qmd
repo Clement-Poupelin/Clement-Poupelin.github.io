@@ -1,5 +1,5 @@
 ---
-title: "Open16S"
+title: "Open16S | MaIAGE - INRAE"
 ---
 
 parler du stage puis contrat et mettre les liens vers les blog

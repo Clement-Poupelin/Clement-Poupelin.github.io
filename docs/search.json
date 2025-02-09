@@ -1,10 +1,31 @@
 [
   {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "mettre les futures publications (ont y croit)"
+  },
+  {
+    "objectID": "Open16S.html",
+    "href": "Open16S.html",
+    "title": "Open16S | MaIAGE - INRAE",
+    "section": "",
+    "text": "parler du stage puis contrat et mettre les liens vers les blog"
+  },
+  {
+    "objectID": "challenge_data.html",
+    "href": "challenge_data.html",
+    "title": "Challenge Data 2023 | OWKIN",
+    "section": "",
+    "text": "mettre resumé du challenge + lien page web + lien vers noémie et matthieu (avec remerciements)"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Clément Poupelin",
     "section": "",
-    "text": "Titre\nIngénieur\n\n\nE-mail professionnel\nclement.poupelin@univ-lille.fr\n\n\nE-mail personnel\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / Bâtiment ESPRIT - bureaux S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Bâtiment Plateformes-Cancer - Lille, France\nCampus Pasteur Lille / Bâtiment Calmette 4ème étage - Lille, France\n\n\nStatu académique\nIngénieur d'étude\n\n\nDomaine d'expertise\nStatistique\n\n\nUnité // Equipe\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
+    "text": "Warning: le package 'tidyverse' a été compilé avec la version R 4.2.2\n\n\nWarning: le package 'ggplot2' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'tibble' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'tidyr' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'readr' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'purrr' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'dplyr' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'stringr' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'forcats' a été compilé avec la version R 4.2.2\n\n\nWarning: le package 'lubridate' a été compilé avec la version R 4.2.3\n\n\nWarning: le package 'kableExtra' a été compilé avec la version R 4.2.3\n\n\n\n\n\n\n\n\n\nTitre\nIngénieur\n\n\nE-mail professionnel\nclement.poupelin@univ-lille.fr\n\n\nE-mail personnel\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / Bâtiment ESPRIT - bureaux S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Bâtiment Plateformes-Cancer - Lille, France\nCampus Pasteur Lille / Bâtiment Calmette 4ème étage - Lille, France\n\n\nStatu académique\nIngénieur d'étude\n\n\nDomaine d'expertise\nStatistique\n\n\nUnité // Equipe\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
   },
   {
     "objectID": "about.html#compétences-principales",
@@ -21,18 +42,11 @@
     "text": "Parcours\nDiplomé d’un BAC S SVT je pars en Licence maths à nantes Univ pour continuer en Master Ingé stat. Puis orientation vers la recherche en laboratoire via stage de fin d’étude et premier contrat d’ingé d’étude pour l’unité Maiage de Jouy (plateau paris saclay, mettre liens cliquable à chaque fois).\nPuis nouveua contrat pour la plateforme Bilille via un financement RHU pour la recherche sur les maladies neurodégénérative avec pour but principal d’intenfié des biomarqueurs de la SLA."
   },
   {
-    "objectID": "Open16S.html",
-    "href": "Open16S.html",
-    "title": "Open16S",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Clément Poupelin",
     "section": "",
-    "text": "parler du stage puis contrat et mettre les liens vers les blog"
-  },
-  {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Publications",
-    "section": "",
-    "text": "mettre les futures publications (ont y croit)"
+    "text": "Thanks for checking out my web site!"
   },
   {
     "objectID": "projects.html#project-2",
@@ -47,12 +61,5 @@
     "title": "Projects",
     "section": "Project 3",
     "text": "Project 3"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Clément Poupelin",
-    "section": "",
-    "text": "Thanks for checking out my web site!"
   }
 ]

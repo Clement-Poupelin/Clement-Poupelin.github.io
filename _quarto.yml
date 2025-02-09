@@ -14,13 +14,15 @@ website:
     background: light
     title: Clément Poupelin
     logo: img/logo_univ_lille_gros.png
-    right:
+    left:
       - href: index.qmd
         text: Home
       - text: "Projects"
         menu:
           - Open16S.qmd
+          - challenge_data.qmd
       - publications.qmd
+    right: 
       - icon: info-circle-fill
         href: about.html
       - href: CV/CV.pdf
