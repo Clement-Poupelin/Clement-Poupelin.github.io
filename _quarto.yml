@@ -31,12 +31,12 @@ website:
         href: http://github.com/Clement-Poupelin
       - icon: gitlab
         href: http://forgemia.inra.fr/clement.poupelin
-      - icon: instagram
-        href: https://www.instagram.com/clement__poupelin
       - icon: linkedin
         href: http://www.linkedin.com/in/cl%C3%A9ment-poupelin-7675311a7/
       - icon: envelope
         href: mailto:clementjc.poupelin@gmail.com
+      - icon: instagram
+        href: https://www.instagram.com/clement__poupelin
   page-footer: 
     background: light
     left: Copyright 2025, Clément Poupelin
