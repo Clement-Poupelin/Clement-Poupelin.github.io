@@ -2,7 +2,7 @@
 title: ""
 ---
 
-```{r identity-table, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(kableExtra)
 identity_keys <- cell_spec(

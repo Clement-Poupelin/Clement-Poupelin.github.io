@@ -3,8 +3,8 @@ project:
   output-dir: docs
 
 theme:
+  light: zephir
   dark: darkly
-  light: flatly
   
 website:
   site-url: https://Clement-Poupelin.github.io/
@@ -44,7 +44,6 @@ website:
 
 format:
   html:
-    # theme: cerulean
     toc: true
 
 execute:
