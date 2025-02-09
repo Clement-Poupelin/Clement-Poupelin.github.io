@@ -3,7 +3,7 @@ title: "Challenge Data 2023 | OWKIN"
 editor: visual
 ---
 
-En fin d'année 2023, dans le cadre de l'unité d'enseignement Apprentissage statistique du master Ingénierie Statistique de l'université de Nantes (et en commun avec l'école central nantes), j'ai eu l'occasion de participer au Challenge Data.
+En fin d'année 2023, dans le cadre de l'unité d'enseignement Apprentissage statistique du [master Ingénierie Statistique de l'université de Nantes](https://www.math.sciences.univ-nantes.fr/master-IS) (et en commun avec [Central Nantes option mathématiques et applications](https://www.ec-nantes.fr/formation/les-options-de-2e-et-3e-annee/option-mathematiques-et-applications)), j'ai eu l'occasion de participer au Challenge Data.
 
 Suite à cela, mes partenaires de travail et moi même avons réussi à obtenir la troisième place (sur 189 participants) pour le challenge que nous avons choisi.
 
