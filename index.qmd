@@ -1,5 +1,5 @@
 ---
-title: "Clément Poupelin"
+title: ""
 image: img/IMG_1154_bis.jpg
 about:
   template: jolla
@@ -20,5 +20,4 @@ about:
       href: mailto:clementjc.poupelin@gmail.com
 ---
 
-
-Thanks for checking out my web site!
+Thank you for visiting my website! My name is Clément, and I am an engineer in public research. I specialize in statistics in all its forms, from data analysis to advanced modeling. Currently, my work focuses primarily on research topics in the field of healthcare, where I apply statistical methodologies to support scientific discoveries and public health initiatives.
