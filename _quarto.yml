@@ -3,8 +3,9 @@ project:
   output-dir: docs
 
 theme:
-  light: zephir
   dark: darkly
+  light: zephir
+
   
 website:
   site-url: https://Clement-Poupelin.github.io/
