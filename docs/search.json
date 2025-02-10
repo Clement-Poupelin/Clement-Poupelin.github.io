@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Publications",
-    "section": "",
-    "text": "mettre les futures publications (on y croit)"
-  },
-  {
-    "objectID": "Open16S.html",
-    "href": "Open16S.html",
-    "title": "Open16S | MaIAGE - INRAE",
-    "section": "",
-    "text": "parler du stage puis contrat et mettre les liens vers les blog"
-  },
-  {
     "objectID": "challenge_data.html",
     "href": "challenge_data.html",
     "title": "Challenge Data 2023 | OWKIN",
@@ -42,27 +28,6 @@
     "text": "Objectif du challenge\nLa méthode actuelle pour identifier les mutations PIK3CA est le séquençage de l’ADN, qui nécessite une expertise technique et bioinformatique qui n’est pas accessible dans tous les laboratoires. Une solution automatisée pour détecter la mutation PIK3CA présente une grande pertinence clinique car elle pourrait fournir un outil de dépistage rapide et fiable permettant à davantage de patientes, notamment dans les centres tertiaires, d’être éligibles à des thérapies personnalisées associées à de meilleurs résultats.\nLe challenge proposé par Owkin est un problème de classification binaire faiblement supervisé : l’objectif est de prédire, à partir d’une lame histologique numérisée en haute résolution, si un patient présente une mutation du gène PIK3CA.\nL’apprentissage faiblement supervisé est crucial en pathologie digitale compte tenu du volume extrêmement grand des lames histologiques une fois numérisées (&gt; 100 000x100 000 pixels). En l’état, ces lames ne peuvent pas être traitées telles quelles par des algorithmes de machine learning. Il faut donc préalablement, pour chaque lame, en extraire des images plus petites (appelées tuiles ou tiles) de 224x224 pixels (environ 112 µm²). Puisqu’une lame est associée à une seule annotation (présence ou absence de mutation), et est partitionnée en un ensemble de tuiles, les méthodes d’apprentissage utilisées doivent apprendre à aggréger intelligemment ces tuiles pour produire un label global. Ces méthodes s’inscrivent dans le champ du multiple-instance learning (MIL). Plus précisément, si une des tuiles de la lame contient un motif local porteur de la mutation, alors l’algorithme devra prédire la présence globale de mutation ; à l’inverse, si toutes les tuiles ne montrent pas de tel(s) motif(s), l’algorithme devra prédire l’absence globale de mutation. Si l’approche de la supervision faible peut bruiter le signal initial (certaines tuiles sont complètement ininformatives pour prédire le label global), elle évite en revanche l’annotation manuelle de lames histologiques par des anatomo-pathologistes, opération coûteuse et longue en pratique.\nDans ce challenge, nous cherchons à prédire si un patient présente une mutation du gène PIK3CA à partir d’une lame histologique numérisée. Pour des raisons computationnelles, nous avons conservé un total de 1 000 tuiles par lame. Chaque tuile a été sélectionnée de manière à ce qu’elle contienne du tissu.\nlien vers la description du challenge"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Clément Poupelin",
-    "section": "",
-    "text": "Titre\nIngénieur\n\n\nE-mail professionnel\nclement.poupelin@univ-lille.fr\n\n\nE-mail personnel\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / Bâtiment ESPRIT - bureaux S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Bâtiment Plateformes-Cancer - Lille, France\nCampus Pasteur Lille / Bâtiment Calmette 4ème étage - Lille, France\n\n\nStatu académique\nIngénieur d'étude\n\n\nDomaine d'expertise\nStatistique\n\n\nUnité // Equipe\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
-  },
-  {
-    "objectID": "about.html#compétences-principales",
-    "href": "about.html#compétences-principales",
-    "title": "Clément Poupelin",
-    "section": "Compétences principales",
-    "text": "Compétences principales\nrefaire la liste du CV"
-  },
-  {
-    "objectID": "about.html#parcours",
-    "href": "about.html#parcours",
-    "title": "Clément Poupelin",
-    "section": "Parcours",
-    "text": "Parcours\nDiplomé d’un BAC S SVT je pars en Licence maths à nantes Univ pour continuer en Master Ingé stat. Puis orientation vers la recherche en laboratoire via stage de fin d’étude et premier contrat d’ingé d’étude pour l’unité Maiage de Jouy (plateau paris saclay, mettre liens cliquable à chaque fois).\nPuis nouveua contrat pour la plateforme Bilille via un financement RHU pour la recherche sur les maladies neurodégénérative avec pour but principal d’intenfié des biomarqueurs de la SLA."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Clément Poupelin",
@@ -82,5 +47,40 @@
     "title": "Projects",
     "section": "Project 3",
     "text": "Project 3"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "mettre les futures publications (on y croit)"
+  },
+  {
+    "objectID": "Open16S.html",
+    "href": "Open16S.html",
+    "title": "Open16S | MaIAGE - INRAE",
+    "section": "",
+    "text": "parler du stage puis contrat et mettre les liens vers les blog"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Clément Poupelin",
+    "section": "",
+    "text": "Titre\nIngénieur\n\n\nE-mail professionnel\nclement.poupelin@univ-lille.fr\n\n\nE-mail personnel\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / Bâtiment ESPRIT - bureaux S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Bâtiment Plateformes-Cancer - Lille, France\nCampus Pasteur Lille / Bâtiment Calmette 4ème étage - Lille, France\n\n\nStatu académique\nIngénieur d'étude\n\n\nDomaine d'expertise\nStatistique\n\n\nUnité // Equipe\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
+  },
+  {
+    "objectID": "about.html#compétences-principales",
+    "href": "about.html#compétences-principales",
+    "title": "Clément Poupelin",
+    "section": "Compétences principales",
+    "text": "Compétences principales\nrefaire la liste du CV"
+  },
+  {
+    "objectID": "about.html#parcours",
+    "href": "about.html#parcours",
+    "title": "Clément Poupelin",
+    "section": "Parcours",
+    "text": "Parcours\nDiplomé d’un BAC S SVT je pars en Licence maths à nantes Univ pour continuer en Master Ingé stat. Puis orientation vers la recherche en laboratoire via stage de fin d’étude et premier contrat d’ingé d’étude pour l’unité Maiage de Jouy (plateau paris saclay, mettre liens cliquable à chaque fois).\nPuis nouveua contrat pour la plateforme Bilille via un financement RHU pour la recherche sur les maladies neurodégénérative avec pour but principal d’intenfié des biomarqueurs de la SLA."
   }
 ]
