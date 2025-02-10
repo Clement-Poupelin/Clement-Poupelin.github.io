@@ -81,20 +81,20 @@
     "href": "about.html",
     "title": "Clément Poupelin",
     "section": "",
-    "text": "Titre\nIngénieur\n\n\nE-mail professionnel\nclement.poupelin@univ-lille.fr\n\n\nE-mail personnel\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / Bâtiment ESPRIT - bureaux S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Bâtiment Plateformes-Cancer - Lille, France\nCampus Pasteur Lille / Bâtiment Calmette 4ème étage - Lille, France\n\n\nStatu académique\nIngénieur d'étude\n\n\nDomaine d'expertise\nStatistique\n\n\nUnité // Equipe\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
+    "text": "Title\nIngeneer\n\n\nE-mail professionnal\nclement.poupelin@univ-lille.fr\n\n\nE-mail personnal\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / Building ESPRIT - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Building Plateformes-Cancer - Lille, France\nCampus Pasteur Lille / Building Calmette 4ème étage - Lille, France\n\n\nAcademic status\nIngénieur d'étude\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
   },
   {
-    "objectID": "about.html#compétences-principales",
-    "href": "about.html#compétences-principales",
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
     "title": "Clément Poupelin",
-    "section": "Compétences principales",
-    "text": "Compétences principales\nrefaire la liste du CV"
+    "section": "Skills",
+    "text": "Skills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods\nApplication of data science skills to microbial ecology\nUse of statistical methods for meta-analyses\nResearch on microbiome network inference methods"
   },
   {
-    "objectID": "about.html#parcours",
-    "href": "about.html#parcours",
+    "objectID": "about.html#course",
+    "href": "about.html#course",
     "title": "Clément Poupelin",
-    "section": "Parcours",
-    "text": "Parcours\nDiplomé d’un BAC S SVT je pars en Licence maths à nantes Univ pour continuer en Master Ingé stat. Puis orientation vers la recherche en laboratoire via stage de fin d’étude et premier contrat d’ingé d’étude pour l’unité Maiage de Jouy (plateau paris saclay, mettre liens cliquable à chaque fois).\nPuis nouveua contrat pour la plateforme Bilille via un financement RHU pour la recherche sur les maladies neurodégénérative avec pour but principal d’intenfié des biomarqueurs de la SLA."
+    "section": "Course",
+    "text": "Course\nAfter earning a Scientific Baccalaureate (BAC S SVT) with a Mathematics specialization, I pursued a Bachelor’s degree in Mathematics at Nantes University, followed by a Master’s in Statistical Engineering, which I obtained with honors (mention bien).\nMy interest in research grew through my final-year internship, leading to my first position as a research engineer at the UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster.\nI then joined the Bilille platform (Bioinformatics, biostatistics and bioanalysis) within the UAR 2014 - US 41 PLBS unit at the University of Lille, working under an RHU-funded research program focused on neurodegenerative diseases. My primary objective is to identify biomarkers for amyotrophic lateral sclerosis (ALS)."
   }
 ]
