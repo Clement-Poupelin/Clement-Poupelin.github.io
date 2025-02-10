@@ -4,28 +4,42 @@
     "href": "challenge_data.html",
     "title": "Challenge Data 2023 | OWKIN",
     "section": "",
-    "text": "En fin d’année 2023, dans le cadre de l’unité d’enseignement Apprentissage statistique du master Ingénierie Statistique de l’université de Nantes (et en commun avec Central Nantes option mathématiques et applications), j’ai eu l’occasion de participer au Challenge Data.\nSuite à cela, mes partenaires de travail et moi même avons réussi à obtenir la troisième place (sur 189 participants) pour le challenge que nous avons choisi.\nJe remercie donc chaleuresement mes partenaires de travail Noémie Matrat et Matthieu Trotreau ainsi que le Collège de France pour leur invitation à la remise des prix.\nLe Laboratoire de Mathématiques Jean Leray"
+    "text": "At the end of 2023, as part of the Statistical Learning course in the Master’s in Statistical Engineering at the University of Nantes (jointly with Centrale Nantes, Mathematics and Applications option), I had the opportunity to participate in the Challenge Data.\nAs a result, my teammates and I managed to achieve third place (out of 189 participants) in the challenge we chose.\nI would like to warmly thank my teammates Noémie Matrat and Matthieu Trotreau, as well as the Collège de France for inviting us to the awards ceremony.\nJean Leray Mathematics Laboratory"
   },
   {
-    "objectID": "challenge_data.html#anatomopathologie",
-    "href": "challenge_data.html#anatomopathologie",
+    "objectID": "challenge_data.html#anatomopathology",
+    "href": "challenge_data.html#anatomopathology",
     "title": "Challenge Data 2023 | OWKIN",
-    "section": "anatomopathologie",
-    "text": "anatomopathologie\nL’anatomopathologie est une spécialité médicale dédiée à l’étude morphologique des anomalies des tissus biologiques. L’analyse de ces tissus constitue une étape critique pour de nombreux diagnostics, en particulier en oncologie où elle définit le gold standard (routine clinique de référence). Les échantillons de tissus sont généralement prélevés lors d’une intervention chirurgicale ou d’une biopsie. Après avoir été prétraités par des techniciens experts, les pathologistes examinent les échantillons au microscope afin d’évaluer plusieurs biomarqueurs tels que la nature de la tumeur, le stade du cancer, etc."
+    "section": "Anatomopathology",
+    "text": "Anatomopathology\nAnatomopathology is a medical specialty dedicated to the morphological study of abnormalities in biological tissues. The analysis of these tissues is a critical step for many diagnoses particularly in oncology where it serves as the gold standard (the reference clinical routine). Tissue samples are typically collected during surgery or biopsy . After preprocessing by expert technicians, pathologists examine the samples under a microscope to evaluate biomarkers such as tumor type, cancer stage, etc."
   },
   {
-    "objectID": "challenge_data.html#mutation-pik3ca-dans-le-cancer-du-sein",
-    "href": "challenge_data.html#mutation-pik3ca-dans-le-cancer-du-sein",
+    "objectID": "challenge_data.html#pik3ca-mutation-in-breast-cancer",
+    "href": "challenge_data.html#pik3ca-mutation-in-breast-cancer",
     "title": "Challenge Data 2023 | OWKIN",
-    "section": "Mutation PIK3CA dans le cancer du sein",
-    "text": "Mutation PIK3CA dans le cancer du sein\nDes études scientifiques récentes ont également montré que les lames d’histopathologie contiennent des informations qui sous-tendent le génotype de la tumeur. Ces lames pourraient donc être utilisées pour prédire les altérations génomiques telles que les mutations ponctuelles. L’une de ces altérations génomiques est la mutation PIK3CA dans le cancer du sein. Cette mutation est observée dans environ 30 à 40 % des cancers du sein et se retrouvent le plus souvent dans les cancers à récepteurs positifs d’œstrogènes (ER+). Les mutations PIK3CA ont été associées à de bons résultats. Plus important encore, les patientes porteuses de cette mutation, résistante au traitement endocrinien, peuvent répondre à une classe de thérapie ciblée - l’inhibiteur de PI3Kα."
+    "section": "PIK3CA Mutation in Breast Cancer",
+    "text": "PIK3CA Mutation in Breast Cancer\nRecent scientific studies have also shown that histopathology slides contain information underlying the tumor’s genotype . These slides could therefore be used to predict genomic alterations such as point mutations . One such alteration is the PIK3CA mutation in breast cancer.\nThis mutation is observed in approximately 30-40% of breast cancers, most commonly in estrogen receptor-positive (ER+) cancers . PIK3CA mutations have been associated with good prognoses. More importantly patients carrying this mutation, who are resistant to endocrine therapy, may respond to a targeted therapy class—PI3Kα inhibitors."
   },
   {
-    "objectID": "challenge_data.html#objectif-du-challenge",
-    "href": "challenge_data.html#objectif-du-challenge",
+    "objectID": "challenge_data.html#objective-of-the-challenge",
+    "href": "challenge_data.html#objective-of-the-challenge",
     "title": "Challenge Data 2023 | OWKIN",
-    "section": "Objectif du challenge",
-    "text": "Objectif du challenge\nLa méthode actuelle pour identifier les mutations PIK3CA est le séquençage de l’ADN, qui nécessite une expertise technique et bioinformatique qui n’est pas accessible dans tous les laboratoires. Une solution automatisée pour détecter la mutation PIK3CA présente une grande pertinence clinique car elle pourrait fournir un outil de dépistage rapide et fiable permettant à davantage de patientes, notamment dans les centres tertiaires, d’être éligibles à des thérapies personnalisées associées à de meilleurs résultats.\nLe challenge proposé par Owkin est un problème de classification binaire faiblement supervisé : l’objectif est de prédire, à partir d’une lame histologique numérisée en haute résolution, si un patient présente une mutation du gène PIK3CA.\nL’apprentissage faiblement supervisé est crucial en pathologie digitale compte tenu du volume extrêmement grand des lames histologiques une fois numérisées (&gt; 100 000x100 000 pixels). En l’état, ces lames ne peuvent pas être traitées telles quelles par des algorithmes de machine learning. Il faut donc préalablement, pour chaque lame, en extraire des images plus petites (appelées tuiles ou tiles) de 224x224 pixels (environ 112 µm²). Puisqu’une lame est associée à une seule annotation (présence ou absence de mutation), et est partitionnée en un ensemble de tuiles, les méthodes d’apprentissage utilisées doivent apprendre à aggréger intelligemment ces tuiles pour produire un label global. Ces méthodes s’inscrivent dans le champ du multiple-instance learning (MIL). Plus précisément, si une des tuiles de la lame contient un motif local porteur de la mutation, alors l’algorithme devra prédire la présence globale de mutation ; à l’inverse, si toutes les tuiles ne montrent pas de tel(s) motif(s), l’algorithme devra prédire l’absence globale de mutation. Si l’approche de la supervision faible peut bruiter le signal initial (certaines tuiles sont complètement ininformatives pour prédire le label global), elle évite en revanche l’annotation manuelle de lames histologiques par des anatomo-pathologistes, opération coûteuse et longue en pratique.\nDans ce challenge, nous cherchons à prédire si un patient présente une mutation du gène PIK3CA à partir d’une lame histologique numérisée. Pour des raisons computationnelles, nous avons conservé un total de 1 000 tuiles par lame. Chaque tuile a été sélectionnée de manière à ce qu’elle contienne du tissu.\nlien vers la description du challenge"
+    "section": "Objective of the Challenge",
+    "text": "Objective of the Challenge\nThe current method for identifying PIK3CA mutations is DNA sequencing which requires technical and bioinformatics expertise that is not accessible in all laboratories.\nAn automated solution for detecting the PIK3CA mutation is clinically relevant as it could provide a fast and reliable screening tool, allowing more patients—especially in tertiary centers-to be eligible for personalized therapies leading to better outcomes.\nThe Owkin challenge is a weakly supervised binary classification problem: the goal is to predict, from a high-resolution digitized histological slide, whether a patient carries a PIK3CA gene mutation."
+  },
+  {
+    "objectID": "challenge_data.html#weakly-supervised-learning-in-digital-pathology",
+    "href": "challenge_data.html#weakly-supervised-learning-in-digital-pathology",
+    "title": "Challenge Data 2023 | OWKIN",
+    "section": "Weakly Supervised Learning in Digital Pathology",
+    "text": "Weakly Supervised Learning in Digital Pathology\nWeakly supervised learning is crucial in digital pathology due to the extremely large size of digitized histology slides (&gt; 100,000 × 100,000 pixels). In their raw form, these slides cannot be directly processed by machine learning algorithms.\nTo address this, each slide is divided into smaller images (called tiles) of 224 × 224 pixels 112 µm²). Since a slide is labeled only at the global level (mutation present or absent), and is split into many tiles, the learning methods used must intelligently aggregate these tiles to produce a global label.\nThese methods fall within the field of multiple-instance learning (MIL). Specifically:\n\nIf at least one tile contains a mutation-associated pattern, the algorithm should predict mutation presence.\nIf none of the tiles show such patterns, the algorithm should predict mutation absence.\n\nWhile weak supervision may introduce noise (some tiles contain no useful information for predicting the global label), it eliminates the need for manual annotation of histology slides by pathologists—a costly and time-consuming task."
+  },
+  {
+    "objectID": "challenge_data.html#challenge-task",
+    "href": "challenge_data.html#challenge-task",
+    "title": "Challenge Data 2023 | OWKIN",
+    "section": "Challenge Task",
+    "text": "Challenge Task\nIn this challenge, we aim to predict whether a patient carries a PIK3CA gene mutation from a digitized histology slide.\nFor computational reasons, we retained 1,000 tiles per slide, each selected to ensure it contains tissue.\nChallenge Description"
   },
   {
     "objectID": "index.html",

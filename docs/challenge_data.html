@@ -169,12 +169,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#challenge-data" id="toc-challenge-data" class="nav-link active" data-scroll-target="#challenge-data">Challenge Data</a></li>
-  <li><a href="#contexte-du-challenge-proposé-par-owkin" id="toc-contexte-du-challenge-proposé-par-owkin" class="nav-link" data-scroll-target="#contexte-du-challenge-proposé-par-owkin">Contexte du challenge proposé par Owkin</a>
+  <li><a href="#challenge-data" id="toc-challenge-data" class="nav-link active" data-scroll-target="#challenge-data"><strong>Challenge Data</strong></a></li>
+  <li><a href="#context-of-the-challenge-proposed-by-owkin" id="toc-context-of-the-challenge-proposed-by-owkin" class="nav-link" data-scroll-target="#context-of-the-challenge-proposed-by-owkin"><strong>Context of the Challenge Proposed by Owkin</strong></a>
   <ul class="collapse">
-  <li><a href="#anatomopathologie" id="toc-anatomopathologie" class="nav-link" data-scroll-target="#anatomopathologie">anatomopathologie</a></li>
-  <li><a href="#mutation-pik3ca-dans-le-cancer-du-sein" id="toc-mutation-pik3ca-dans-le-cancer-du-sein" class="nav-link" data-scroll-target="#mutation-pik3ca-dans-le-cancer-du-sein">Mutation PIK3CA dans le cancer du sein</a></li>
-  <li><a href="#objectif-du-challenge" id="toc-objectif-du-challenge" class="nav-link" data-scroll-target="#objectif-du-challenge">Objectif du challenge</a></li>
+  <li><a href="#anatomopathology" id="toc-anatomopathology" class="nav-link" data-scroll-target="#anatomopathology"><strong>Anatomopathology</strong></a></li>
+  <li><a href="#pik3ca-mutation-in-breast-cancer" id="toc-pik3ca-mutation-in-breast-cancer" class="nav-link" data-scroll-target="#pik3ca-mutation-in-breast-cancer"><strong>PIK3CA Mutation in Breast Cancer</strong></a></li>
+  <li><a href="#objective-of-the-challenge" id="toc-objective-of-the-challenge" class="nav-link" data-scroll-target="#objective-of-the-challenge"><strong>Objective of the Challenge</strong></a></li>
+  <li><a href="#weakly-supervised-learning-in-digital-pathology" id="toc-weakly-supervised-learning-in-digital-pathology" class="nav-link" data-scroll-target="#weakly-supervised-learning-in-digital-pathology"><strong>Weakly Supervised Learning in Digital Pathology</strong></a></li>
+  <li><a href="#challenge-task" id="toc-challenge-task" class="nav-link" data-scroll-target="#challenge-task"><strong>Challenge Task</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -201,33 +203,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>En fin d’année 2023, dans le cadre de l’unité d’enseignement Apprentissage statistique du <a href="https://www.math.sciences.univ-nantes.fr/master-IS">master Ingénierie Statistique de l’université de Nantes</a> (et en commun avec <a href="https://www.ec-nantes.fr/formation/les-options-de-2e-et-3e-annee/option-mathematiques-et-applications">Central Nantes option mathématiques et applications</a>), j’ai eu l’occasion de participer au Challenge Data.</p>
-<p>Suite à cela, mes partenaires de travail et moi même avons réussi à obtenir la troisième place (sur 189 participants) pour le challenge que nous avons choisi.</p>
-<p>Je remercie donc chaleuresement mes partenaires de travail <a href="https://www.linkedin.com/in/noémie-matrat-86a34a200/">Noémie Matrat</a> et <a href="https://www.linkedin.com/in/matthieu-trotreau-31b965268/">Matthieu Trotreau</a> ainsi que le Collège de France pour leur invitation à la remise des prix.</p>
-<p><img src="img/challenge.png" class="img-fluid"> <a href="https://www.math.sciences.univ-nantes.fr/activités/7107">Le Laboratoire de Mathématiques Jean Leray</a></p>
+<p>At the end of 2023, as part of the Statistical Learning course in the <a href="https://www.math.sciences.univ-nantes.fr/master-IS">Master’s in Statistical Engineering at the University of Nantes</a> (jointly with <a href="https://www.ec-nantes.fr/formation/les-options-de-2e-et-3e-annee/option-mathematiques-et-applications">Centrale Nantes, Mathematics and Applications option</a>), I had the opportunity to participate in the <strong>Challenge Data</strong>.</p>
+<p>As a result, my teammates and I managed to achieve <strong>third place</strong> (out of 189 participants) in the challenge we chose.</p>
+<p>I would like to warmly thank my teammates <a href="https://www.linkedin.com/in/noémie-matrat-86a34a200/"><strong>Noémie Matrat</strong></a> and <a href="https://www.linkedin.com/in/matthieu-trotreau-31b965268/"><strong>Matthieu Trotreau</strong></a>, as well as the <strong>Collège de France</strong> for inviting us to the awards ceremony.</p>
+<p><img src="img/challenge.png" class="img-fluid" alt="Challenge Data"><br>
+<a href="https://www.math.sciences.univ-nantes.fr/activités/7107">Jean Leray Mathematics Laboratory</a></p>
+<hr>
 <section id="challenge-data" class="level1">
-<h1>Challenge Data</h1>
-<p>Chaque année, des challenges en Data Science sont organisés à partir de données fournies par les services publics, les entreprises ou les laboratoires. Les saisons sont lancées en janvier, avec la sortie d’une dizaine de nouveaux défis ; les challenges sont présentés dans le cadre du cours de Stéphane Mallat au Collège de France courant janvier. Une remise des prix récompensant les meilleurs participants de la saison précédente a habituellement lieu en février au Collège de France.</p>
-<p>La plateforme Challenge Data est gérée par l’équipe Data (ENS Paris), en partenariat avec le Collège de France et le Data Lab de l’Institut Louis Bachelier. Elle est soutenue par la Chaire CFM, l’Institut PRAIRIE et l’IDRIS du CNRS.</p>
-<p><a href="https://challengedata.ens.fr/challenges/98">lien vers la page d’accueil</a></p>
+<h1><strong>Challenge Data</strong></h1>
+<p>Each year, Data Science challenges are organized using data provided by public services, companies, or research laboratories. The seasons kick off in January, with the release of around ten new challenges. These challenges are presented as part of Stéphane Mallat’s course at the Collège de France in January. An awards ceremony recognizing the top participants from the previous season usually takes place in February at the Collège de France.</p>
+<p>The <strong>Challenge Data</strong> platform is managed by the <strong>Data team (ENS Paris)</strong> in partnership with the <strong>Collège de France</strong> and the <strong>Data Lab of the Louis Bachelier Institute</strong>. It is supported by the <strong>CFM Chair, the PRAIRIE Institute, and the IDRIS of CNRS</strong>.</p>
+<p><a href="https://challengedata.ens.fr/challenges/98">Homepage link</a></p>
+<hr>
 </section>
-<section id="contexte-du-challenge-proposé-par-owkin" class="level1">
-<h1>Contexte du challenge proposé par Owkin</h1>
-<section id="anatomopathologie" class="level2">
-<h2 class="anchored" data-anchor-id="anatomopathologie">anatomopathologie</h2>
-<p>L’anatomopathologie est une spécialité médicale dédiée à l’étude morphologique des anomalies des tissus biologiques. L’analyse de ces tissus constitue une étape critique pour de nombreux diagnostics, en particulier en oncologie où elle définit le gold standard (routine clinique de référence). Les échantillons de tissus sont généralement prélevés lors d’une intervention chirurgicale ou d’une biopsie. Après avoir été prétraités par des techniciens experts, les pathologistes examinent les échantillons au microscope afin d’évaluer plusieurs biomarqueurs tels que la nature de la tumeur, le stade du cancer, etc.</p>
+<section id="context-of-the-challenge-proposed-by-owkin" class="level1">
+<h1><strong>Context of the Challenge Proposed by Owkin</strong></h1>
+<section id="anatomopathology" class="level2">
+<h2 class="anchored" data-anchor-id="anatomopathology"><strong>Anatomopathology</strong></h2>
+<p>Anatomopathology is a medical specialty dedicated to the morphological study of abnormalities in biological tissues. The analysis of these tissues is a critical step for many diagnoses particularly in oncology where it serves as the gold standard (the reference clinical routine). Tissue samples are typically collected during surgery or biopsy . After preprocessing by expert technicians, <strong>pathologists examine</strong> the samples under a microscope to evaluate biomarkers such as tumor type, cancer stage, etc.</p>
 </section>
-<section id="mutation-pik3ca-dans-le-cancer-du-sein" class="level2">
-<h2 class="anchored" data-anchor-id="mutation-pik3ca-dans-le-cancer-du-sein">Mutation PIK3CA dans le cancer du sein</h2>
-<p>Des études scientifiques récentes ont également montré que les lames d’histopathologie contiennent des informations qui sous-tendent le génotype de la tumeur. Ces lames pourraient donc être utilisées pour prédire les altérations génomiques telles que les mutations ponctuelles. L’une de ces altérations génomiques est la mutation PIK3CA dans le cancer du sein. Cette mutation est observée dans environ 30 à 40 % des cancers du sein et se retrouvent le plus souvent dans les cancers à récepteurs positifs d’œstrogènes (ER+). Les mutations PIK3CA ont été associées à de bons résultats. Plus important encore, les patientes porteuses de cette mutation, résistante au traitement endocrinien, peuvent répondre à une classe de thérapie ciblée - l’inhibiteur de PI3Kα.</p>
+<section id="pik3ca-mutation-in-breast-cancer" class="level2">
+<h2 class="anchored" data-anchor-id="pik3ca-mutation-in-breast-cancer"><strong>PIK3CA Mutation in Breast Cancer</strong></h2>
+<p>Recent scientific studies have also shown that histopathology slides contain information underlying the tumor’s genotype . These slides could therefore be used to predict genomic alterations such as point mutations . One such alteration is the <strong>PIK3CA mutation in breast cancer</strong>.</p>
+<p>This mutation is observed in approximately <strong>30-40% of breast cancers</strong>, most commonly in estrogen receptor-positive (ER+) cancers . PIK3CA mutations have been associated with good prognoses. More importantly patients carrying this mutation, who are resistant to endocrine therapy, may respond to a targeted therapy class—PI3Kα inhibitors.</p>
 </section>
-<section id="objectif-du-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="objectif-du-challenge">Objectif du challenge</h2>
-<p>La méthode actuelle pour identifier les mutations PIK3CA est le séquençage de l’ADN, qui nécessite une expertise technique et bioinformatique qui n’est pas accessible dans tous les laboratoires. Une solution automatisée pour détecter la mutation PIK3CA présente une grande pertinence clinique car elle pourrait fournir un outil de dépistage rapide et fiable permettant à davantage de patientes, notamment dans les centres tertiaires, d’être éligibles à des thérapies personnalisées associées à de meilleurs résultats.</p>
-<p>Le challenge proposé par Owkin est un problème de classification binaire faiblement supervisé : l’objectif est de prédire, à partir d’une lame histologique numérisée en haute résolution, si un patient présente une mutation du gène PIK3CA.</p>
-<p>L’apprentissage faiblement supervisé est crucial en pathologie digitale compte tenu du volume extrêmement grand des lames histologiques une fois numérisées (&gt; 100 000x100 000 pixels). En l’état, ces lames ne peuvent pas être traitées telles quelles par des algorithmes de machine learning. Il faut donc préalablement, pour chaque lame, en extraire des images plus petites (appelées tuiles ou tiles) de 224x224 pixels (environ 112 µm²). Puisqu’une lame est associée à une seule annotation (présence ou absence de mutation), et est partitionnée en un ensemble de tuiles, les méthodes d’apprentissage utilisées doivent apprendre à aggréger intelligemment ces tuiles pour produire un label global. Ces méthodes s’inscrivent dans le champ du multiple-instance learning (MIL). Plus précisément, si une des tuiles de la lame contient un motif local porteur de la mutation, alors l’algorithme devra prédire la présence globale de mutation ; à l’inverse, si toutes les tuiles ne montrent pas de tel(s) motif(s), l’algorithme devra prédire l’absence globale de mutation. Si l’approche de la supervision faible peut bruiter le signal initial (certaines tuiles sont complètement ininformatives pour prédire le label global), elle évite en revanche l’annotation manuelle de lames histologiques par des anatomo-pathologistes, opération coûteuse et longue en pratique.</p>
-<p>Dans ce challenge, nous cherchons à prédire si un patient présente une mutation du gène PIK3CA à partir d’une lame histologique numérisée. Pour des raisons computationnelles, nous avons conservé un total de 1 000 tuiles par lame. Chaque tuile a été sélectionnée de manière à ce qu’elle contienne du tissu.</p>
-<p><a href="https://challengedata.ens.fr/challenges/98">lien vers la description du challenge</a></p>
+<section id="objective-of-the-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="objective-of-the-challenge"><strong>Objective of the Challenge</strong></h2>
+<p>The current method for identifying <strong>PIK3CA mutations</strong> is DNA sequencing which requires technical and bioinformatics expertise that is not accessible in all laboratories.</p>
+<p>An automated solution for detecting the PIK3CA mutation is clinically relevant as it could provide a fast and reliable screening tool, allowing more patients—especially in tertiary centers-to be eligible for personalized therapies leading to better outcomes.</p>
+<p>The <strong>Owkin challenge</strong> is a <strong>weakly supervised binary classification problem</strong>: the goal is to <strong>predict, from a high-resolution digitized histological slide, whether a patient carries a PIK3CA gene mutation</strong>.</p>
+</section>
+<section id="weakly-supervised-learning-in-digital-pathology" class="level2">
+<h2 class="anchored" data-anchor-id="weakly-supervised-learning-in-digital-pathology"><strong>Weakly Supervised Learning in Digital Pathology</strong></h2>
+<p>Weakly supervised learning is crucial in digital pathology due to the extremely large size of digitized histology slides (&gt; 100,000 × 100,000 pixels). In their raw form, these slides cannot be directly processed by machine learning algorithms.</p>
+<p>To address this, each slide is divided into smaller images (called tiles) of 224 × 224 pixels 112 µm²). Since a slide is labeled only at the global level (mutation present or absent), and is split into many tiles, the learning methods used must intelligently aggregate these tiles to produce a global label.</p>
+<p>These methods fall within the field of multiple-instance learning (MIL). Specifically:</p>
+<ul>
+<li><p>If at least one tile contains a mutation-associated pattern, the algorithm should predict mutation presence.</p></li>
+<li><p>If none of the tiles show such patterns, the algorithm should predict mutation absence.</p></li>
+</ul>
+<p>While weak supervision may introduce noise (some tiles contain no useful information for predicting the global label), it eliminates the need for manual annotation of histology slides by pathologists—a costly and time-consuming task.</p>
+</section>
+<section id="challenge-task" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-task"><strong>Challenge Task</strong></h2>
+<p>In this challenge, we aim to <strong>predict whether a patient carries a PIK3CA gene mutation from a digitized histology slide</strong>.</p>
+<p>For <strong>computational reasons</strong>, we retained <strong>1,000 tiles per slide</strong>, each selected to ensure it <strong>contains tissue</strong>.</p>
+<p><a href="https://challengedata.ens.fr/challenges/98">Challenge Description</a></p>
 
 
 </section>
