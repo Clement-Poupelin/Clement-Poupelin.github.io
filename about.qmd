@@ -8,8 +8,8 @@ library(kableExtra)
 identity_keys <- cell_spec(
   x = c(
   "Title", 
-  "E-mail professionnal", 
-  "E-mail personnal", 
+  "E-mail (professionnal)", 
+  "E-mail (personnal)", 
   "Address", 
   "Academic status", 
   "Main field of expertise",
@@ -19,7 +19,7 @@ identity_values <- c(
   "Ingeneer", 
   cell_spec("clement.poupelin@univ-lille.fr", format = "html", link = "mailto:clement.poupelin@univ-lille.fr"), 
   cell_spec("clementjc.poupelin@gmail.com", format = "html", link = "mailto:clementjc.poupelin@gmail.com"), 
-  "Cité Scientifique / Building ESPRIT - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France<br>Campus Santé / Building Plateformes-Cancer - Lille, France<br>Campus Pasteur Lille / Building Calmette 4ème étage - Lille, France", 
+  "Cité Scientifique / ESPRIT Building - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France<br>Campus Santé / Plateformes-Cancer Building - Lille, France<br>Campus Pasteur Lille / Calmette Building 4th floor - Lille, France", 
   "Ingénieur d'étude", 
   "Statistic",
   cell_spec("Plateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille", format = "html", link = "https://bilille.univ-lille.fr/")
@@ -42,20 +42,22 @@ tibble(
 
 - Analysis and mathematical modeling of large-scale datasets (Big Data)
 
+- Application of data science skills to microbial ecology
+
+- Research on microbiome network inference methods
+
 - Time series modeling and forecasting
 
 - Implementation of Bayesian techniques and machine learning methods
 
-- Application of data science skills to microbial ecology
-
 - Use of statistical methods for meta-analyses
 
-- Research on microbiome network inference methods
 
 ## Course
 
 After earning a Scientific Baccalaureate (BAC S SVT) with a Mathematics specialization, I pursued a [Bachelor's degree in Mathematics at Nantes University](https://sciences-techniques.univ-nantes.fr/formations/licences-generales/licence-de-mathematiques), followed by a [Master's in Statistical Engineering](https://www.math.sciences.univ-nantes.fr/master-IS), which I obtained with honors (mention bien). 
 
-My interest in research grew through my final-year internship, leading to my first position as a research engineer at the [UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE)](https://maiage.inrae.fr/) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster.
+My interest in research grew through my final-year internship, leading to my first position as engineer at the [UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE)](https://maiage.inrae.fr/) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster. \
+I was thus able to participate in a pilot project ([open16s project](https://maiage.inrae.fr/node/2887)) promoting open science via the meta-analysis of public datasets of different ecosystems in line with the food chain. My participation focused mainly on the analysis of 16S metagenomic data ranging from cleaning, improvement and descriptive analysis to diversity analysis and inference of microbial networks (more information about my work is available in the dedicated [project page](/Open16S.qmd)).
 
 I then joined the [Bilille platform](https://bilille.univ-lille.fr/) (Bioinformatics, biostatistics and bioanalysis) within the [UAR 2014 - US 41 PLBS](https://ums-plbs.univ-lille.fr/) unit at the University of Lille, working under an RHU-funded research program focused on neurodegenerative diseases. My primary objective is to identify biomarkers for amyotrophic lateral sclerosis (ALS).
