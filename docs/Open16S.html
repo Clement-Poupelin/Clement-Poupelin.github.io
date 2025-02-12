@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -182,8 +211,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#context-of-my-contribution" id="toc-context-of-my-contribution" class="nav-link active" data-scroll-target="#context-of-my-contribution">Context of My Contribution</a></li>
-  <li><a href="#open16s-project" id="toc-open16s-project" class="nav-link" data-scroll-target="#open16s-project">Open16S Project</a></li>
+  <li><a href="#context-of-my-contribution" id="toc-context-of-my-contribution" class="nav-link active" data-scroll-target="#context-of-my-contribution">Context of my contribution</a></li>
+  <li><a href="#open16s-project" id="toc-open16s-project" class="nav-link" data-scroll-target="#open16s-project">Open16S project</a></li>
+  <li><a href="#exemple-of-visual-results" id="toc-exemple-of-visual-results" class="nav-link" data-scroll-target="#exemple-of-visual-results">Exemple of visual results</a></li>
   <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
   </ul>
 </nav>
@@ -225,19 +255,19 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <section id="context-of-my-contribution" class="level1">
-<h1>Context of My Contribution</h1>
+<h1>Context of my contribution</h1>
 <p>My contribution to this project took place in two phases over the course of 2024. From April to September, I worked on it as part of my final-year internship. Then, from October to December, I continued working on the same project—starting from the beginning again—to obtain more robust results for potential publication.</p>
 <p>Unfortunately, as my contract ended before the writing phase of the paper began, I had to leave some aspects of the work partially unfinished.</p>
 <p>However, the details of my accomplishments can be found in two Quarto blogs:</p>
 <ul>
 <li><p><a href="http://clement.poupelin.pages.mia.inra.fr/open16s_blog/"><strong>Internship Open16s project</strong></a> (completed during my internship)</p></li>
-<li><p><a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/about.html"><strong>Blog Open16s Project</strong></a> (completed during my three-month contract)</p></li>
+<li><p><a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/"><strong>Blog Open16s Project</strong></a> (completed during my three-month contract)</p></li>
 </ul>
-<p>Of course, the second blog reboot all my previous work so if you want to check only one, feel free to go with <a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/about.html"><strong>Blog Open16s Project</strong></a></p>
+<p>Of course, the second blog reboot all my previous work so if you want to check only one, feel free to go with <a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/"><strong>Blog Open16s Project</strong></a></p>
 <hr>
 </section>
 <section id="open16s-project" class="level1">
-<h1>Open16S Project</h1>
+<h1>Open16S project</h1>
 <p>INRAE has been a pioneer in open science and established a dedicated department for this domain in 2020.<br>
 The Open16S project, led by the MICA department at INRAE, is an innovative proof-of-concept (POC) initiative developed as part of the department’s policy. Its goal is to address challenges related to the reuse of public data in metagenomics, particularly to generate new, testable biological hypotheses through the integration of datasets.</p>
 <p>The primary objective of the project is to take a cross-disciplinary approach to microbial ecosystems associated with the human food chain by utilizing 16S metagenomic datasets from various biotopes.<br>
@@ -293,6 +323,51 @@ StatInfOmics</td>
 <li>Integrating and thoroughly analyzing datasets to understand and formulate new hypotheses about the determinants of microbial community structuring.</li>
 </ul>
 <p>My work primarily focused on conducting exploratory and integrative statistical analyses on 16S metagenomic data. Additionally, I worked on inferring association networks between microbial species.</p>
+<hr>
+</section>
+<section id="exemple-of-visual-results" class="level1">
+<h1>Exemple of visual results</h1>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/alpha_div.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><span class="math inline">\(\alpha-\)</span>diversity from <a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html"><strong>Blog Open16s Project</strong></a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/beta_div.png" class="img-fluid figure-img" style="width:96.0%"></p>
+<figcaption><span class="math inline">\(\beta-\)</span>diversity from <a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html"><strong>Blog Open16s Project</strong></a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/PLN_TSS.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>PLN network without covariable from <a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html"><strong>Blog Open16s Project</strong></a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/PLN_TSS_biotope.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>PLN network with the biotope as covariable from <a href="http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html"><strong>Blog Open16s Project</strong></a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="acknowledgments" class="level1">

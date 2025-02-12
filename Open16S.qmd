@@ -14,7 +14,7 @@ title: "Open16S | MaIAGE - INRAE"
 ![](img/logo_inrae.png){width=20%}
 :::
 
-# Context of My Contribution
+# Context of my contribution
 
 My contribution to this project took place in two phases over the course of 2024. From April to September, I worked on it as part of my final-year internship. Then, from October to December, I continued working on the same project—starting from the beginning again—to obtain more robust results for potential publication. 
 
@@ -24,13 +24,13 @@ However, the details of my accomplishments can be found in two Quarto blogs:
 
 - [**Internship Open16s project**](http://clement.poupelin.pages.mia.inra.fr/open16s_blog/) (completed during my internship)
 
-- [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/about.html) (completed during my three-month contract)
+- [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/) (completed during my three-month contract)
 
-Of course, the second blog reboot all my previous work so if you want to check only one, feel free to go with [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/about.html)
+Of course, the second blog reboot all my previous work so if you want to check only one, feel free to go with [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/)
 
 ---
 
-# Open16S Project
+# Open16S project
 
 INRAE has been a pioneer in open science and established a dedicated department for this domain in 2020.  
 The Open16S project, led by the MICA department at INRAE, is an innovative proof-of-concept (POC) initiative developed as part of the department's policy. Its goal is to address challenges related to the reuse of public data in metagenomics, particularly to generate new, testable biological hypotheses through the integration of datasets.
@@ -80,6 +80,30 @@ At the time of my arrival, the project's roadmap included several key steps:
 - Integrating and thoroughly analyzing datasets to understand and formulate new hypotheses about the determinants of microbial community structuring.
 
 My work primarily focused on conducting exploratory and integrative statistical analyses on 16S metagenomic data. Additionally, I worked on inferring association networks between microbial species.
+
+---
+
+# Exemple of visual results 
+
+::: {layout-ncol=2}
+
+
+![$\alpha-$diversity from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html)](img/alpha_div.png){width=100%}
+
+
+![$\beta-$diversity from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html)](img/beta_div.png){width=96%}
+
+
+![PLN network without covariable from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html)](img/PLN_TSS.png){width=100%}
+
+
+![PLN network with the biotope as covariable from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html)](img/PLN_TSS_biotope.png){width=100%}
+
+
+::: 
+
+
+
 
 ---
 
