@@ -26,8 +26,12 @@ website:
     right: 
       - icon: info-circle-fill
         href: about.html
-      - href: CV/CV.pdf
-        text: CV
+      - text: CV
+        menu: 
+          - href: CV/CV.pdf
+            text: French CV
+          - href: CV/CV.pdf
+            text: English CV
       - icon: github
         href: http://github.com/Clement-Poupelin
       - icon: gitlab
