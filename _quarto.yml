@@ -23,6 +23,10 @@ website:
           - Open16S.qmd
           - challenge_data.qmd
       - publications.qmd
+      - text: "Old University Exercices"
+        menu:
+          - href: https://clement-poupelin.github.io/Statistique_en_grande_dimension/
+            text: Statistique en grande dimension
     right: 
       - icon: info-circle-fill
         href: about.html
