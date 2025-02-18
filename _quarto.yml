@@ -3,8 +3,9 @@ project:
   output-dir: docs
 
 theme:
+  light: flatly
   dark: darkly
-  light: zephir
+
 
   
 website:
