@@ -26,8 +26,10 @@ website:
       - publications.qmd
       - text: "Old University Exercices"
         menu:
-          - href: https://clement-poupelin.github.io/Statistique_en_grande_dimension/
+          - href: http://clement-poupelin.github.io/Statistique_en_grande_dimension/
             text: Statistique en grande dimension
+          - href: http://clement-poupelin.github.io/Series_temporelles/
+            text: Séries temporelles
     right: 
       - icon: info-circle-fill
         href: about.html
