@@ -24,9 +24,9 @@ However, the details of my accomplishments can be found in two Quarto blogs:
 
 - [**Internship Open16s project**](http://clement.poupelin.pages.mia.inra.fr/open16s_blog/) (completed during my internship)
 
-- [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/) (completed during my three-month contract)
+- [**INRAE Open16S**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/) (completed during my three-month contract)
 
-Of course, the second blog reboot all my previous work so if you want to check only one, feel free to go with [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/)
+Of course, the second blog reboot all my previous work so if you want to check only one, feel free to go with [**INRAE Open16S**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/)
 
 ---
 
@@ -88,16 +88,16 @@ My work primarily focused on conducting exploratory and integrative statistical 
 ::: {layout-ncol=2}
 
 
-![$\alpha-$diversity from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html)](img/alpha_div.png){width=100%}
+![$\alpha-$diversity from [**INRAE Open16S**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html)](img/alpha_div.png){width=100%}
 
 
-![$\beta-$diversity from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html)](img/beta_div.png){width=96%}
+![$\beta-$diversity from [**INRAE Open16S**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/04_Diversity_Analyzes.html)](img/beta_div.png){width=96%}
 
 
-![PLN network without covariable from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html)](img/PLN_TSS.png){width=100%}
+![PLN network without covariable from [**INRAE Open16S**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html)](img/PLN_TSS.png){width=100%}
 
 
-![PLN network with the biotope as covariable from [**Blog Open16s Project**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html)](img/PLN_TSS_biotope.png){width=100%}
+![PLN network with the biotope as covariable from [**INRAE Open16S**](http://clement.poupelin.pages.mia.inra.fr/blog_open16s/Network_PLN.html)](img/PLN_TSS_biotope.png){width=100%}
 
 
 ::: 
