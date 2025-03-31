@@ -21,10 +21,11 @@ website:
         text: Home
       - text: "Projects"
         menu:
+          - secret_gift.qmd
           - Open16S.qmd
           - challenge_data.qmd
       - publications.qmd
-      - text: "Old University Exercices"
+      - text: "Quarto Blog for old University Exercices"
         menu:
           - href: http://clement-poupelin.github.io/Statistique_en_grande_dimension/
             text: Statistique en grande dimension
