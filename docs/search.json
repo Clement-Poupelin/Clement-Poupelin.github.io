@@ -53,14 +53,7 @@
     "href": "index.html#skills",
     "title": "Clément Poupelin",
     "section": "Skills",
-    "text": "Skills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of data science skills to microbial ecology\nResearch on microbiome network inference methods\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods\nUse of statistical methods for meta-analyses"
-  },
-  {
-    "objectID": "index.html#course",
-    "href": "index.html#course",
-    "title": "Clément Poupelin",
-    "section": "Course",
-    "text": "Course\nAfter earning a Scientific Baccalaureate (BAC S SVT) with a Mathematics specialization, I pursued a Bachelor’s degree in Mathematics at Nantes University, followed by a Master’s in Statistical Engineering, which I obtained with honors (mention bien).\nMy interest in research grew through my final-year internship, leading to my first position as engineer at the UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster.\nI was thus able to participate in a pilot project (open16s project) promoting open science via the meta-analysis of public datasets of different ecosystems in line with the food chain. My participation focused mainly on the analysis of 16S metagenomic data ranging from cleaning, improvement and descriptive analysis to diversity analysis and inference of microbial networks (more information about my work is available in the dedicated project page).\nI then joined the Bilille platform (Bioinformatics, biostatistics and bioanalysis) within the UAR 2014 - US 41 PLBS unit at the University of Lille, working under an RHU-funded research program focused on neurodegenerative diseases. My primary objective is to identify biomarkers for amyotrophic lateral sclerosis (ALS)."
+    "text": "Skills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of data science skills to microbial ecology\nResearch on microbiome network inference methods\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods"
   },
   {
     "objectID": "projects.html#project-2",
