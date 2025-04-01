@@ -28,12 +28,12 @@ website:
       - text: "Quarto Blog for old University Exercices"
         menu:
           - href: http://clement-poupelin.github.io/Statistique_en_grande_dimension/
-            text: Statistique en grande dimension
+            text: Statistique en grande dimension (WIP)
           - href: http://clement-poupelin.github.io/Series_temporelles/
-            text: Séries temporelles
+            text: Séries temporelles (WIP)
     right: 
-      - icon: info-circle-fill
-        href: about.html
+      # - icon: info-circle-fill
+        # href: about.html
       - text: CV
         menu: 
           - href: CV/CV_fr.pdf
