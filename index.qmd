@@ -22,8 +22,6 @@ about:
 
 <!-- My name is Clément, and I am an engineer in public research. I specialize in statistics in all its forms, from data analysis to advanced modeling. Currently, my work focuses primarily on research topics in the field of healthcare, where I apply statistical methodologies to support scientific discoveries and public health initiatives. -->
 
-
-
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(kableExtra)
@@ -41,7 +39,7 @@ identity_values <- c(
   "Ingeneer", 
   cell_spec("clement.poupelin@univ-lille.fr", format = "html", link = "mailto:clement.poupelin@univ-lille.fr"), 
   cell_spec("clementjc.poupelin@gmail.com", format = "html", link = "mailto:clementjc.poupelin@gmail.com"), 
-  "Cité Scientifique / ESPRIT Building - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France<br>Campus Santé / Plateformes-Cancer Building - Lille, France<br>Campus Pasteur Lille / Calmette Building 4th floor - Lille, France", 
+  "Cité Scientifique / ESPRIT Building - Villeneuve d'Ascq, France<br>Campus Santé / Plateformes-Cancer Building - Lille, France<br>Campus Pasteur Lille / Calmette Building  - Lille, France", 
   # "Ingénieur d'étude", 
   "Statistic",
   cell_spec("Plateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille", format = "html", link = "https://bilille.univ-lille.fr/")
@@ -59,14 +57,15 @@ tibble(
   kable_styling(bootstrap_options = c("hover", "condensed"))
 ```
 
-
-## Skills
+### Skills
 
 - Analysis and mathematical modeling of large-scale datasets (Big Data)
 
 - Application of statistical skills to microbial ecology
 
 <!-- - Research on microbiome network inference methods -->
+
+- Analysis of omic data
 
 - Time series modeling and forecasting
 
