@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://clement-poupelin.github.io/challenge_data.html</loc>
-    <lastmod>2025-02-10T09:56:37.480Z</lastmod>
-  </url>
-  <url>
-    <loc>https://clement-poupelin.github.io/index.html</loc>
-    <lastmod>2025-04-01T20:18:21.789Z</lastmod>
+    <loc>https://clement-poupelin.github.io/secret_gift.html</loc>
+    <lastmod>2025-10-13T18:56:23.166Z</lastmod>
   </url>
   <url>
     <loc>https://clement-poupelin.github.io/projects.html</loc>
-    <lastmod>2025-02-07T16:14:16.953Z</lastmod>
+    <lastmod>2025-10-13T18:56:21.177Z</lastmod>
   </url>
   <url>
-    <loc>https://clement-poupelin.github.io/publications.html</loc>
-    <lastmod>2025-02-15T15:46:38.211Z</lastmod>
-  </url>
-  <url>
-    <loc>https://clement-poupelin.github.io/secret_gift.html</loc>
-    <lastmod>2025-03-31T21:34:51.030Z</lastmod>
-  </url>
-  <url>
-    <loc>https://clement-poupelin.github.io/Open16S.html</loc>
-    <lastmod>2025-03-03T09:52:54.665Z</lastmod>
+    <loc>https://clement-poupelin.github.io/index.html</loc>
+    <lastmod>2025-10-13T18:56:14.355Z</lastmod>
   </url>
   <url>
     <loc>https://clement-poupelin.github.io/about.html</loc>
-    <lastmod>2025-02-11T09:25:03.344Z</lastmod>
+    <lastmod>2025-10-13T18:56:07.393Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/challenge_data.html</loc>
+    <lastmod>2025-10-13T18:56:08.608Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/Open16S.html</loc>
+    <lastmod>2025-10-13T18:56:20.171Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/publications.html</loc>
+    <lastmod>2025-10-13T18:57:45.944Z</lastmod>
   </url>
 </urlset>

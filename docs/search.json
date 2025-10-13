@@ -1,5 +1,54 @@
 [
   {
+    "objectID": "secret_gift.html",
+    "href": "secret_gift.html",
+    "title": "RHU Secret Gift | LilNCog - Bilille",
+    "section": "",
+    "text": "Work in progress !!!!!\nhttps://ufr3s.univ-lille.fr/fileufr3s/user_upload/ufr3s-actualites/2023/recherche/2023-11-28-rhu-laureat-lillois-projet-gift-v4.pdf"
+  },
+  {
+    "objectID": "projects.html#project-2",
+    "href": "projects.html#project-2",
+    "title": "Projects",
+    "section": "Project 2",
+    "text": "Project 2"
+  },
+  {
+    "objectID": "projects.html#project-3",
+    "href": "projects.html#project-3",
+    "title": "Projects",
+    "section": "Project 3",
+    "text": "Project 3"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Clément Poupelin",
+    "section": "",
+    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building - Lille, France\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille\n\n\n\n\n\n\nSkills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of statistical skills to microbial ecology\n\n\n\nAnalysis of omic data\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Clément Poupelin",
+    "section": "",
+    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building 4th floor - Lille, France\n\n\nAcademic status\nIngénieur d'étude\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "Clément Poupelin",
+    "section": "Skills",
+    "text": "Skills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of data science skills to microbial ecology\nResearch on microbiome network inference methods\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods\nUse of statistical methods for meta-analyses"
+  },
+  {
+    "objectID": "about.html#course",
+    "href": "about.html#course",
+    "title": "Clément Poupelin",
+    "section": "Course",
+    "text": "Course\nAfter earning a Scientific Baccalaureate (BAC S SVT) with a Mathematics specialization, I pursued a Bachelor’s degree in Mathematics at Nantes University, followed by a Master’s in Statistical Engineering, which I obtained with honors (mention bien).\nMy interest in research grew through my final-year internship, leading to my first position as engineer at the UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster.\nI was thus able to participate in a pilot project (open16s project) promoting open science via the meta-analysis of public datasets of different ecosystems in line with the food chain. My participation focused mainly on the analysis of 16S metagenomic data ranging from cleaning, improvement and descriptive analysis to diversity analysis and inference of microbial networks (more information about my work is available in the dedicated project page).\nI then joined the Bilille platform (Bioinformatics, biostatistics and bioanalysis) within the UAR 2014 - US 41 PLBS unit at the University of Lille, working under an RHU-funded research program focused on neurodegenerative diseases. My primary objective is to identify biomarkers for amyotrophic lateral sclerosis (ALS)."
+  },
+  {
     "objectID": "challenge_data.html",
     "href": "challenge_data.html",
     "title": "Challenge Data 2023 | OWKIN",
@@ -42,66 +91,17 @@
     "text": "Challenge Task\nIn this challenge, we aim to predict whether a patient carries a PIK3CA gene mutation from a digitized histology slide.\nFor computational reasons, we retained 1,000 tiles per slide, each selected to ensure it contains tissue.\nChallenge Description"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Clément Poupelin",
+    "objectID": "Open16S.html",
+    "href": "Open16S.html",
+    "title": "Open16S | MaIAGE - INRAE",
     "section": "",
-    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building - Lille, France\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille\n\n\n\n\n\n\nSkills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of statistical skills to microbial ecology\n\n\n\nAnalysis of omic data\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods"
-  },
-  {
-    "objectID": "projects.html#project-2",
-    "href": "projects.html#project-2",
-    "title": "Projects",
-    "section": "Project 2",
-    "text": "Project 2"
-  },
-  {
-    "objectID": "projects.html#project-3",
-    "href": "projects.html#project-3",
-    "title": "Projects",
-    "section": "Project 3",
-    "text": "Project 3"
+    "text": "Context of my contribution\nMy contribution to this project took place in two phases over the course of 2024. From April to September, I worked on it as part of my final-year internship. Then, from October to December, I continued working on the same project—starting from the beginning again—to obtain more robust results for potential publication.\nUnfortunately, as my contract ended before the writing phase of the paper began, I had to leave some aspects of the work partially unfinished.\nHowever, the details of my accomplishments can be found in two Quarto blogs:\n\nInternship Open16s project (completed during my internship)\nINRAE Open16S (completed during my three-month contract)\n\nOf course, the second blog reboot all my previous work so if you want to check only one, feel free to go with INRAE Open16S\n\n\n\nOpen16S project\nINRAE has been a pioneer in open science and established a dedicated department for this domain in 2020.\nThe Open16S project, led by the MICA department at INRAE, is an innovative proof-of-concept (POC) initiative developed as part of the department’s policy. Its goal is to address challenges related to the reuse of public data in metagenomics, particularly to generate new, testable biological hypotheses through the integration of datasets.\nThe primary objective of the project is to take a cross-disciplinary approach to microbial ecosystems associated with the human food chain by utilizing 16S metagenomic datasets from various biotopes.\nThis project involves 12 research units from the MICA department, covering a complete range of targeted ecosystems, including food, digesters, human gut samples, and animal samples (specifically cow teat microbiomes).\n\n\n\n\n\n\n\n\n\nYear of Submission\n2022\n\n\nTeams Involved\nBibliome\nMigale\nStatInfOmics\n\n\nCoordinators\nStéphane Chaillou, Marie Champomier Vergès, Hélène Chiapello, Marion Leclerc, François Marras\n\n\nParticipants from MaIAGE\nHélène Chiapello, Robert Bossy, Mouhamadou Ba, Olivier Rué, Cédric Midoux\n\n\nPartners (outside MaIAGE)\nCATI BOOM\n\n\nSupervisors during my work\nChristelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, Julien Tap\n\n\n\n\n\n\n\nAt the time of my arrival, the project’s roadmap included several key steps:\n\nExploring cross-cutting questions in microbial ecology using two statistical approaches:\n\nA hypothesis-driven approach (hypothesis-guided analysis)\n\nA data-driven approach (data-guided analysis)\n\nIntegrating and thoroughly analyzing datasets to understand and formulate new hypotheses about the determinants of microbial community structuring.\n\nMy work primarily focused on conducting exploratory and integrative statistical analyses on 16S metagenomic data. Additionally, I worked on inferring association networks between microbial species.\n\n\n\nExemple of visual results\n\n\n\n\n\n\n\\(\\alpha-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\\(\\beta-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\n\nPLN network without covariable from INRAE Open16S\n\n\n\n\n\n\n\nPLN network with the biotope as covariable from INRAE Open16S\n\n\n\n\n\n\n\n\nAcknowledgments\nI would like to express my gratitude to the collaborators on this project Christelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, and Julien Tap for their guidance and expertise.\nI would also like to express my gratitude to everyone in the MaIAGE unit for their warm welcome and kindness. Their team spirit and friendliness greatly contributed to making this work a unique and enriching professional experience."
   },
   {
     "objectID": "publications.html",
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "Meta-analyse exploratoire de jeux de données métagénomiques publiques de différents écosystèmes microbiens en lien avec la chaı̂ne alimentaire, Submitted on 14 Nov 2024"
-  },
-  {
-    "objectID": "secret_gift.html",
-    "href": "secret_gift.html",
-    "title": "RHU Secret Gift | LilNCog - Bilille",
-    "section": "",
-    "text": "Work in progress !!!!!\nhttps://ufr3s.univ-lille.fr/fileufr3s/user_upload/ufr3s-actualites/2023/recherche/2023-11-28-rhu-laureat-lillois-projet-gift-v4.pdf"
-  },
-  {
-    "objectID": "Open16S.html",
-    "href": "Open16S.html",
-    "title": "Open16S | MaIAGE - INRAE",
-    "section": "",
-    "text": "Context of my contribution\nMy contribution to this project took place in two phases over the course of 2024. From April to September, I worked on it as part of my final-year internship. Then, from October to December, I continued working on the same project—starting from the beginning again—to obtain more robust results for potential publication.\nUnfortunately, as my contract ended before the writing phase of the paper began, I had to leave some aspects of the work partially unfinished.\nHowever, the details of my accomplishments can be found in two Quarto blogs:\n\nInternship Open16s project (completed during my internship)\nINRAE Open16S (completed during my three-month contract)\n\nOf course, the second blog reboot all my previous work so if you want to check only one, feel free to go with INRAE Open16S\n\n\n\nOpen16S project\nINRAE has been a pioneer in open science and established a dedicated department for this domain in 2020.\nThe Open16S project, led by the MICA department at INRAE, is an innovative proof-of-concept (POC) initiative developed as part of the department’s policy. Its goal is to address challenges related to the reuse of public data in metagenomics, particularly to generate new, testable biological hypotheses through the integration of datasets.\nThe primary objective of the project is to take a cross-disciplinary approach to microbial ecosystems associated with the human food chain by utilizing 16S metagenomic datasets from various biotopes.\nThis project involves 12 research units from the MICA department, covering a complete range of targeted ecosystems, including food, digesters, human gut samples, and animal samples (specifically cow teat microbiomes).\n\n\n\n\n\n\n\n\n\nYear of Submission\n2022\n\n\nTeams Involved\nBibliome\nMigale\nStatInfOmics\n\n\nCoordinators\nStéphane Chaillou, Marie Champomier Vergès, Hélène Chiapello, Marion Leclerc, François Marras\n\n\nParticipants from MaIAGE\nHélène Chiapello, Robert Bossy, Mouhamadou Ba, Olivier Rué, Cédric Midoux\n\n\nPartners (outside MaIAGE)\nCATI BOOM\n\n\nSupervisors during my work\nChristelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, Julien Tap\n\n\n\n\n\n\n\nAt the time of my arrival, the project’s roadmap included several key steps:\n\nExploring cross-cutting questions in microbial ecology using two statistical approaches:\n\nA hypothesis-driven approach (hypothesis-guided analysis)\n\nA data-driven approach (data-guided analysis)\n\nIntegrating and thoroughly analyzing datasets to understand and formulate new hypotheses about the determinants of microbial community structuring.\n\nMy work primarily focused on conducting exploratory and integrative statistical analyses on 16S metagenomic data. Additionally, I worked on inferring association networks between microbial species.\n\n\n\nExemple of visual results\n\n\n\n\n\n\n\n\n\n\\(\\alpha-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\\(\\beta-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\n\nPLN network without covariable from INRAE Open16S\n\n\n\n\n\n\n\nPLN network with the biotope as covariable from INRAE Open16S\n\n\n\n\n\n\n\n\nAcknowledgments\nI would like to express my gratitude to the collaborators on this project Christelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, and Julien Tap for their guidance and expertise.\nI would also like to express my gratitude to everyone in the MaIAGE unit for their warm welcome and kindness. Their team spirit and friendliness greatly contributed to making this work a unique and enriching professional experience."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Clément Poupelin",
-    "section": "",
-    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building 4th floor - Lille, France\n\n\nAcademic status\nIngénieur d'étude\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
-  },
-  {
-    "objectID": "about.html#skills",
-    "href": "about.html#skills",
-    "title": "Clément Poupelin",
-    "section": "Skills",
-    "text": "Skills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of data science skills to microbial ecology\nResearch on microbiome network inference methods\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods\nUse of statistical methods for meta-analyses"
-  },
-  {
-    "objectID": "about.html#course",
-    "href": "about.html#course",
-    "title": "Clément Poupelin",
-    "section": "Course",
-    "text": "Course\nAfter earning a Scientific Baccalaureate (BAC S SVT) with a Mathematics specialization, I pursued a Bachelor’s degree in Mathematics at Nantes University, followed by a Master’s in Statistical Engineering, which I obtained with honors (mention bien).\nMy interest in research grew through my final-year internship, leading to my first position as engineer at the UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster.\nI was thus able to participate in a pilot project (open16s project) promoting open science via the meta-analysis of public datasets of different ecosystems in line with the food chain. My participation focused mainly on the analysis of 16S metagenomic data ranging from cleaning, improvement and descriptive analysis to diversity analysis and inference of microbial networks (more information about my work is available in the dedicated project page).\nI then joined the Bilille platform (Bioinformatics, biostatistics and bioanalysis) within the UAR 2014 - US 41 PLBS unit at the University of Lille, working under an RHU-funded research program focused on neurodegenerative diseases. My primary objective is to identify biomarkers for amyotrophic lateral sclerosis (ALS)."
+    "text": "Meta-analyse exploratoire de jeux de données métagénomiques publiques de différents écosystèmes microbiens en lien avec la chaı̂ne alimentaire, Submitted on 14 Nov 2024\nStructural equation modeling and application in psychology, Submitted on 23 May 2023"
   }
 ]
