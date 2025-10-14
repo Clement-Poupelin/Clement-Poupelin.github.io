@@ -42,6 +42,8 @@ tibble(
 
 - Analysis and mathematical modeling of large-scale datasets (Big Data)
 
+- statistical analysis of Omic data
+
 - Application of data science skills to microbial ecology
 
 - Research on microbiome network inference methods

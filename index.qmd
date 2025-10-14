@@ -65,7 +65,7 @@ tibble(
 
 <!-- - Research on microbiome network inference methods -->
 
-- Analysis of omic data
+- Statistical analysis of Omic data
 
 - Time series modeling and forecasting
 
