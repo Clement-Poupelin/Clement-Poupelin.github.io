@@ -1,0 +1,15 @@
+{
+  "hash": "18e9b39d5f89c397b99e24216cb89d9b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Structural equation modeling and application in psychology (WIP)\"\nauthor: \"Clément Poupelin\"\ndate: 14-10-2025\ndate-modified: \"2025-10-14\"\nformat: \n  html:\n    embed-resources: false\n    toc: true\n    code-fold: true\n    code-summary: \"Show the code\"\n    code-tools: true\n    toc-location: right\n    page-layout: article\n    code-overflow: wrap\nnumber-sections: false\neditor: visual\ncategories: [\"Structural Equation Modeling\", \"Psychology\"]\ndescription: \"This study was made during the Supervised Study Project in Mathematics of the first year of master\"\nexecute: \n  echo: true \n  warning: false \n  message: false\n  error: true\n\n---\n\n\n\n\n# Intervenant.e.s\n\n### Rédaction\n\n-   **Clément Poupelin**, [clementjc.poupelin\\@gmail.com](mailto:clementjc.poupelin@gmail.com){.email}\\\n\n### Relecture\n\n-   \n\n\n## Setup\n\n::: panel-tabset\n\n### packages \n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n### Functions\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n### Seed\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nset.seed(140400)\n```\n:::\n\n\n\n\n:::\n\n## Abstract\n\nsdfhsdkjfgsdkjf\n\n\n## Import Data\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n2+2\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 4\n```\n\n\n:::\n:::\n\n\n\n\njhelfhzqlhflz\n\n\n\n## Descriptive analysis \n\n## Structural Equation Modeling\n\n\n### Theory\n\n### Application\n\n::: panel-tabset\n\n#### Model 1\n\n#### Model 2 \n\n\n#### Model 3\n\n\n#### Model 4\n\n\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

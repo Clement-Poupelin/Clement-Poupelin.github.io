@@ -25,7 +25,7 @@ website:
           - Open16S.qmd
           - challenge_data.qmd
       - publications.qmd
-      - text: "Quarto Blog for old University Exercices (fr)"
+      - text: "Quarto Blogs and reports"
         menu:
           - href: http://clement-poupelin.github.io/Statistique_en_grande_dimension/
             text: Statistique en grande dimension (M2 WIP)
@@ -33,6 +33,7 @@ website:
             text: Séries temporelles (M2 WIP)
           - href: https://clement-poupelin.github.io/Regression_lineaire_et_logistique/
             text: Régression linéaire et logistique (M1 WIP)
+          - SSPM.qmd
     right: 
       # - icon: info-circle-fill
         # href: about.html

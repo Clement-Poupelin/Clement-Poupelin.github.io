@@ -1,0 +1,101 @@
+---
+title: "Structural equation modeling and application in psychology (WIP)"
+author: "Clément Poupelin"
+date: 14-10-2025
+date-modified: "`r Sys.Date()`"
+format: 
+  html:
+    embed-resources: false
+    toc: true
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+    toc-location: right
+    page-layout: article
+    code-overflow: wrap
+number-sections: false
+editor: visual
+categories: ["Structural Equation Modeling", "Psychology"]
+description: "This study was made during the Supervised Study Project in Mathematics of the first year of master"
+execute: 
+  echo: true 
+  warning: false 
+  message: false
+  error: true
+
+---
+
+# Intervenant.e.s
+
+### Rédaction
+
+-   **Clément Poupelin**, [clementjc.poupelin\@gmail.com](mailto:clementjc.poupelin@gmail.com){.email}\
+
+### Relecture
+
+-   
+
+
+## Setup
+
+::: panel-tabset
+
+### packages 
+
+```{r}
+
+```
+
+### Functions
+
+```{r}
+
+```
+
+### Seed
+
+```{r}
+set.seed(140400)
+```
+
+:::
+
+## Abstract
+
+sdfhsdkjfgsdkjf
+
+
+## Import Data
+
+
+```{r}
+2+2
+```
+
+jhelfhzqlhflz
+
+
+
+## Descriptive analysis 
+
+## Structural Equation Modeling
+
+
+### Theory
+
+### Application
+
+::: panel-tabset
+
+#### Model 1
+
+#### Model 2 
+
+
+#### Model 3
+
+
+#### Model 4
+
+
+:::
