@@ -1,7 +1,7 @@
 ---
 title: "Structural equation modeling and application in psychology (WIP)"
 author: "Clément Poupelin"
-date: 14-10-2025
+date: 10-14-2025
 date-modified: "`r Sys.Date()`"
 format: 
   html:
@@ -34,13 +34,42 @@ execute:
 
 -   
 
+
+<!-- ```{r tikz, engine = 'tikz', echo = FALSE, fig.width=6, fig.height=4} -->
+<!-- \usetikzlibrary{shapes.geometric, arrows.meta, positioning} -->
+
+<!-- \tikzstyle{decision} = [diamond, draw, fill=white] -->
+<!-- \tikzstyle{line} = [draw, -Stealth, thick] -->
+<!-- \tikzstyle{elli} = [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered] -->
+<!-- \tikzstyle{block} = [draw, rectangle, fill=white, text width=8em, text centered, minimum height=7mm, node distance=3em] -->
+
+<!-- \begin{tikzpicture} %[scale=0.5, transform shape] -->
+<!-- % scale=1.2 agrandit tout de 20 %. -->
+<!-- % transform shape permet de garder la mise à l’échelle du texte aussi. -->
+
+<!--     % Create Blocks -->
+<!--     \node [elli, fill = green!30!white] (compS) {Social comparison}; -->
+<!--     \node [elli, fill = magenta!30!white, below of = compS, yshift=-3em, xshift=6em] (selfE) {Self-esteem}; -->
+<!--     \node [elli, fill = orange!30!white, below of = compS, yshift=-3em, xshift=-6em] (spirit) {Spirituality}; -->
+
+<!--     % Add Arrows -->
+<!--     \path [line] (spirit) -- node[midway, above left] {$\beta = 0.45^{***}$} (compS); -->
+<!--     \path [line] (compS) -- node[midway, right] {$\beta = 0.60^{***}$} (selfE); -->
+<!--     \path [line] (spirit) -- node[midway, below] {$\beta = 0.25^{*}$} (selfE); -->
+<!-- \end{tikzpicture} -->
+<!-- ``` -->
+
+
 ## Setup
 
 ::: panel-tabset
 ### packages
 
 ```{r}
-
+library(lavaan)
+library(dplyr)
+# devtools::install_github('SachaEpskamp/semPlot')
+# library(semPlot)
 ```
 
 ### Functions
@@ -58,33 +87,557 @@ set.seed(140400)
 
 ## Abstract
 
-sdfhsdkjfgsdkjf
+Cette analyse aura pour but de proposer une application simple de structural equation modeling pour introduire le concept.
+
+Cela se fera sur une version modifié et plus simple d'un jeu de donnée utilisé dans l'article [Explicit spirituality, self-esteem and the mechanisms of social and temporal comparison](https://dergipark.org.tr/en/download/article-file/2592756) of Justine Ollivaud, Jean-Michel Galharret and Nicolas Roussiau.\
+IL s'agit d'une application dans le domaine de la recherche en psychologie qui vise à analyser l'impact de la spiritualité sur l'estime de soi.
 
 ## Import Data
 
 ```{r}
-2+2
+data <- read.csv("~/Documents/1_Projet/Perso/SSPM_data.csv")
+data <- data[,1:47] %>% na.omit()
 ```
 
-jhelfhzqlhflz
 
-## Descriptive analysis
+The data frame used for the study includes `r nrow(data)` individuals. They are characterized by the `r ncol(data)` following variables :
+
+ -  `Identifiant` : integer assigned to the individual
+ 
+ - `spirit1`, $\cdots$ , `spirit16` : answers of the individual for the 16 questions which relate to spirituality
+ 
+ - `Score_Spirit` : total score of the individual for the questions which relate to spirituality
+ 
+ - `CompSoc1`, $\cdots$ , `CompSoc8` : answers of the individual for the 8 questions which relate to social comparison
+ 
+ - `Score_CompS` : total score of the individual for the questions which relate to social comparison
+ 
+ - `CompTemp1`, $\cdots$ , `CompTemp8` : answers of the individual for the 8 questions which relate to temporal comparison
+ 
+ - `Score_CompT` : total score of the individual for the questions which relate to temporal comparison
+ 
+ - `es1`, $\cdots$ , `es10` : answers of the individual for the 10 questions which relate to self esteem
+ 
+ - `Score_ES` : total score of the individual for the questions which relate to self esteem
+ 
+ <!-- - `Sexe` : sexe of the individual -->
+ <!-- - `Age` : age of the individual -->
+ <!-- - `Croy_Rel` : belief or not of the individual to religion -->
+
+```{r}
+data %>% DT::datatable()
+```
+
+```{r}
+#on ne garde que les effets positifs
+es_selected = subset(data, select = c(es3, es5, es8, es9, es10)) 
+compSoc_selected = subset(data, select = c(compSoc1, compSoc3, compSoc4, compSoc6))
+compTemp_selected = subset(data, select = c(compTemp1, compTemp3, compTemp4, compTemp6))
+```
+
+## Preliminary analysis
+
+### Descriptive analysis
+
+```{r}
+par(mfrow=c(2,2))
+boxplot(data[,2:17], col = 1:16, main ='Variables de spiritualité')
+#boxplot(data[,19:26], col = 1:16, main ='Variables de comparaison sociale')
+boxplot(compSoc_selected, col = 1:16, main ='Variables de comparaison sociale gardées pour le système')
+#boxplot(data[,28:35], col = 1:16, main ='Variables de comparaison temporelle')
+boxplot(compTemp_selected, col = 1:16, main ='Variables de comparaison temporelle gardées pour le système')
+#boxplot(data[,37:46], col = 1:16, main ="Variables d'estime de soi")
+boxplot(es_selected, col = 1:16, main ="Variables d'estime de soi gardées pour le système")
+
+par(mfrow=c(1,1))
+```
+
+
+### Linear Model
+
+```{r}
+x = data$Score_Spirit
+m = data$Score_CompS
+y = data$Score_ES
+M1 <- lm(m~x)
+M2 <- lm(y~m+x)
+summary(M1)
+summary(M2)
+
+car::avPlots(M2)
+```
 
 ## Structural Equation Modeling
 
 ### Theory
 
+Now, we can propose an example of SEM (For more details, do not hesitate to see the dedicated publication [Structural equation modeling and application in psychology](https://github.com/Clement-Poupelin/Clement-Poupelin.github.io/blob/main/docs/SSPM_Aela_JAGOT_Clement_POUPELIN_M1IS.pdf)).
+
+```{r, engine = 'tikz', echo = FALSE, fig.width=6, fig.height=4, fig.align='center'}
+
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [draw, -Stealth, thick]
+\tikzstyle{elli} = [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=8em, text centered, minimum height=7mm, node distance=3em]
+
+\begin{tikzpicture}
+        % Create Blocks
+        % M et ses items
+        \node [elli, fill = red!30!white] (M) {$M$};
+        \node [block, fill = gray!20!white, above of = M, yshift=0.5em, xshift=-8em] (m1) {$m_1$};
+        \node [above of = M, yshift=2em, xshift=0em] (m2) {$\textbf{. . .}$};
+        \node [block, fill = gray!20!white, above of = M, yshift=0.5em, xshift=8em] (mr) {$m_r$};
+        \node [circle, fill = gray!20!white, above of = m1, yshift=1em, xshift=-1em] (xim1) {$\xi_{m_1}$};
+        \node [circle, fill = gray!20!white, above of = mr, yshift=1em, xshift=1em] (ximr) {$\xi_{m_r}$};
+        \node [circle, fill = red!30!white, below of = M, yshift=0.5em, xshift=-6em] (epsM) {$\mathcal{E}_M$};
+
+        % Y et ses items
+        \node [elli, fill = red!30!white, below of = M, yshift=-6em, xshift=9em] (Y) {\(Y\)};
+        \node [block, fill = gray!20!white, right of = Y, yshift=4em, xshift=3em] (y1) {$y_1$};
+        \node [ right of = Y, yshift=0em, xshift=8em] (y2) {$\textbf{. . .}$};
+        \node [block, fill = gray!20!white, right of = Y, yshift=-4em, xshift=1em] (yt) {$y_t$};        
+        \node [circle, fill = gray!20!white, above of = y1, yshift=1em, xshift=4em] (xiy1) {$\xi_{y_1}$};
+        \node [circle, fill = gray!20!white, below of = yt, yshift=-1em, xshift=4em] (xiyt) {$\xi_{y_t}$};
+        \node [circle, fill = red!30!white, right of = Y, yshift=-4em, xshift=-6em] (epsY) {$\mathcal{E}_Y$};
+
+        % X et ses items
+        \node [elli, fill = red!30!white, below of = M, yshift=-10em, xshift=-10em] (X) {\(X\)};
+        \node [block, fill = gray!20!white, left of = X, yshift=-4em, xshift=1em] (x1) {$x_s$};
+        \node [left of = X, yshift=0em, xshift=-8em] (x2) {$\textbf{. . .}$};
+        \node [block, fill = gray!20!white, left of = X, yshift=4em, xshift=-2em] (xs) {$x_1$};        
+        \node [circle, fill = gray!20!white, above of = xs, yshift=1em, xshift=-4em] (xixs) {$\xi_{x_1}$};
+        \node [circle, fill = gray!20!white, below of = x1, yshift=-1em, xshift=-3em] (xix1) {$\xi_{x_s}$};
+
+        
+        % Add Arrows
+        \path [line] (X) -- (M);
+        \path [line] (M) -- (Y);
+        \path [line] (X) -- (Y);
+        
+        \path [line] (M) -- (m1);
+        \path [line] (M) -- (mr);
+        \path [line] (xim1) -- (m1);
+        \path [line] (ximr) -- (mr);
+        \path [line] (epsM) -- (M);
+        
+        \path [line] (Y) -- (y1);
+        \path [line] (Y) -- (yt);
+        \path [line] (xiy1) -- (y1);
+        \path [line] (xiyt) -- (yt);
+        \path [line] (epsY) -- (Y);
+        
+        \path [line] (X) -- (x1);
+        \path [line] (X) -- (xs);        
+        \path [line] (xix1) -- (x1);
+        \path [line] (xixs) -- (xs);
+        
+\end{tikzpicture}
+```
+
+
+This model can be interpreted as a study aiming to explain the direct effect of $X$ on $Y$ and the indirect effect of $X$ on $Y$ through $M$. The latter variable is called the **mediation variable**. In detail, we have:
+
+- $Y$ and $M$ are latent endogenous variables
+- $X$ is a latent exogenous variable
+- $m_i$ are observed endogenous variables, for $i \in \{1, ..., r\}$
+- $x_j$ are observed exogenous variables, for $j \in \{1, ..., s\}$
+- $y_k$ are observed endogenous variables, for $k \in \{1, ..., t\}$
+
+We can rewrite the model as a system:
+
+$$
+\begin{cases}
+\textbf{Measurement model} \\
+m_i = \gamma_i M + \xi_{m_i}, \quad \text{for } i \in \{1, ..., r\} \\
+x_j = \alpha_j X + \xi_{x_j}, \quad \text{for } j \in \{1, ..., s\} \\
+y_k = \beta_k Y + \xi_{y_k}, \quad \text{for } k \in \{1, ..., t\} \\
+\\
+\textbf{Structural Model} \\
+M = b_0 + b_1 X + \mathcal{E}_{M} \\
+Y = a_0 + a_1 X + a_2 M + \mathcal{E}_Y
+\end{cases}
+$$
+
+We can also rewrite the structural model in the form of a matrix equation:
+
+$$
+\begin{pmatrix}
+M \\
+Y
+\end{pmatrix}
+=
+\begin{pmatrix}
+b_0 \\
+a_0
+\end{pmatrix}
++
+\begin{pmatrix}
+b_1 & 0 \\
+a_1 & a_2
+\end{pmatrix}
+\begin{pmatrix}
+X \\
+M
+\end{pmatrix}
++
+\begin{pmatrix}
+\mathcal{E}_{M} \\
+\mathcal{E}_Y
+\end{pmatrix}
+$$
+
+Now, thanks to the way we wrote the model, we can make the different effects explicit. To do this, we take the structural model and substitute the first line into the second line:
+
+$$
+\begin{cases}
+M = b_0 + b_1 X + \mathcal{E}_{M} \\
+Y = a_0 + a_1 X + a_2 M + \mathcal{E}_Y
+\end{cases}
+$$
+
+$\Leftrightarrow Y = a_0 + a_1 X + a_2 (b_0 + b_1 X + \mathcal{E}_{M}) + \mathcal{E}_Y$
+
+$\Leftrightarrow Y = a_0 + a_2 b_0 + a_1 X + a_2 b_1 X + \mathcal{E}'$
+
+$\Leftrightarrow Y = (a_0 + a_2 b_0) + (a_1 + a_2 b_1) X + \mathcal{E}'$
+
+Here, $\quad \mathcal{E}' = a_2 \mathcal{E}_{M} + \mathcal{E}_Y$.
+
+We can notice that, because $\mathcal{E}_M \in [X]^\bot$ and $\mathcal{E}_Y \in [X, M]^\bot$, $\mathcal{E}' \in [X]^\bot$.\
+Therefore, we can write the effects of $X$ on $Y$:
+
+$$
+\underbrace{\overbrace{a_2 b_1}^{\text{Indirect effect}} + \overbrace{a_1}^{\text{Direct effect}}}_{\text{Total effect}}
+$$
+
 ### Application
 
 ::: panel-tabset
+
+#### Programming with `lavaan` 
+
+The library `lavaan` on `R` is usually used to estimate a large variety of multivariate statistical models, like structural equation modeling. For information, this package also permit to estimate path analysis, confirmatory factor analysis and growth curve models.\
+To programm a structural equation modeling on `R`, we proceed like this :
+
+
+\begin{align*}
+    & \text{Model <- `}\\
+    & \quad \# \; \text{latent variables} \\
+    & \quad \quad X =\sim x_1 + x_2 + x_3 \\
+    & \quad \quad M =\sim m_1 + m_2 + m_3 \\
+    & \quad \quad Y =\sim y_1 + y_2 + y_3\\
+    & \quad \# \; \text{regressions} \\
+    & \quad \quad M \sim X \\
+    & \quad \quad Y \sim M + X\\
+    & \quad \# \; \text{residual covariances} \\
+    & \quad \quad x_1 \sim \sim x_2 \quad \text{`}
+\end{align*}
+
+
+We can recognize different types of operators :
+
+ - $=\sim$ : indicate by which observed variables is measured the latent variable
+ - $\sim \;\;\;$ : indicate by which linear regression is estimate the latent variable
+ - $\sim\sim$ : indicate the covariance between residuals
+
+
+Then, to fit the model we use the following function : 
+
+\begin{align*}
+fit <- sem(\text{model} = \text{Model}, \text{ data})
+\end{align*}
+
+To make a summary on `fit` permit to obtain some informations like the AIC criterion and the BIC criterion of the model but also an estimation of the differents coefficients.\
+
+Furthermore, there is also possible to do a SEM on `Python` with the package `semopy`. The method used is similar to the one used with `lavaan` and the estimations are very closed.
+
+#### Determination of the latent variables
+
+Before to model the data frame, it is necessary to determine the four latent variables that will be used in the different models : **Spirituality**, **Social comparison**, **Temporal comparison** and **Self-esteem**.\
+For the variable **Spirituality**, we preserve all the observed variables of the study. Nevertheless, for **Social comparison**, **Temporal comparison** and **Self-esteem** we only keep the observed variables which have positive coefficients. We can summarize the number of observed variables per latent variables in the following tabular.\
+
+   **Latent Variables**       | **Number of Observed Variables** |
+ |-----------------------------|----------------------------------|
+ | Spirituality                | 16                               |
+ | Social comparison           | 4                                |
+ | Temporal comparison         | 4                                |
+ | Self-esteem                 | 5                                |
+
+*Table 2: Number of observed variables per latent variable*
+
+We can express the measurement model for the latent variables with their corresponding observed variables in the form of equations:
+
+$$
+\begin{cases}
+\textsf{Spirituality} = \sim \textit{spirit1 + spirit2 + spirit3 + spirit4 + spirit5} \\
+\quad \quad \quad \quad \quad \quad \quad + \textit{spirit6 + spirit7 + spirit8 + spirit9 + spirit10} \\
+\quad \quad \quad \quad \quad \quad \quad + \textit{spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16} \\
+\quad \quad \quad \quad \quad \quad \quad + \textit{spirit16} \\
+\\
+\textsf{Social comparison} = \sim \textit{compSoc1 + compSoc3 + compSoc4 + compSoc6} \\
+\\
+\textsf{Temporal comparison} = \sim \textit{compTemp1 + compTemp3 + compTemp4} \\
+\quad \quad \quad \quad \quad \quad \quad \quad \quad + \textit{compTemp6}\\
+\\
+\textsf{Self-esteem} = \sim \textit{es3 + es5 + es8 + es9 + es10}
+\end{cases}
+$$
+
+Disposing of all our latent variables, it is possible to build different models of structural equations.
+
 #### Model 1
+
+We build the model \textit{mod1} which connects the latent variables \textsf{Spirituality}, \textsf{Social comparison} and \textsf{Self esteem}. Each of them is determined by different observed variables. We obtain the following graphic :
+
+```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [draw, -Stealth, thick]
+\tikzstyle{elli} = [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=8em, text centered, minimum height=7mm, node distance=3em]
+
+\begin{tikzpicture}
+        % Create Blocks
+        \node [elli, fill = green!30!white] (compS) {Social comparison};
+        \node [elli, fill = magenta!30!white, below of = compS, yshift=-3em, xshift=6em] (selfE) {Self-esteem};
+        \node [elli, fill = orange!30!white, below of = compS, yshift=-3em, xshift=-6em] (spirit) {Spirituality};
+        % Add Arrows
+        \path [line] (spirit) -- (compS);
+        \path [line] (compS) -- (selfE);
+        \path [line] (spirit) -- (selfE);
+\end{tikzpicture}
+```
+
+```{r}
+model1 <- '
+# Measurement model
+CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
+ES =~ es3 + es5 + es8 + es9 + es10
+Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+
+# Structural model
+CompSoc ~ 1 + c1 * Spirit
+ES ~ 1 + a1 * Spirit + a2 * CompSoc
+
+Direct := a1 
+Indirect := c1 * a2
+Total := Direct + Indirect
+'
+
+fit1 <- sem(
+  model1,
+  # The structural equation model
+  data = data,
+  # The dataset containing the variables to be analyzed
+  std.lv = T,
+  # Standardization of latent variables
+  # T (TRUE): Latent variables will be standardized (mean=0, standard deviation=1)
+  # F (FALSE): Latent variables will not be standardized (default)
+  # Useful for comparing coefficients across different models or studies
+  se = "boot",
+  # Method for estimating standard errors
+  # "boot": Uses bootstrapping to estimate standard errors
+  # Other possible options: "standard" (default), "robust", etc.
+  # Bootstrapping is useful for small sample sizes or when normality assumptions are not met
+  bootstrap = 100  # Number of bootstrap resamples
+  # 100: Number of bootstrap replications to perform
+  # Higher numbers provide more precise estimates but increase computation time
+  # A minimum of 100 is often recommended, but 1000 or more is ideal for stable results
+  # This parameter is only considered if se="boot"
+)
+
+```
+
+<details><summary>`summary(fit1)`</summary>
+```{r, results='markup'}
+summary(fit1, fit = T, rsquare = T)
+```
+</details> 
+
+The aim is to analyze direct and indirect effects on **Self-esteem** for the model `fit1`. To reference the first part of our project, we rename our latent variables:
+
+$$
+\begin{cases}
+X := \textsf{Spirituality} \\
+M_1 := \textsf{Social comparison} \\
+Y := \textsf{Self-esteem}
+\end{cases}
+$$
+
+This is a mediation model. It is possible to analyze the direct and indirect effects on $Y$. First, we make explicit the structural model and substitute in the expression of $Y$:
+
+$$
+\begin{cases}
+M_1 = c_0 + c_1 X + \mathcal{E}_{M_1} \\
+Y = a_0 + a_1 X + a_2 M_1 + \mathcal{E}_Y
+\end{cases}
+$$
+
+$\Leftrightarrow Y = (a_0 + a_2 c_0) + (a_1 + a_2 c_1) X + \mathcal{E}'$
+
+Finally, with the summary of the fit of the model `fit1` in `R`, we can build the following table:
+
+**Effect**   | **Expression** | **Estimate** | **Std.Err** | **P-value** |
+ |--------------|----------------|--------------|-------------|-------------|
+ | Direct       | $a_1$          | -0.034       | 0.061       | 0.582       |
+ | Indirect     | $a_2 c_1$      | -0.094       | 0.038       | 0.013       |
+ | Total        | $a_1 + a_2 c_1$| -0.128       | 0.060       | 0.033       |
+
+*Table 3: Effects on $Y$ for the model `fit1`*
+
+We can conclude that in the model `fit1`, the indirect effect is significant for the variable **Self-esteem**.
 
 #### Model 2
 
+```{r}
+model2 <- '
+# MODELE DE MESURE
+CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
+ES =~ es3 + es5 + es8 + es9 + es10
+Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+
+# MODELE DE STRUCTURE
+CompTemp ~ u1 * Spirit
+ES ~ v1 * CompTemp + v2 * Spirit
+
+D := v2 
+I := u1 * v1
+T := D + I
+'
+
+
+fit2 = sem(model2, data = data, std.lv = T, se = "boot", bootstrap = 100)
+summary(fit2, fit=T, rsquare=T)
+```
+
 #### Model 3
 
+```{r}
+model3 <- '
+# MODELE DE MESURE
+CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
+CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
+ES =~ es3 + es5 + es8 + es9 + es10
+Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+
+# MODELE DE STRUCTURE
+CompSoc ~ c1 * Spirit
+CompTemp ~ d1 * Spirit
+ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
+
+
+D := b3
+I := (b1 * c1) + (b2 * d1)
+T := D + I
+'
+
+fit3 = sem(model3, data = data, std.lv = T, se = "boot", bootstrap = 100)
+summary(fit3, fit=T, rsquare=T)
+```
+
 #### Model 4
+
+```{r}
+model4 <- '
+# MODELE DE MESURE
+CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
+CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
+ES =~ es3 + es5 + es8 + es9 + es10
+Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+
+# MODELE DE STRUCTURE
+CompTemp ~ d1 * Spirit + d2 * CompSoc
+CompSoc ~ c1 * Spirit
+ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
+
+
+
+D := b3
+I := (b1 * c1) + (b2 * d1) + (b2 * d2 * c1)
+T := D + I
+'
+
+
+fit4 = sem(model4, data = data, std.lv = T, se = "boot", bootstrap = 100)
+summary(fit4, fit=T, rsquare=T)
+```
+
 :::
+
+## Validation
+
+In this part, the objective will be to compare all the models we built to determine which one is the best for the study.
+
+### Criteria AIC and BIC
+
+At first, the aim will be to compare models with the same size, that means \textit{mod1} with \textit{mod2} and \textit{mod3} with \textit{mod4}. To do that we use the criteria of AIC and BIC. All the values are given in the summaries of the different \textit{fit}.\\\vspace{0.2cm}
+\begin{center}
+    \begin{tabular}{|c||c|c|}\hline
+        \textbf{Model} & \textbf{AIC} & \textbf{BIC} \\ \hline \hline
+        \textit{mod1} & 18513.694 & 18715.206 \\ \hline
+        \textit{mod2} & 18355.843 & 18557.356 \\ \hline \hline
+        \textit{mod3} & 22390.464 & 22629.997 \\ \hline
+        \textit{mod4} & 22344.201 & 22587.537 \\ \hline
+    \end{tabular}\\
+    \vspace{0.25cm}
+    \texttt{Tabular 8 : Criteria AIC and BIC for the different models}\\
+\end{center}                         
+\vspace{0.25cm}
+
+In both cases, the best model is the model which minimize the criterion AIC and the criterion BIC. We retain the models \textit{mod2} and \textit{mod4}.
+
+### Test of nested models
+
+Now stay available two models which are \textit{mod2} and \textit{mod4}. To decide between them, we realize a test of nested models using the function \texttt{anova} on \texttt{R}.\\
+
+The Chi-Squared Difference Test give a p-value of 0,000104. \\ The test indicates that it is preferable to keep the additional variable of the model \textit{mod4}.\\
+
+We can conclude that the model \textit{mod4} is the best model for the study.
+
+
+## Results
+
+The aim of the study was to understand the connections between spirituality, social comparison, temporal comparison and self-esteem for individuals. Especially, we wanted to analyze the effects of spirituality on self-esteem and determine if they pass through social comparison and/or temporal comparison. \
+
+Thanks to criteria and tests we used, we were able to define the best model for this study : \textit{mod4}. It gather all the notions and take into account an influence of social comparison on temporal comparison.
+According to this model which highlights the significance of the indirect effect \textbf{Indirect1}, the main effect on self-esteem of individuals is social comparison due to spirituality.\
+
+To put it in a nutshell, we can conclude in favor of connection between the different notions. Especially, the effect of spirituality on self-esteem transits by social comparison.
+
+## Computational informations
+
+```{r session_info, results='markup'}
+devtools::session_info()
+```
+
+
+```{r}
+model5 <- '
+# MODELE DE MESURE
+CompSoc =~ compSoc1 + compSoc2 + compSoc3 + compSoc4 + compSoc5 + compSoc6 + compSoc7 + compSoc8
+CompTemp =~ compTemp1 + compTemp2 + compTemp3 + compTemp4 + compTemp5 + compTemp6 + compTemp7 + compTemp8
+ES =~ es1 + es2 + es3 + es4 + es5 + es6 + es7 + es8 + es9 + es10
+Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+
+# MODELE DE STRUCTURE
+CompTemp ~ d1 * Spirit + d2 * CompSoc
+CompSoc ~ c1 * Spirit
+ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
+
+
+
+D := b3
+I := (b1 * c1) + (b2 * d1) + (b2 * d2 * c1)
+T := D + I
+'
+
+fit5 = sem(model5, data = data, std.lv = T, se = "boot", bootstrap = 100)
+summary(fit5, fit=T, rsquare=T)
+
+```
 
 library(readr)
 # data <- read_csv("1. Workspace/Master IS/M1/SSPM/data.csv")
