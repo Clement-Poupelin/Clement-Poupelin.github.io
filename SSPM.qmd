@@ -306,6 +306,7 @@ $\Leftrightarrow Y = (a_0 + a_2 b_0) + (a_1 + a_2 b_1) X + \mathcal{E}'$
 Here, $\quad \mathcal{E}' = a_2 \mathcal{E}_{M} + \mathcal{E}_Y$.
 
 We can notice that, because $\mathcal{E}_M \in [X]^\bot$ and $\mathcal{E}_Y \in [X, M]^\bot$, $\mathcal{E}' \in [X]^\bot$.\
+
 Therefore, we can write the effects of $X$ on $Y$:
 
 $$
@@ -419,11 +420,11 @@ ES =~ es3 + es5 + es8 + es9 + es10
 Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
 
 # Structural model
-CompSoc ~ 1 + c1 * Spirit
+CompSoc ~ 1 + b1 * Spirit
 ES ~ 1 + a1 * Spirit + a2 * CompSoc
 
 Direct := a1 
-Indirect := c1 * a2
+Indirect := b1 * a2
 Total := Direct + Indirect
 '
 
@@ -467,28 +468,235 @@ Y := \textsf{Self-esteem}
 \end{cases}
 $$
 
-This is a mediation model. It is possible to analyze the direct and indirect effects on $Y$. First, we make explicit the structural model and substitute in the expression of $Y$:
+This is a mediation model. It is possible to analyze the direct and indirect effects on $Y$.\
+
+First, we make explicit the structural model and substitute in the expression of $Y$:
 
 $$
 \begin{cases}
-M_1 = c_0 + c_1 X + \mathcal{E}_{M_1} \\
+M_1 = b_0 + b_1 X + \mathcal{E}_{M_1} \\
 Y = a_0 + a_1 X + a_2 M_1 + \mathcal{E}_Y
 \end{cases}
 $$
 
-$\Leftrightarrow Y = (a_0 + a_2 c_0) + (a_1 + a_2 c_1) X + \mathcal{E}'$
+$\Leftrightarrow Y = (a_0 + a_2 b_0) + (a_1 + a_2 b_1) X + \mathcal{E}'$
+
+We can verify that the model is identifiable by looking if the **degree of freedom is greater than 0** :
+```{r}
+cat("Degree of fredom for fit1 :", semPower::semPower.getDf(fit1))
+```
 
 Finally, with the summary of the fit of the model `fit1` in `R`, we can build the following table:
 
 **Effect**   | **Expression** | **Estimate** | **Std.Err** | **P-value** |
  |--------------|----------------|--------------|-------------|-------------|
  | Direct       | $a_1$          | -0.034       | 0.061       | 0.582       |
- | Indirect     | $a_2 c_1$      | -0.094       | 0.038       | 0.013       |
- | Total        | $a_1 + a_2 c_1$| -0.128       | 0.060       | 0.033       |
+ | Indirect     | $a_2 b_1$      | -0.094       | 0.038       | 0.013       |
+ | Total        | $a_1 + a_2 b_1$| -0.128       | 0.060       | 0.033       |
 
 *Table 3: Effects on $Y$ for the model `fit1`*
 
-We can conclude that in the model `fit1`, the indirect effect is significant for the variable **Self-esteem**.
+We can conclude that in the model `fit1`, the **indirect effect is significant for the variable Self-esteem**.
+
+
+#### Model 2
+
+We build the model `fit2` which connects the latent variables **Spirituality, Temporal comparison and Self esteem**. Each of them is determined by different observed variables. We obtain the following graphic :
+
+```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [draw, -Stealth, thick]
+\tikzstyle{elli} = [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=8em, text centered, minimum height=7mm, node distance=3em]
+
+\begin{tikzpicture}
+        % Create Blocks
+        \node [elli, fill = cyan!30!white] (compT) {Temporal comparison};
+        \node [elli, fill = magenta!30!white, below of = compT, yshift=-3em, xshift=6em] (selfE) {Self-esteem};
+        \node [elli, fill = orange!30!white, below of = compT, yshift=-3em, xshift=-6em] (spirit) {Spirituality};
+        % Add Arrows
+        \path [line] (spirit) -- (compT);
+        \path [line] (compT) -- (selfE);
+        \path [line] (spirit) -- (selfE);
+\end{tikzpicture}
+```
+
+```{r}
+model2 <- '
+# Measurement model
+CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
+ES =~ es3 + es5 + es8 + es9 + es10
+Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+
+# Structural model
+CompTemp ~ 1 + b1 * Spirit
+ES ~ 1 + a1 * Spirit + a2 * CompTemp
+
+Direct := a1 
+Indirect := b1 * a2
+Total := Direct + Indirect
+'
+
+fit2 = sem(
+  model2,
+  data = data,
+  std.lv = T,
+  se = "boot",
+  bootstrap = 100
+)
+```
+
+<details><summary>`summary(fit2)`</summary>
+```{r, results='markup'}
+summary(fit2, fit = T, rsquare = T)
+```
+</details> 
+
+The aim is to analyze direct and indirect effects on **Self-esteem** for the model `fit2`. To reference the first part of our project, we rename our latent variables:
+
+$$
+\begin{cases}
+X := \textsf{Spirituality} \\
+M_2 := \textsf{Temporal comparison} \\
+Y := \textsf{Self-esteem}
+\end{cases}
+$$
+
+This is a mediation model. It is possible to analyze the direct and indirect effects on $Y$.\
+
+First, we make explicit the structural model and substitute in the expression of $Y$:
+
+$$
+\begin{cases}
+M_2 = b_0 + b_1 X + \mathcal{E}_{M_2} \\
+Y = a_0 + a_1 X + a_2 M_2 + \mathcal{E}_Y
+\end{cases}
+$$
+
+$\Leftrightarrow Y = (a_0 + a_2 b_0) + (a_1 + a_2 b_1) X + \mathcal{E}'$
+
+We can verify that the model is identifiable by looking if the **degree of freedom is greater than 0** :
+```{r}
+cat("Degree of fredom for fit2 :", semPower::semPower.getDf(fit2))
+```
+
+Finally, with the summary of the fit of the model `fit2` in `R`, we can build the following table:
+
+**Effect**   | **Expression** | **Estimate** | **Std.Err** | **P-value** |
+ |--------------|----------------|--------------|-------------|-------------|
+ | Direct       | $a_1$          | -0.128       | 0.058       | 0.026       |
+ | Indirect     | $a_2 b_1$      |  0.004       | 0.012       | 0.723       |
+ | Total        | $a_1 + a_2 b_1$| -0.124       | 0.057       | 0.030       |
+
+*Table ?????,: Effects on $Y$ for the model `fit2`*
+
+We can conclude that in the model `fit2`, the **direct effect is significant for the variable Self-esteem**.
+
+#### Model 3
+
+We build the model `fit3` which connects the latent variables **Spirituality, Social comparison, Temporal comparison and Self esteem**. Each of them is determined by different observed variables. We obtain the following graphic :
+
+```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [draw, -Stealth, thick]
+\tikzstyle{elli} = [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=8em, text centered, minimum height=7mm, node distance=3em]
+
+\begin{tikzpicture}
+        % Create Blocks
+        \node [elli, fill = green!30!white] (compS) {Social comparison};
+        \node [elli, fill = magenta!30!white, below of = compS, yshift=0em, xshift=7em] (selfE) {Self esteem};
+        \node [elli, fill = orange!30!white, below of = compS, yshift=0em, xshift=-7em] (spirit) {Spirituality};
+        \node [elli, fill = cyan!30!white, below of = compS, yshift=-3em] (compT) {Temporal comparison};
+        % Add Arrows
+        \path [line] (spirit) -- (compS);
+        \path [line] (compS) -- (selfE);
+        \path [line] (spirit) -- (selfE);
+        \path [line] (spirit) -- (compT);
+        \path [line] (compT) -- (selfE);
+    \end{tikzpicture}
+```
+
+```{r}
+model3 <- '
+# Measurement model
+CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
+CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6
+ES =~ es3 + es5 + es8 + es9 + es10
+Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+
+# Structural model
+CompSoc ~ 1 + c1 * Spirit
+CompTemp ~ 1 + b1 * Spirit
+ES ~ 1 + a1 * Spirit + a2 * CompSoc + a3 * CompTemp
+
+Direct := a1
+Indirect1 := (c1 * a2) 
+Indirect2 := (b1 * a3)
+Indirect := (c1 * a2) + (b1 * a3)
+Total := Direct + Indirect
+'
+
+fit3 = sem(
+  model3,
+  data = data,
+  std.lv = T,
+  se = "boot",
+  bootstrap = 100
+)
+```
+
+<details><summary>`summary(fit3)`</summary>
+```{r, results='markup'}
+summary(fit3, fit = T, rsquare = T)
+```
+</details> 
+
+The aim is to analyse direct and indirect effects on **Self-esteem** for the model `fit3`. To reference to the first part of our project, we rename our latent variables as we already have done for `fit1` and `fit2` : 
+
+$$
+\begin{cases}
+X := \textsf{Spirituality} \\
+M_1 := \textsf{Social comparison} \\
+M_2 := \textsf{Temporal comparison} \\
+Y := \textsf{Self-esteem}
+\end{cases}
+$$
+
+This is a parallel mediation model. It is possible to analyse the direct and indirect effects on $Y$. Before that, we explicit the structural model and we substitute in the expression of $Y$.
+
+$$
+\begin{cases}
+M_1 = c_0 + c_1X + \mathcal{E}_{M_1}\\
+M_2 = b_0 + b_1 X + \mathcal{E}_{M_2} \\
+Y = a_0 + a_1 X + a_2 M_1 + a_3M_2 + \mathcal{E}_Y
+\end{cases}
+$$
+$$\Leftrightarrow Y = (a_0 + a_2c_0 + a_3b_0) + (a_1 + a_2c_1 + a_3b_1)X + \mathcal{E}'$$
+We can verify that the model is identifiable by looking if the **degree of freedom is greater than 0** :
+```{r}
+cat("Degree of fredom for fit3 :", semPower::semPower.getDf(fit3))
+```
+
+Finally, with the summary of the fit of the model `fit3` in `R`, we can build the following table:
+
+**Effect**      | **Expression**           | **Estimate** | **Std.Err** | **P-value** |
+ |--------------|--------------------------|--------------|-------------|-------------|
+ | Direct       | $a_1$                    | -0.036       | 0.062       | 0.561       |
+ | Indirect1    | $a_2 c_1$                | -0.116       | 0.047       | 0.013       |
+ | Indirect2    | $a_3 b_1$                |  0.023       | 0.019       | 0.235       |
+ | Indirect     | $a_2 c_1 + a_3 b_1$      | -0.093       | 0.038       | 0.014       |
+ | Total        | $a_1 + a_2 c_1 + a_3 b_1$| -0.129       | 0.061       | 0.034       |
+
+*Table ?????,: Effects on $Y$ for the model `fit3`*
+
+We can conclude that in the model `fit3`, the **indirect effect is significant for the variable Self-esteem**.\
+Especially, the most significant effect is given by the path :\
+**Spirituality $\rightarrow$ Social comparison $\rightarrow$ Self-esteem**.
 
 #### Model 2
 
@@ -571,6 +779,7 @@ summary(fit4, fit=T, rsquare=T)
 
 In this part, the objective will be to compare all the models we built to determine which one is the best for the study.
 
+
 ### Criteria AIC and BIC
 
 At first, the aim will be to compare models with the same size, that means \textit{mod1} with \textit{mod2} and \textit{mod3} with \textit{mod4}. To do that we use the criteria of AIC and BIC. All the values are given in the summaries of the different \textit{fit}.\\\vspace{0.2cm}
@@ -598,11 +807,13 @@ The Chi-Squared Difference Test give a p-value of 0,000104. \\ The test indicate
 We can conclude that the model \textit{mod4} is the best model for the study.
 
 
+
 ## Results
 
 The aim of the study was to understand the connections between spirituality, social comparison, temporal comparison and self-esteem for individuals. Especially, we wanted to analyze the effects of spirituality on self-esteem and determine if they pass through social comparison and/or temporal comparison. \
 
-Thanks to criteria and tests we used, we were able to define the best model for this study : \textit{mod4}. It gather all the notions and take into account an influence of social comparison on temporal comparison.
+Thanks to criteria and tests we used, we were able to define the best model for this study : \textit{mod4}.\
+It gather all the notions and take into account an influence of social comparison on temporal comparison.
 According to this model which highlights the significance of the indirect effect \textbf{Indirect1}, the main effect on self-esteem of individuals is social comparison due to spirituality.\
 
 To put it in a nutshell, we can conclude in favor of connection between the different notions. Especially, the effect of spirituality on self-esteem transits by social comparison.
