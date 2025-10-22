@@ -303,9 +303,7 @@ $\Leftrightarrow Y = a_0 + a_2 b_0 + a_1 X + a_2 b_1 X + \mathcal{E}'$
 
 $\Leftrightarrow Y = (a_0 + a_2 b_0) + (a_1 + a_2 b_1) X + \mathcal{E}'$
 
-Here, $\quad \mathcal{E}' = a_2 \mathcal{E}_{M} + \mathcal{E}_Y$.
-
-We can notice that, because $\mathcal{E}_M \in [X]^\bot$ and $\mathcal{E}_Y \in [X, M]^\bot$, $\mathcal{E}' \in [X]^\bot$.\
+Here, $\quad \mathcal{E}' = a_2 \mathcal{E}_{M} + \mathcal{E}_Y$ with $\mathcal{E}' \in [X]^\bot$ because $\mathcal{E}_M \in [X]^\bot$ and $\mathcal{E}_Y \in [X, M]^\bot$\
 
 Therefore, we can write the effects of $X$ on $Y$:
 
@@ -314,6 +312,9 @@ $$
 $$
 
 ### Application
+
+We build several model which connects the latent variables **Spirituality, Social comparison, Temporal comparison and Self esteem**.\
+Each of them being determined by different observed variables. 
 
 ::: panel-tabset
 
@@ -374,7 +375,7 @@ $$
 \begin{cases}
 \textsf{Spirituality} = \sim \textit{spirit1 + spirit2 + spirit3 + spirit4 + spirit5} \\
 \quad \quad \quad \quad \quad \quad \quad + \textit{spirit6 + spirit7 + spirit8 + spirit9 + spirit10} \\
-\quad \quad \quad \quad \quad \quad \quad + \textit{spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16} \\
+\quad \quad \quad \quad \quad \quad \quad + \textit{spirit11 + spirit12 + spirit13 + spirit14 + spirit15} \\
 \quad \quad \quad \quad \quad \quad \quad + \textit{spirit16} \\
 \\
 \textsf{Social comparison} = \sim \textit{compSoc1 + compSoc3 + compSoc4 + compSoc6} \\
@@ -389,8 +390,6 @@ $$
 Disposing of all our latent variables, it is possible to build different models of structural equations.
 
 #### Model 1
-
-We build the model \textit{mod1} which connects the latent variables \textsf{Spirituality}, \textsf{Social comparison} and \textsf{Self esteem}. Each of them is determined by different observed variables. We obtain the following graphic :
 
 ```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
@@ -458,7 +457,7 @@ summary(fit1, fit = T, rsquare = T)
 ```
 </details> 
 
-The aim is to analyze direct and indirect effects on **Self-esteem** for the model `fit1`. To reference the first part of our project, we rename our latent variables:
+The aim is to analyze direct and indirect effects on **Self-esteem** for the model `fit1`. To reference the first part, we rename our latent variables:
 
 $$
 \begin{cases}
@@ -468,7 +467,7 @@ Y := \textsf{Self-esteem}
 \end{cases}
 $$
 
-This is a mediation model. It is possible to analyze the direct and indirect effects on $Y$.\
+This is a **mediation model**. It is possible to analyze the direct and indirect effects on $Y$.\
 
 First, we make explicit the structural model and substitute in the expression of $Y$:
 
@@ -500,8 +499,6 @@ We can conclude that in the model `fit1`, the **indirect effect is significant f
 
 
 #### Model 2
-
-We build the model `fit2` which connects the latent variables **Spirituality, Temporal comparison and Self esteem**. Each of them is determined by different observed variables. We obtain the following graphic :
 
 ```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
@@ -539,7 +536,7 @@ Indirect := b1 * a2
 Total := Direct + Indirect
 '
 
-fit2 = sem(
+fit2 <- sem(
   model2,
   data = data,
   std.lv = T,
@@ -554,7 +551,7 @@ summary(fit2, fit = T, rsquare = T)
 ```
 </details> 
 
-The aim is to analyze direct and indirect effects on **Self-esteem** for the model `fit2`. To reference the first part of our project, we rename our latent variables:
+The aim is to analyze direct and indirect effects on **Self-esteem** for the model `fit2`. To reference the first part, we rename our latent variables:
 
 $$
 \begin{cases}
@@ -564,7 +561,7 @@ Y := \textsf{Self-esteem}
 \end{cases}
 $$
 
-This is a mediation model. It is possible to analyze the direct and indirect effects on $Y$.\
+This is still a **mediation model**. It is possible to analyze the direct and indirect effects on $Y$.\
 
 First, we make explicit the structural model and substitute in the expression of $Y$:
 
@@ -595,8 +592,6 @@ Finally, with the summary of the fit of the model `fit2` in `R`, we can build th
 We can conclude that in the model `fit2`, the **direct effect is significant for the variable Self-esteem**.
 
 #### Model 3
-
-We build the model `fit3` which connects the latent variables **Spirituality, Social comparison, Temporal comparison and Self esteem**. Each of them is determined by different observed variables. We obtain the following graphic :
 
 ```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
@@ -641,7 +636,7 @@ Indirect := (c1 * a2) + (b1 * a3)
 Total := Direct + Indirect
 '
 
-fit3 = sem(
+fit3 <- sem(
   model3,
   data = data,
   std.lv = T,
@@ -656,7 +651,7 @@ summary(fit3, fit = T, rsquare = T)
 ```
 </details> 
 
-The aim is to analyse direct and indirect effects on **Self-esteem** for the model `fit3`. To reference to the first part of our project, we rename our latent variables as we already have done for `fit1` and `fit2` : 
+The aim is to analyse direct and indirect effects on **Self-esteem** for the model `fit3`. To reference to the first part, we rename our latent variables as we already have done for `fit1` and `fit2` : 
 
 $$
 \begin{cases}
@@ -667,7 +662,7 @@ Y := \textsf{Self-esteem}
 \end{cases}
 $$
 
-This is a parallel mediation model. It is possible to analyse the direct and indirect effects on $Y$. Before that, we explicit the structural model and we substitute in the expression of $Y$.
+This is a **parallel mediation model**. It is possible to analyse the direct and indirect effects on $Y$. Before that, we explicit the structural model and we substitute in the expression of $Y$.
 
 $$
 \begin{cases}
@@ -698,80 +693,111 @@ We can conclude that in the model `fit3`, the **indirect effect is significant f
 Especially, the most significant effect is given by the path :\
 **Spirituality $\rightarrow$ Social comparison $\rightarrow$ Self-esteem**.
 
-#### Model 2
-
-```{r}
-model2 <- '
-# MODELE DE MESURE
-CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
-ES =~ es3 + es5 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
-
-# MODELE DE STRUCTURE
-CompTemp ~ u1 * Spirit
-ES ~ v1 * CompTemp + v2 * Spirit
-
-D := v2 
-I := u1 * v1
-T := D + I
-'
-
-
-fit2 = sem(model2, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit2, fit=T, rsquare=T)
-```
-
-#### Model 3
-
-```{r}
-model3 <- '
-# MODELE DE MESURE
-CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
-CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
-ES =~ es3 + es5 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
-
-# MODELE DE STRUCTURE
-CompSoc ~ c1 * Spirit
-CompTemp ~ d1 * Spirit
-ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
-
-
-D := b3
-I := (b1 * c1) + (b2 * d1)
-T := D + I
-'
-
-fit3 = sem(model3, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit3, fit=T, rsquare=T)
-```
 
 #### Model 4
 
+```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [draw, -Stealth, thick]
+\tikzstyle{elli} = [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=8em, text centered, minimum height=7mm, node distance=3em]
+
+\begin{tikzpicture}
+        % Create Blocks
+        \node [elli, fill = green!30!white] (compS) {Social comparison};
+        \node [elli, fill = magenta!30!white, below of = compS, yshift=0em, xshift=7em] (selfE) {Self esteem};
+        \node [elli, fill = orange!30!white, below of = compS, yshift=0em, xshift=-7em] (spirit) {Spirituality};
+        \node [elli, fill = cyan!30!white, below of = compS, yshift=-3em] (compT) {Temporal comparison};
+        % Add Arrows
+        \path [line] (spirit) -- (compS);
+        \path [line] (compS) -- (selfE);
+        \path [line] (spirit) -- (selfE);
+        \path [line] (spirit) -- (compT);
+        \path [line] (compT) -- (selfE);
+        \path [line] (compS) -- (compT);
+    \end{tikzpicture}
+```
+
 ```{r}
 model4 <- '
-# MODELE DE MESURE
+# Measurement model
 CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
-CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
+CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6
 ES =~ es3 + es5 + es8 + es9 + es10
 Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
 
-# MODELE DE STRUCTURE
-CompTemp ~ d1 * Spirit + d2 * CompSoc
-CompSoc ~ c1 * Spirit
-ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
+# Structural model
+CompSoc ~ 1 + c1 * Spirit
+CompTemp ~ 1 + b1 * Spirit + b2 * CompSoc
+ES ~ 1 + a1 * Spirit + a2 * CompSoc + a3 * CompTemp
 
-
-
-D := b3
-I := (b1 * c1) + (b2 * d1) + (b2 * d2 * c1)
-T := D + I
+Direct := a1
+Indirect1 := (c1 * a2) 
+Indirect2 := (b1 * a3)
+Indirect3 := (c1 * b2 * a3)
+Indirect := (c1 * a2) + (b1 * a3) + (c1 * b2 * a3)
+Total := Direct + Indirect
 '
 
-
-fit4 = sem(model4, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit4, fit=T, rsquare=T)
+fit4 <- sem(
+  model4,
+  data = data,
+  std.lv = T,
+  se = "boot",
+  bootstrap = 100
+)
 ```
+
+<details><summary>`summary(fit4)`</summary>
+```{r, results='markup'}
+summary(fit4, fit = T, rsquare = T)
+```
+</details> 
+
+The aim is to analyse direct and indirect effects on **Self-esteem** for the model `fit4`. To reference to the first part, we rename our latent variables as we already have done for `fit1` and `fit2` : 
+
+$$
+\begin{cases}
+X := \textsf{Spirituality} \\
+M_1 := \textsf{Social comparison} \\
+M_2 := \textsf{Temporal comparison} \\
+Y := \textsf{Self-esteem}
+\end{cases}
+$$
+
+This is a **serial mediation model**. It is possible to analyse the direct and indirect effects on $Y$. Before that, we explicit the structural model and we substitute in the expression of $Y$.
+
+$$
+\begin{cases}
+M_1 = c_0 + c_1X + \mathcal{E}_{M_1}\\
+M_2 = b_0 + b_1 X + b_2 M_2 + \mathcal{E}_{M_2} \\
+Y = a_0 + a_1 X + a_2 M_1 + a_3M_2 + \mathcal{E}_Y
+\end{cases}
+$$
+$$\Leftrightarrow Y = (a_0 + a_2c_0 + a_3b_0 + a_3b_2c_0) + (a_1 + a_2c_1 + a_3b_1 + a_3b_2c_1)X + \mathcal{E}'$$
+We can verify that the model is identifiable by looking if the **degree of freedom is greater than 0** :
+```{r}
+cat("Degree of fredom for fit4 :", semPower::semPower.getDf(fit4))
+```
+
+Finally, with the summary of the fit of the model `fi43` in `R`, we can build the following table:
+
+**Effect**      | **Expression**                      | **Estimate** | **Std.Err** | **P-value** |
+ |--------------|-------------------------------------|--------------|-------------|-------------|
+ | Direct       | $a_1$                               | -0.033       | 0.063       | 0.604       |
+ | Indirect1    | $a_2 c_1$                           | -0.129       | 0.053       | 0.014       |
+ | Indirect2    | $a_3 b_1$                           | -0.002       | 0.013       | 0.880       |
+ | Indirect3    | $a_3b_2c_1$                         |  0.034       | 0.021       | 0.108       |
+ | Indirect     | $a_2 c_1 + a_3 b_1 + a_3b_2c_1$     | -0.097       | 0.039       | 0.014       |
+ | Total        | $a_1 + a_2c_1 + a_3b_1 + a_3b_2c_1$ | -0.130       | 0.061       | 0.034       |
+
+*Table ?????,: Effects on $Y$ for the model `fit4`*
+
+We can conclude that in the model `fit4`, the **indirect effect is significant for the variable Self-esteem**.\
+Especially, the most significant effect is given by the path :\
+**Spirituality $\rightarrow$ Social comparison $\rightarrow$ Self-esteem** (same as `fit3`).
 
 :::
 
@@ -820,9 +846,12 @@ To put it in a nutshell, we can conclude in favor of connection between the diff
 
 ## Computational informations
 
+<details><summary>Session informations</summary>
 ```{r session_info, results='markup'}
 devtools::session_info()
 ```
+</details> 
+
 
 
 ```{r}
@@ -833,384 +862,21 @@ CompTemp =~ compTemp1 + compTemp2 + compTemp3 + compTemp4 + compTemp5 + compTemp
 ES =~ es1 + es2 + es3 + es4 + es5 + es6 + es7 + es8 + es9 + es10
 Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
 
-# MODELE DE STRUCTURE
-CompTemp ~ d1 * Spirit + d2 * CompSoc
-CompSoc ~ c1 * Spirit
-ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
+# Structural model
+CompSoc ~ 1 + c1 * Spirit
+CompTemp ~ 1 + b1 * Spirit + b2 * CompSoc
+ES ~ 1 + a1 * Spirit + a2 * CompSoc + a3 * CompTemp
 
-
-
-D := b3
-I := (b1 * c1) + (b2 * d1) + (b2 * d2 * c1)
-T := D + I
+Direct := a1
+Indirect1 := (c1 * a2) 
+Indirect2 := (b1 * a3)
+Indirect3 := (c1 * b2 * a3)
+Indirect := (c1 * a2) + (b1 * a3) + (c1 * b2 * a3)
+Total := Direct + Indirect
 '
 
 fit5 = sem(model5, data = data, std.lv = T, se = "boot", bootstrap = 100)
 summary(fit5, fit=T, rsquare=T)
 
 ```
-
-library(readr)
-# data <- read_csv("1. Workspace/Master IS/M1/SSPM/data.csv")
-data <- read.csv("~/1. Workspace/Master_IS/M1/SSPM/data.csv")
-# library(readxl)
-#data <- read_excel("C:/Users/aela4/Desktop/SSPM/data.xlsx")
-
-library(lavaan)
-library(semPlot)
-library(GGally)
-library(car)
-library(leaps)
-library(MASS)
-library(corrplot)
-library(lmtest)
-library(olsrr)
-library(ggplot2)
-
-summary(data)
-dim(data)
-#430  57
-
-#visualisation de nos variables de mesure
-
-#on ne garde que les effets positifs
-es_selected = subset(data, select = c(es3, es5, es8, es9, es10)) 
-compSoc_selected = subset(data, select = c(compSoc1, compSoc3, compSoc4, compSoc6))
-compTemp_selected = subset(data, select = c(compTemp1, compTemp3, compTemp4, compTemp6))
-
-
-par(mfrow=c(2,2))
-boxplot(data[,2:17], col = 1:16, main ='Variables de spiritualité')
-#boxplot(data[,19:26], col = 1:16, main ='Variables de comparaison sociale')
-boxplot(compSoc_selected, col = 1:16, main ='Variables de comparaison sociale gardées pour le système')
-#boxplot(data[,28:35], col = 1:16, main ='Variables de comparaison temporelle')
-boxplot(compTemp_selected, col = 1:16, main ='Variables de comparaison temporelle gardées pour le système')
-#boxplot(data[,37:46], col = 1:16, main ="Variables d'estime de soi")
-boxplot(es_selected, col = 1:16, main ="Variables d'estime de soi gardées pour le système")
-
-par(mfrow=c(1,1))
-
-
-#### Premier modèle 
-################################################################################
-
-## Modèle de regression 
-
-x = data$Score_Spirit
-m = data$Score_CompS
-y = data$Score_ES
-M1 <- lm(m~x)
-M2 <- lm(y~m+x)
-summary(M1)
-summary(M2)
-
-library(car)
-avPlots(M2)
-
-
-## Modèle SEM
-
-model1 <- '
-# MODELE DE MESURE
-CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
-ES =~ es3 + es5 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
-
-# MODELE DE STRUCTURE
-CompSoc ~ c1 * Spirit
-ES ~ b1 * CompSoc + b2 * Spirit
-
-D := b2 
-I := c1 * b1
-T := D + I
-'
-
-fit1 = sem(model1, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit1, fit=T, rsquare=T)
-
-
-labels =  c("compSoc1", "compSoc3", "compSoc4", "compSoc6",
-            "es3", "es5", "es8" , "es9", "es10",
-            'spirit1', 'spirit2', 'spirit3', 'spirit4', 'spirit5', 'spirit6', 'spirit7', 'spirit8', 'spirit9', 'spirit10', 'spirit11', 'spirit12', 'spirit13', 'spirit14', 'spirit15',  'spirit16',
-            'Spiritualité', 'Comparaison\nSocial', 'Estime\nde\nsoi')
-
-semPaths(fit1,
-         rotation = 2,
-         what = "paths",
-         whatLabels = "std",
-         #title = TRUE,
-         #title.color = "black",
-         #title.adj = 0.1,
-         #curvePivot = T,
-         #style="ram",
-         layout = 'tree2',
-         #intercepts = T,
-         #residuals = T,
-         #edge.label.cex=0.45, 
-         nodeLabels = labels,
-         groups="manlat",
-         pastel=TRUE)
-title('Modèle structurel 1')
-
-
-#### Deuxième modèle 
-################################################################################
-
-
-model2 <- '
-# MODELE DE MESURE
-CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
-ES =~ es3 + es5 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
-
-# MODELE DE STRUCTURE
-CompTemp ~ u1 * Spirit
-ES ~ v1 * CompTemp + v2 * Spirit
-
-D := v2 
-I := u1 * v1
-T := D + I
-'
-
-
-fit2 = sem(model2, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit2, fit=T, rsquare=T)
-
-
-
-labels2 =  c("compTemp1", "compTemp3", "compTemp4", "compTemp6",
-            "es3", "es5", "es8" , "es9", "es10",
-            'spirit1', 'spirit2', 'spirit3', 'spirit4', 'spirit5', 'spirit6', 'spirit7', 'spirit8', 'spirit9', 'spirit10', 'spirit11', 'spirit12', 'spirit13', 'spirit14', 'spirit15',  'spirit16',
-            'Comparaison\nTemporelle', 'Estime\nde\nsoi', 'Spiritualité')
-
-semPaths(fit2,
-         rotation = 2,
-         what = "paths",
-         whatLabels = "std",
-         #title = TRUE,
-         #title.color = "black",
-         #title.adj = 0.1,
-         #curvePivot = T,
-         #style="ram",
-         layout = 'tree2',
-         #intercepts = T,
-         #residuals = T,
-         #edge.label.cex=0.45, 
-         nodeLabels = labels2,
-         groups="manlat",
-         pastel=TRUE)
-title('Modèle structurel 2')
-
-
-#### Troisième modèle 
-################################################################################
-
-model3 <- '
-# MODELE DE MESURE
-CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
-CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
-ES =~ es3 + es5 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
-
-# MODELE DE STRUCTURE
-CompSoc ~ c1 * Spirit
-CompTemp ~ d1 * Spirit
-ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
-
-
-D := b3
-I := (b1 * c1) + (b2 * d1)
-T := D + I
-'
-
-fit3 = sem(model3, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit3, fit=T, rsquare=T)
-
-
-
-labels3 =  c("compSoc1", "compSoc3", "compSoc4", "compSoc6",
-             "compTemp1", "compTemp3", "compTemp4", "compTemp6",
-             "es3", "es5", "es8" , "es9", "es10",
-             'spirit1', 'spirit2', 'spirit3', 'spirit4', 'spirit5', 'spirit6', 'spirit7', 'spirit8', 'spirit9', 'spirit10', 'spirit11', 'spirit12', 'spirit13', 'spirit14', 'spirit15',  'spirit16',
-             'Comparaison\nSocial' , 'Comparaison\nTemporelle', 'Estime\nde\nsoi', 'Spiritualité')
-
-
-
-
-semPaths(fit3,
-         rotation = 1,
-         what = "paths",
-         whatLabels = "std",
-         #title = TRUE,
-         #title.color = "black",
-         #title.adj = 0.1,
-         #curvePivot = T,
-         #style="ram",
-         layout = 'spring',
-         #intercepts = T,
-         #residuals = T,
-         #edge.label.cex=0.45, 
-         nodeLabels = labels3,
-         groups="manlat",
-         pastel=TRUE)
-title('Modèle structurel 3')
-
-
-
-
-#### Quatrième modèle 
-################################################################################
-
-
-model4 <- '
-# MODELE DE MESURE
-CompSoc =~ compSoc1 + compSoc3 + compSoc4 + compSoc6
-CompTemp =~ compTemp1 + compTemp3 + compTemp4 + compTemp6 
-ES =~ es3 + es5 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
-
-# MODELE DE STRUCTURE
-CompTemp ~ d1 * Spirit + d2 * CompSoc
-CompSoc ~ c1 * Spirit
-ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
-
-
-
-D := b3
-I := (b1 * c1) + (b2 * d1) + (b2 * d2 * c1)
-T := D + I
-'
-
-
-fit4 = sem(model4, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit4, fit=T, rsquare=T)
-
-
-semPaths(fit4,
-         rotation = 1,
-         what = "paths",
-         whatLabels = "std",
-         #title = TRUE,
-         #title.color = "black",
-         #title.adj = 0.1,
-         #curvePivot = T,
-         #style="ram",
-         layout = 'spring',
-         #intercepts = T,
-         #residuals = T,
-         #edge.label.cex=0.45, 
-         nodeLabels = labels3,
-         groups="manlat",
-         pastel=TRUE)
-title('Modèle structurel 4')
-
-
-
-
-#### Cinquièmé modéle 
-################################################################################
-
-# On va cette fois ci prendre ne considération tout les items effets + ou -
-
-
-
-model5 <- '
-# MODELE DE MESURE
-CompSoc =~ compSoc1 + compSoc2 + compSoc3 + compSoc4 + compSoc5 + compSoc6 + compSoc7 + compSoc8
-CompTemp =~ compTemp1 + compTemp2 + compTemp3 + compTemp4 + compTemp5 + compTemp6 + compTemp7 + compTemp8
-ES =~ es1 + es2 + es3 + es4 + es5 + es6 + es7 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
-
-# MODELE DE STRUCTURE
-CompTemp ~ d1 * Spirit + d2 * CompSoc
-CompSoc ~ c1 * Spirit
-ES ~ b1 * CompSoc + b2 * CompTemp + b3 * Spirit
-
-
-
-D := b3
-I := (b1 * c1) + (b2 * d1) + (b2 * d2 * c1)
-T := D + I
-'
-
-fit5 = sem(model5, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit5, fit=T, rsquare=T)
-
-semPaths(fit5,
-         rotation = 1,
-         what = "paths",
-         whatLabels = "std",
-         #title = TRUE,
-         #title.color = "black",
-         #title.adj = 0.1,
-         #curvePivot = T,
-         #style="ram",
-         layout = 'spring',
-         #intercepts = T,
-         #residuals = T,
-         #edge.label.cex=0.45, 
-         #nodeLabels = labels3,
-         groups="manlat",
-         pastel=TRUE)
-title('Modèle structurel 5')
-
-
-
-#### TEST
-################################################################################
-
-#### Other
-
-
-library(readr)
-library(lavaan)
-library(semPlot)
-# import the data directly from s3 bucket
-data2 <- read.csv('https://articledatas3.s3.eu-central-1.amazonaws.com/StructuralEquationModelingData.csv')
-
-# Print the data
-head(data2 )
-
-
-modelbis <- '
-  # measurement model
-    JobPerf =~ ClientSat + SuperSat + ProjCompl
-    Social =~ PsychTest1 + PsychTest2
-    Intellect =~ YrsEdu + IQ
-    Motivation =~ HrsTrn + HrsWrk
-  # regressions
-    JobPerf ~ Social + Intellect + Motivation
-'
-
-
-
-fitbis <- sem(modelbis, data = data2)
-summary(fitbis, standardized = TRUE)
-
-
-
-semPaths(fitbis,
-         rotation = 2,
-         what = "paths",
-         whatLabels = "std",
-         #title = TRUE,
-         #title.color = "black",
-         #title.adj = 0.1,
-         #curvePivot = T,
-         #style="ram",
-         layout = 'tree2',
-         #intercepts = T,
-         #residuals = T,
-         #edge.label.cex=0.45, 
-         #nodeLabels = labels3,
-         groups="manlat",
-         pastel=TRUE)
-
-
-
-
-
-
-
-
 
