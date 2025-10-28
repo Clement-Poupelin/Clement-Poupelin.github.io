@@ -1,0 +1,27 @@
+\documentclass[
+%% TIKZ_CLASSOPTION %%
+tikz
+]{standalone}
+\usepackage{amsmath}
+\usetikzlibrary{matrix}
+%% EXTRA_TIKZ_PREAMBLE_CODE %%
+\begin{document}
+%% TIKZ_CODE %%
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [draw, -Stealth, thick]
+\tikzstyle{elli} = [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=8em, text centered, minimum height=7mm, node distance=3em]
+
+\begin{tikzpicture}
+        % Create Blocks
+        \node [elli, fill = cyan!30!white] (compT) {Temporal comparison};
+        \node [elli, fill = magenta!30!white, below of = compT, yshift=-3em, xshift=6em] (selfE) {Self-esteem};
+        \node [elli, fill = orange!30!white, below of = compT, yshift=-3em, xshift=-6em] (spirit) {Spirituality};
+        % Add Arrows
+        \path [line] (spirit) -- (compT);
+        \path [line] (compT) -- (selfE);
+        \path [line] (spirit) -- (selfE);
+\end{tikzpicture}
+\end{document}

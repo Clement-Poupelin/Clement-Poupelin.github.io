@@ -16,7 +16,7 @@ format:
 number-sections: false
 editor: visual
 categories: ["Structural Equation Modeling", "Psychology"]
-description: "This study was made during the Supervised Study Project in Mathematics of the first year of master"
+description: "This study was made during the Supervised Study Project in Mathematics (SSPM) of the first year of master"
 execute: 
   echo: true 
   warning: false 
@@ -24,15 +24,15 @@ execute:
   error: true
 ---
 
-# Intervenant.e.s
+<!-- # Intervenant.e.s -->
 
-### Rédaction
+<!-- ### Rédaction -->
 
--   **Clément Poupelin**, [clementjc.poupelin\@gmail.com](mailto:clementjc.poupelin@gmail.com){.email}\
+<!-- -   **Clément Poupelin**, [clementjc.poupelin\@gmail.com](mailto:clementjc.poupelin@gmail.com){.email}\ -->
 
-### Relecture
+<!-- ### Relecture -->
 
--   
+<!-- -    -->
 
 
 <!-- ```{r tikz, engine = 'tikz', echo = FALSE, fig.width=6, fig.height=4} -->
@@ -66,8 +66,13 @@ execute:
 ### packages
 
 ```{r}
-library(lavaan)
-library(dplyr)
+library(dplyr)    ## Data manipulation
+library(tidyr)    ## Data manipulation
+library(ggplot2)  ## Plots
+library(viridis)  ## Colorblind palet
+
+library(lavaan)   ## Structural equation modeling
+
 # devtools::install_github('SachaEpskamp/semPlot')
 # library(semPlot)
 ```
@@ -75,7 +80,26 @@ library(dplyr)
 ### Functions
 
 ```{r}
+create_barplot <- function(data, title, palette = "viridis") {
+  data_long <- data %>%
+    pivot_longer(cols = everything(), names_to = "Item", values_to = "Response")
 
+  ggplot(data_long, aes(x = factor(Response), fill = factor(Response))) +
+    geom_bar() +
+    facet_wrap(~ Item, ncol = 2) +  # 2 colonnes pour le facet
+    labs(title = title, x = "Response", y = "Frequency") +
+    scale_fill_viridis_d(option = palette, direction = -1) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(size = 32, face = "bold"),
+      axis.title.y = element_text(size = 22),
+      axis.title.x = element_text(size = 22),
+      axis.text.y = element_text(size = 20),
+      axis.text.x = element_text(size = 20, angle = 45, hjust = 1),
+      strip.text = element_text(size = 24, face = "bold"),  # Personnalisation des titres des facets
+      legend.position = "none"  # Pas besoin de légende redondante
+    )
+}
 ```
 
 ### Seed
@@ -87,20 +111,24 @@ set.seed(140400)
 
 ## Abstract
 
-Cette analyse aura pour but de proposer une application simple de structural equation modeling pour introduire le concept.
+This tutorial provides a simple application of Structural Equation Modeling (SEM) to introduce the concept using a modified and simplified version of the dataset from the article "[Explicit spirituality, self-esteem and the mechanisms of social and temporal comparison](https://dergipark.org.tr/en/download/article-file/2592756)" by Justine Ollivaud, Jean-Michel Galharret, and Nicolas Roussiau.\
 
-Cela se fera sur une version modifié et plus simple d'un jeu de donnée utilisé dans l'article [Explicit spirituality, self-esteem and the mechanisms of social and temporal comparison](https://dergipark.org.tr/en/download/article-file/2592756) of Justine Ollivaud, Jean-Michel Galharret and Nicolas Roussiau.\
-IL s'agit d'une application dans le domaine de la recherche en psychologie qui vise à analyser l'impact de la spiritualité sur l'estime de soi.
+The analysis focuses on the psychological research domain, specifically examining the impact of spirituality on self-esteem, mediated by social and temporal comparison mechanisms. The goal is to offer a practical, accessible introduction to SEM for researchers and students interested in psychological data analysis.
 
 ## Import Data
 
+The dataset used in this study is imported in .csv format and we remove all missing values with the `na.omit()` function.
+
 ```{r}
-data <- read.csv("~/Documents/1_Projet/Perso/SSPM_data.csv")
-data <- data[,1:47] %>% na.omit()
+# Load the dataset
+SSPM_data <- read.csv("~/Documents/1_Projet/Perso/SSPM_data.csv")
+
+# remove missing values
+SSPM_data <- SSPM_data[,1:47] %>% na.omit()
 ```
 
 
-The data frame used for the study includes `r nrow(data)` individuals. They are characterized by the `r ncol(data)` following variables :
+It includes `r nrow(SSPM_data)` individuals. They are characterized by the `r ncol(SSPM_data)` following variables :
 
  -  `Identifiant` : integer assigned to the individual
  
@@ -125,53 +153,132 @@ The data frame used for the study includes `r nrow(data)` individuals. They are 
  <!-- - `Croy_Rel` : belief or not of the individual to religion -->
 
 ```{r}
-data %>% DT::datatable()
+SSPM_data %>% DT::datatable()
 ```
 
+For this analysis, only positively worded items are retained:
+
 ```{r}
-#on ne garde que les effets positifs
-es_selected = subset(data, select = c(es3, es5, es8, es9, es10)) 
-compSoc_selected = subset(data, select = c(compSoc1, compSoc3, compSoc4, compSoc6))
-compTemp_selected = subset(data, select = c(compTemp1, compTemp3, compTemp4, compTemp6))
+# Select positively worded items
+es_selected <- subset(SSPM_data,
+                      select = c(es3, es5, es8, es9, es10)) 
+compSoc_selected <- subset(SSPM_data,
+                           select = c(compSoc1, compSoc3, compSoc4, compSoc6))
+compTemp_selected <- subset(SSPM_data,
+                            select = c(compTemp1, compTemp3, compTemp4, compTemp6))
+spirit_selected <- subset(SSPM_data,
+                          select = c(spirit1, spirit2, spirit3, spirit4, spirit5, spirit6, spirit7, spirit8, spirit9, spirit10, spirit11, spirit12, spirit13, spirit14, spirit15, spirit16))
+
+es_selected %>% 
+  colnames() %>% 
+  print()
+compSoc_selected %>% 
+  colnames() %>% 
+  print()
+compTemp_selected %>% 
+  colnames() %>% 
+  print()
+spirit_selected %>% 
+  colnames() %>% 
+  print()
 ```
 
 ## Preliminary analysis
 
 ### Descriptive analysis
 
-```{r}
-par(mfrow=c(2,2))
-boxplot(data[,2:17], col = 1:16, main ='Variables de spiritualité')
-#boxplot(data[,19:26], col = 1:16, main ='Variables de comparaison sociale')
-boxplot(compSoc_selected, col = 1:16, main ='Variables de comparaison sociale gardées pour le système')
-#boxplot(data[,28:35], col = 1:16, main ='Variables de comparaison temporelle')
-boxplot(compTemp_selected, col = 1:16, main ='Variables de comparaison temporelle gardées pour le système')
-#boxplot(data[,37:46], col = 1:16, main ="Variables d'estime de soi")
-boxplot(es_selected, col = 1:16, main ="Variables d'estime de soi gardées pour le système")
+To represent the distribution of responses to each questionnaire item, we use barplots. This approach is more intuitive for categorical questionnaire data. We also use facet grids to separate items by construct (e.g., self-esteem, social comparison).\
+Note that colors can be chosen to be accessible to colorblind individuals.
 
-par(mfrow=c(1,1))
+::: panel-tabset
+
+## Self-Esteem
+
+```{r, fig.width=16, fig.height=14}
+create_barplot(es_selected, "Selected Self-Esteem Items", palette = "D")
 ```
 
+## Spirituality
+
+```{r, fig.width=16, fig.height=18}
+create_barplot(spirit_selected, "Spirituality Items", palette = "A")
+```
+
+
+## Social Comparison
+
+```{r, fig.width=16, fig.height=14}
+create_barplot(compSoc_selected, "Selected Social Comparison Items", palette = "E")
+```
+
+## Temporal Comparison
+
+```{r, fig.width=16, fig.height=14}
+create_barplot(compTemp_selected, "Selected Temporal Comparison Items", palette = "F")
+```
+
+:::
 
 ### Linear Model
 
+We fit two linear models to explore the relationships between spirituality, social/temporal comparison, and self-esteem:
+
+ - Model 1 (M1): Social comparison as a function of spirituality
+ 
+ - Model 2 (M2): Self-esteem as a function of social comparison and spirituality
+
+::: panel-tabset
+
+#### Model 1 
+
 ```{r}
-x = data$Score_Spirit
-m = data$Score_CompS
-y = data$Score_ES
-M1 <- lm(m~x)
-M2 <- lm(y~m+x)
+# Fit linear models
+M1 <- lm(Score_CompS ~ Score_Spirit, data = SSPM_data)
+
+# Summarize results
 summary(M1)
+
+# Visualize M1 with added-variable plots
+car::avPlots(M1)
+```
+
+#### Model 2
+
+```{r}
+# Fit linear models
+M2 <- lm(Score_ES ~ Score_CompS + Score_Spirit, data = SSPM_data)
+
+# Summarize results
 summary(M2)
 
+# Visualize M2 with added-variable plots
 car::avPlots(M2)
 ```
+
+::: 
+
+M1 tests the direct effect of spirituality on social comparison and M2 tests the combined effect of social comparison and spirituality on self-esteem.
+
+Then, the avPlots function helps visualize the contribution of each predictor, adjusting for the others.
+
+### From Linear Models to Structural Equation Modeling: Why SEM Matters
+
+In the preliminary analysis, we used linear regression models (lm) to explore the relationships between spirituality, social/temporal comparison, and self-esteem. These models rely on composite scores—that is, the total or average scores derived from summing or averaging responses to multiple questionnaire items (e.g., Score_Spirit, Score_CompS, Score_ES). While this approach is straightforward and easy to interpret, it has several limitations:
+
+ - **Loss of Nuance**: By aggregating individual items into a single score, we assume that all items contribute equally to the underlying construct (e.g., spirituality or self-esteem). This ignores the possibility that some items may be more relevant or reliable than others, or that the construct itself is multidimensional.
+
+ - **Measurement Error**: Composite scores are treated as perfectly measured variables, which is rarely true in practice. Measurement error (e.g., due to poorly worded questions or individual differences in interpretation) can bias the estimated relationships between variables.
+
+ - **Limited Theoretical Flexibility**: Linear regression cannot explicitly model complex theoretical relationships, such as mediation, moderation, or latent variables (unobserved constructs inferred from observed variables).
+
+**Structural Equation Modeling (SEM) addresses these limitations by offering a more sophisticated and theoretically grounded framework for analyzing relationships between variables**.\
+
 
 ## Structural Equation Modeling
 
 ### Theory
 
-Now, we can propose an example of SEM (For more details, do not hesitate to see the dedicated publication [Structural equation modeling and application in psychology](https://github.com/Clement-Poupelin/Clement-Poupelin.github.io/blob/main/docs/SSPM_Aela_JAGOT_Clement_POUPELIN_M1IS.pdf)).
+For a quick understanding, we propose an example of SEM (For more details, do not hesitate to see the dedicated publication [Structural equation modeling and application in psychology](https://github.com/Clement-Poupelin/Clement-Poupelin.github.io/blob/main/docs/SSPM_Aela_JAGOT_Clement_POUPELIN_M1IS.pdf)).
 
 ```{r, engine = 'tikz', echo = FALSE, fig.width=6, fig.height=4, fig.align='center'}
 
@@ -430,7 +537,7 @@ Total := Direct + Indirect
 fit1 <- sem(
   model1,
   # The structural equation model
-  data = data,
+  data = SSPM_data,
   # The dataset containing the variables to be analyzed
   std.lv = T,
   # Standardization of latent variables
@@ -538,7 +645,7 @@ Total := Direct + Indirect
 
 fit2 <- sem(
   model2,
-  data = data,
+  data = SSPM_data,
   std.lv = T,
   se = "boot",
   bootstrap = 100
@@ -638,7 +745,7 @@ Total := Direct + Indirect
 
 fit3 <- sem(
   model3,
-  data = data,
+  data = SSPM_data,
   std.lv = T,
   se = "boot",
   bootstrap = 100
@@ -743,7 +850,7 @@ Total := Direct + Indirect
 
 fit4 <- sem(
   model4,
-  data = data,
+  data = SSPM_data,
   std.lv = T,
   se = "boot",
   bootstrap = 100
@@ -875,8 +982,14 @@ Indirect := (c1 * a2) + (b1 * a3) + (c1 * b2 * a3)
 Total := Direct + Indirect
 '
 
-fit5 = sem(model5, data = data, std.lv = T, se = "boot", bootstrap = 100)
-summary(fit5, fit=T, rsquare=T)
+fit5 = sem(
+  model5,
+  data = SSPM_data,
+  std.lv = T,
+  se = "boot",
+  bootstrap = 100
+)
+summary(fit5, fit = T, rsquare = T)
 
 ```
 
