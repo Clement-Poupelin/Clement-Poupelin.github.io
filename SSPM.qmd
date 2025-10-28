@@ -153,7 +153,7 @@ It includes `r nrow(SSPM_data)` individuals. They are characterized by the `r nc
  <!-- - `Croy_Rel` : belief or not of the individual to religion -->
 
 ```{r}
-SSPM_data %>% DT::datatable()
+SSPM_data %>% head() %>% DT::datatable()
 ```
 
 For this analysis, only positively worded items are retained:
@@ -961,35 +961,35 @@ devtools::session_info()
 
 
 
-```{r}
-model5 <- '
-# MODELE DE MESURE
-CompSoc =~ compSoc1 + compSoc2 + compSoc3 + compSoc4 + compSoc5 + compSoc6 + compSoc7 + compSoc8
-CompTemp =~ compTemp1 + compTemp2 + compTemp3 + compTemp4 + compTemp5 + compTemp6 + compTemp7 + compTemp8
-ES =~ es1 + es2 + es3 + es4 + es5 + es6 + es7 + es8 + es9 + es10
-Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16
+<!-- ```{r} -->
+<!-- model5 <- ' -->
+<!-- # MODELE DE MESURE -->
+<!-- CompSoc =~ compSoc1 + compSoc2 + compSoc3 + compSoc4 + compSoc5 + compSoc6 + compSoc7 + compSoc8 -->
+<!-- CompTemp =~ compTemp1 + compTemp2 + compTemp3 + compTemp4 + compTemp5 + compTemp6 + compTemp7 + compTemp8 -->
+<!-- ES =~ es1 + es2 + es3 + es4 + es5 + es6 + es7 + es8 + es9 + es10 -->
+<!-- Spirit =~ spirit1 + spirit2 + spirit3 + spirit4 + spirit5 + spirit6 + spirit7 + spirit8 + spirit9 + spirit10 + spirit11 + spirit12 + spirit13 + spirit14 + spirit15 + spirit16 -->
 
-# Structural model
-CompSoc ~ 1 + c1 * Spirit
-CompTemp ~ 1 + b1 * Spirit + b2 * CompSoc
-ES ~ 1 + a1 * Spirit + a2 * CompSoc + a3 * CompTemp
+<!-- # Structural model -->
+<!-- CompSoc ~ 1 + c1 * Spirit -->
+<!-- CompTemp ~ 1 + b1 * Spirit + b2 * CompSoc -->
+<!-- ES ~ 1 + a1 * Spirit + a2 * CompSoc + a3 * CompTemp -->
 
-Direct := a1
-Indirect1 := (c1 * a2) 
-Indirect2 := (b1 * a3)
-Indirect3 := (c1 * b2 * a3)
-Indirect := (c1 * a2) + (b1 * a3) + (c1 * b2 * a3)
-Total := Direct + Indirect
-'
+<!-- Direct := a1 -->
+<!-- Indirect1 := (c1 * a2)  -->
+<!-- Indirect2 := (b1 * a3) -->
+<!-- Indirect3 := (c1 * b2 * a3) -->
+<!-- Indirect := (c1 * a2) + (b1 * a3) + (c1 * b2 * a3) -->
+<!-- Total := Direct + Indirect -->
+<!-- ' -->
 
-fit5 = sem(
-  model5,
-  data = SSPM_data,
-  std.lv = T,
-  se = "boot",
-  bootstrap = 100
-)
-summary(fit5, fit = T, rsquare = T)
+<!-- fit5 = sem( -->
+<!--   model5, -->
+<!--   data = SSPM_data, -->
+<!--   std.lv = T, -->
+<!--   se = "boot", -->
+<!--   bootstrap = 100 -->
+<!-- ) -->
+<!-- summary(fit5, fit = T, rsquare = T) -->
 
-```
+<!-- ``` -->
 
