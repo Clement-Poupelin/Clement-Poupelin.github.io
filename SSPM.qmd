@@ -112,6 +112,7 @@ set.seed(140400)
 ## Abstract
 
 This tutorial provides a simple application of Structural Equation Modeling (SEM) to introduce the concept using a modified and simplified version of the dataset from the article "[Explicit spirituality, self-esteem and the mechanisms of social and temporal comparison](https://dergipark.org.tr/en/download/article-file/2592756)" by Justine Ollivaud, Jean-Michel Galharret, and Nicolas Roussiau.\
+It is inspired by the Supervised Study Project in Mathematics (SSPM) of the first year of master [Structural equation modeling and application in psychology](http://clement-poupelin.github.io/publications.html) by [Clément Poupelin](http://clement-poupelin.github.io/) and [Aëla Jogot](http://fr.linkedin.com/in/a%C3%ABla-jagot-91834a200).\
 
 The analysis focuses on the psychological research domain, specifically examining the impact of spirituality on self-esteem, mediated by social and temporal comparison mechanisms. The goal is to offer a practical, accessible introduction to SEM for researchers and students interested in psychological data analysis.
 
@@ -128,7 +129,7 @@ SSPM_data <- SSPM_data[,1:47] %>% na.omit()
 ```
 
 
-It includes `r nrow(SSPM_data)` individuals. They are characterized by the `r ncol(SSPM_data)` following variables :
+It includes `r nrow(SSPM_data)` individuals characterized by the `r ncol(SSPM_data)` following variables :
 
  -  `Identifiant` : integer assigned to the individual
  
@@ -153,8 +154,11 @@ It includes `r nrow(SSPM_data)` individuals. They are characterized by the `r nc
  <!-- - `Croy_Rel` : belief or not of the individual to religion -->
 
 ```{r}
-SSPM_data %>% head() %>% DT::datatable()
+SSPM_data %>% DT::datatable()
 ```
+
+
+
 
 For this analysis, only positively worded items are retained:
 
@@ -496,6 +500,43 @@ $$
 
 Disposing of all our latent variables, it is possible to build different models of structural equations.
 
+#### Simple linear model with `lavaan`
+
+As seen, before, In R, the most basic way to run a linear regression is to use the lm() function which is available in base R.\
+If we look again at the M2 model we had : 
+
+```{r}
+summary(M2)
+```
+
+The predicted mean of read is 0 for a student with motiv=0 and for a one unit increase in motivation, the reading score improves 0.530 points. Make special note of the residual standard error which is 
+. The square of that 
+ is the residual variance, which we will see later in lavaan(). We can run the equivalent code in lavaan. The syntax is very similar to lm() in that read ~ motiv specifies the predictor motiv on the outcome read. However, by default the intercept is not included in the output but is implied. If we want to add an intercept, we need to include read ~ 1 + motiv. Optionally, you can request the variance of motiv using motiv ~~ motiv. If this syntax is not provided, the parameter is still estimated but just implied.
+```{r}
+#simple regression using lavaan 
+m1b <-   '
+  # regressions
+    Score_ES ~ 1 + Score_CompS + Score_Spirit
+ # covariance
+    Score_CompS ~~ Score_Spirit
+'
+fit1b <- sem(m1b, data = SSPM_data)
+summary(fit1b)
+```
+
+```{r}
+#simple regression using lavaan 
+m1b <-   '
+  # regressions
+    Score_ES ~ 1 + Score_CompS + Score_Spirit
+'
+fit1b <- sem(m1b, data = SSPM_data)
+summary(fit1b)
+```
+
+The intercept of .read (-0.000) and the regression coefficient of read ~ motiv (0.530) matches the output of lm() with small rounding errors. Note that the . in front of the parameter denotes an endogenous variable under Intercepts and a residual variance if under Variances or Covariances. The intercept for motiv (0.000) does not have a . nor does its variance (99.800) signifying that it is an exogenous mean and variance. The exogenous mean and variance 
+ should closely match the univariate mean (0) and variance (100) as shown below:
+ 
 #### Model 1
 
 ```{r, engine = 'tikz', echo = FALSE, fig.width=4, fig.height=2, fig.align='center'}
@@ -908,46 +949,56 @@ Especially, the most significant effect is given by the path :\
 
 :::
 
-## Validation
+## Model selection
 
 In this part, the objective will be to compare all the models we built to determine which one is the best for the study.
 
+::: panel-tabset
 
 ### Criteria AIC and BIC
 
-At first, the aim will be to compare models with the same size, that means \textit{mod1} with \textit{mod2} and \textit{mod3} with \textit{mod4}. To do that we use the criteria of AIC and BIC. All the values are given in the summaries of the different \textit{fit}.\\\vspace{0.2cm}
-\begin{center}
-    \begin{tabular}{|c||c|c|}\hline
-        \textbf{Model} & \textbf{AIC} & \textbf{BIC} \\ \hline \hline
-        \textit{mod1} & 18513.694 & 18715.206 \\ \hline
-        \textit{mod2} & 18355.843 & 18557.356 \\ \hline \hline
-        \textit{mod3} & 22390.464 & 22629.997 \\ \hline
-        \textit{mod4} & 22344.201 & 22587.537 \\ \hline
-    \end{tabular}\\
-    \vspace{0.25cm}
-    \texttt{Tabular 8 : Criteria AIC and BIC for the different models}\\
-\end{center}                         
-\vspace{0.25cm}
+At first, the aim will be to compare models with the same size, that means \textit{mod1} with \textit{mod2} and \textit{mod3} with \textit{mod4}. To do that we use the criteria of AIC and BIC. All the values are given in the summaries of the different \textit{fit}.\
 
-In both cases, the best model is the model which minimize the criterion AIC and the criterion BIC. We retain the models \textit{mod2} and \textit{mod4}.
+
+
+**Model**      | **AIC**         | **BIC**     | **SABIC**  | 
+ |-------------|-----------------|-------------|------------|
+ | Model 1     | 18567.694       | 18871.863   | 18618.101  |
+ | Model 2     | 18409.843       | 18714.013   | 18460.251  |
+  *Table ?????,: Criteria AIC and BIC for the different models*
+ 
+**Model**      | **AIC**         | **BIC**     | **SABIC**  | 
+ |-------------|-----------------|-------------|------------|
+ | Model 3     | 22454.464       | 22815.665   | 22514.322  |
+ | Model 4     | 22408.201       | 22773.205   | 22468.690  |
+ *Table ?????,: Criteria AIC and BIC for the different models*
+ 
+ 
+In both cases, the best model is the model which minimize the criterion AIC and the criterion BIC. We retain the models mod2 and mod4.
 
 ### Test of nested models
 
-Now stay available two models which are \textit{mod2} and \textit{mod4}. To decide between them, we realize a test of nested models using the function \texttt{anova} on \texttt{R}.\\
+Now stay available two models which are mod2 and mod4. To decide between them, we realize a test of nested models using the function anova on R.\
 
-The Chi-Squared Difference Test give a p-value of 0,000104. \\ The test indicates that it is preferable to keep the additional variable of the model \textit{mod4}.\\
+```{r}
+anova_test <- anova(fit2, fit4)
+anova_test
+```
 
-We can conclude that the model \textit{mod4} is the best model for the study.
+The Chi-Squared Difference Test give a p-value < 0.05 .\
+The test indicates that it is preferable to keep the additional variable of the model mod4.\
 
+We can conclude that the model mod4 is the best model for the study.
 
+:::
 
 ## Results
 
 The aim of the study was to understand the connections between spirituality, social comparison, temporal comparison and self-esteem for individuals. Especially, we wanted to analyze the effects of spirituality on self-esteem and determine if they pass through social comparison and/or temporal comparison. \
 
-Thanks to criteria and tests we used, we were able to define the best model for this study : \textit{mod4}.\
+Thanks to criteria and tests we used, we were able to define the best model for this study : `fit4`.\
 It gather all the notions and take into account an influence of social comparison on temporal comparison.
-According to this model which highlights the significance of the indirect effect \textbf{Indirect1}, the main effect on self-esteem of individuals is social comparison due to spirituality.\
+According to this model which highlights the significance of the indirect effect **Indirect1**, the main effect on self-esteem of individuals is social comparison due to spirituality.\
 
 To put it in a nutshell, we can conclude in favor of connection between the different notions. Especially, the effect of spirituality on self-esteem transits by social comparison.
 
