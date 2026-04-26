@@ -74,7 +74,7 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "Meta-analyse exploratoire de jeux de données métagénomiques publiques de différents écosystèmes microbiens en lien avec la chaı̂ne alimentaire, Submitted on 14 Nov 2024\nStructural equation modeling and application in psychology, Submitted on 23 May 2023 (report available on my website)"
+    "text": "Vincent Huin, Emeline Cailliau, Clément Poupelin, …, Jean-Christophe Corvol, David Devos, Anne-Sophie Rolland (2026). Blood-based biomarkers of ferroptosis in Parkinson’s disease, Neurobiology of Disease, Open Access, DOI: 10.1016/j.nbd.2026.107414."
   },
   {
     "objectID": "projects.html#project-2",
@@ -229,5 +229,19 @@
     "title": "Structural equation modeling and application in psychology (WIP)",
     "section": "Model selection",
     "text": "Model selection\nIn this part, the objective will be to compare all the models we built to determine which one is the best for the study.\n\nCriteria AIC and BICTest of nested models\n\n\nAt first, the aim will be to compare models with the same size, that means with and with . To do that we use the criteria of AIC and BIC. All the values are given in the summaries of the different .\n\n\n\n\nModel\nAIC\nBIC\nSABIC\n\n\n\n\nModel 1\n18567.694\n18871.863\n18618.101\n\n\nModel 2\n18409.843\n18714.013\n18460.251\n\n\n\nTable ?????,: Criteria AIC and BIC for the different models\n\n\n\nModel\nAIC\nBIC\nSABIC\n\n\n\n\nModel 3\n22454.464\n22815.665\n22514.322\n\n\nModel 4\n22408.201\n22773.205\n22468.690\n\n\n\nTable ?????,: Criteria AIC and BIC for the different models\nIn both cases, the best model is the model which minimize the criterion AIC and the criterion BIC. We retain the models mod2 and mod4.\n\n\nNow stay available two models which are mod2 and mod4. To decide between them, we realize a test of nested models using the function anova on R.\n\n\n\nShow the code\nanova_test &lt;- anova(fit2, fit4)\nanova_test\n\n\n\nChi-Squared Difference Test\n\n      Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    \nfit2 270 18410 18714 798.68                                          \nfit4 368 22408 22773 958.54     159.86 0.04367      98  8.011e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nThe Chi-Squared Difference Test give a p-value &lt; 0.05 .\nThe test indicates that it is preferable to keep the additional variable of the model mod4.\n\nWe can conclude that the model mod4 is the best model for the study."
+  },
+  {
+    "objectID": "publications.html#journal-papers",
+    "href": "publications.html#journal-papers",
+    "title": "Publications",
+    "section": "",
+    "text": "Vincent Huin, Emeline Cailliau, Clément Poupelin, …, Jean-Christophe Corvol, David Devos, Anne-Sophie Rolland (2026). Blood-based biomarkers of ferroptosis in Parkinson’s disease, Neurobiology of Disease, Open Access, DOI: 10.1016/j.nbd.2026.107414."
+  },
+  {
+    "objectID": "publications.html#student-papers",
+    "href": "publications.html#student-papers",
+    "title": "Publications",
+    "section": "Student papers",
+    "text": "Student papers\n\n2024\n\nMeta-analyse exploratoire de jeux de données métagénomiques publiques de différents écosystèmes microbiens en lien avec la chaı̂ne alimentaire, Submitted on 14 Nov 2024\n\n\n\n2023\n\nStructural equation modeling and application in psychology, Submitted on 23 May 2023 (report available on my website)"
   }
 ]
