@@ -8,9 +8,7 @@ title: "Publications"
 
 ### 2026
 
--  Vincent Huin, Emeline Cailliau, **Clément Poupelin**, ..., Jean-Christophe Corvol, David Devos, Anne-Sophie Rolland (2026).
-*Blood-based biomarkers of ferroptosis in Parkinson's disease*, Neurobiology of Disease, *Open Access*, DOI: [10.1016/j.nbd.2026.107414](https://doi.org/10.1016/j.nbd.2026.107414).
-
+-  V. Huin, E. Cailliau, **C. Poupelin**, et al., *Blood-based biomarkers of ferroptosis in Parkinson's disease*, Neurobiology of Disease (2024), *Open Access*, DOI: [10.1016/j.nbd.2026.107414](https://doi.org/10.1016/j.nbd.2026.107414).
 
 ## Student papers
 
