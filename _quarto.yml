@@ -39,9 +39,9 @@ website:
         # href: about.html
       - text: CV
         menu: 
-          - href: CV/CV_fr.pdf
+          - href: CV/CV_FR.pdf
             text: French CV
-          - href: CV/CV_en.pdf
+          - href: CV/CV_EN.pdf
             text: English CV
       - icon: github
         href: http://github.com/Clement-Poupelin
