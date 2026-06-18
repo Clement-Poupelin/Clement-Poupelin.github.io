@@ -25,6 +25,7 @@ website:
           - Open16S.qmd
           - challenge_data.qmd
       - publications.qmd
+      - encadrements.qmd
       - text: "Quarto Blogs and reports"
         menu:
           - href: http://clement-poupelin.github.io/Statistique_en_grande_dimension/

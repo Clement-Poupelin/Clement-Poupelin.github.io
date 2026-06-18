@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://clement-poupelin.github.io/SSPM.html</loc>
-    <lastmod>2025-11-01T15:04:28.450Z</lastmod>
+    <loc>https://clement-poupelin.github.io/encadrements.html</loc>
+    <lastmod>2026-06-18T06:43:44.260Z</lastmod>
   </url>
   <url>
-    <loc>https://clement-poupelin.github.io/about.html</loc>
-    <lastmod>2025-10-14T12:45:23.074Z</lastmod>
-  </url>
-  <url>
-    <loc>https://clement-poupelin.github.io/Open16S.html</loc>
-    <lastmod>2025-06-05T12:46:35.038Z</lastmod>
-  </url>
-  <url>
-    <loc>https://clement-poupelin.github.io/secret_gift.html</loc>
-    <lastmod>2025-03-31T21:34:51.030Z</lastmod>
-  </url>
-  <url>
-    <loc>https://clement-poupelin.github.io/publications.html</loc>
-    <lastmod>2026-04-28T13:17:20.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://clement-poupelin.github.io/projects.html</loc>
-    <lastmod>2025-02-07T16:14:16.953Z</lastmod>
+    <loc>https://clement-poupelin.github.io/challenge_data.html</loc>
+    <lastmod>2025-02-10T09:56:37.480Z</lastmod>
   </url>
   <url>
     <loc>https://clement-poupelin.github.io/index.html</loc>
     <lastmod>2025-10-14T12:49:04.457Z</lastmod>
   </url>
   <url>
-    <loc>https://clement-poupelin.github.io/challenge_data.html</loc>
-    <lastmod>2025-02-10T09:56:37.480Z</lastmod>
+    <loc>https://clement-poupelin.github.io/projects.html</loc>
+    <lastmod>2025-02-07T16:14:16.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/publications.html</loc>
+    <lastmod>2026-04-28T13:17:20.075Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/secret_gift.html</loc>
+    <lastmod>2025-03-31T21:34:51.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/Open16S.html</loc>
+    <lastmod>2025-06-05T12:46:35.038Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/about.html</loc>
+    <lastmod>2025-10-14T12:45:23.074Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/SSPM.html</loc>
+    <lastmod>2025-11-01T15:04:28.450Z</lastmod>
   </url>
 </urlset>

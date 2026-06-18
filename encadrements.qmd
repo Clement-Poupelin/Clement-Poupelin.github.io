@@ -1,0 +1,12 @@
+---
+title: "Supervision"
+---
+
+
+## Master student's project
+
+
+### 2026
+
+-  Ines Bakli, Paul Lemonnier, and Alden Sneath, **Statistical Analysis of Metagenomic Data**, [Quarto blog](https://miso-m1.github.io/miso_m1_metagenomics/)
+
