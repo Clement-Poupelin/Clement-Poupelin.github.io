@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://clement-poupelin.github.io/encadrements.html</loc>
-    <lastmod>2026-06-18T06:43:44.260Z</lastmod>
+    <loc>https://clement-poupelin.github.io/proteomics_deseq2.html</loc>
+    <lastmod>2026-07-16T10:20:32.320Z</lastmod>
   </url>
   <url>
-    <loc>https://clement-poupelin.github.io/challenge_data.html</loc>
-    <lastmod>2025-02-10T09:56:37.480Z</lastmod>
+    <loc>https://clement-poupelin.github.io/SSPM.html</loc>
+    <lastmod>2026-06-18T07:42:27.811Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/survival_analysis.html</loc>
+    <lastmod>2026-07-20T14:06:10.543Z</lastmod>
   </url>
   <url>
     <loc>https://clement-poupelin.github.io/index.html</loc>
@@ -33,7 +37,11 @@
     <lastmod>2025-10-14T12:45:23.074Z</lastmod>
   </url>
   <url>
-    <loc>https://clement-poupelin.github.io/SSPM.html</loc>
-    <lastmod>2026-06-18T07:42:27.811Z</lastmod>
+    <loc>https://clement-poupelin.github.io/challenge_data.html</loc>
+    <lastmod>2025-02-10T09:56:37.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://clement-poupelin.github.io/encadrements.html</loc>
+    <lastmod>2026-06-18T06:43:44.260Z</lastmod>
   </url>
 </urlset>
