@@ -1,6 +1,6 @@
 ---
 title: ""
-image: img/me_guitar.jpeg
+image: img/2026.JPG
 about:
   template: trestles
   image-shape: rounded
