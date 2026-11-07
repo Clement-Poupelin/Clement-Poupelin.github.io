@@ -69,7 +69,69 @@ The rendered figures are in the articles of the documentation:
 [Preprocessing](https://clement-poupelin.github.io/vernissage/articles/preprocessing.html)
 and [Tables and Quarto reports](https://clement-poupelin.github.io/vernissage/articles/reporting.html).
 
+## Tutorials
+
+Each tutorial runs on the simulated cohort `cohort_sim` shipped with the package, with all outputs and figures.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+#### [Getting started](https://clement-poupelin.github.io/vernissage/articles/vernissage.html)
+The example cohort, a first look in three lines, the families of functions and how to select columns.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+#### [Preprocessing](https://clement-poupelin.github.io/vernissage/articles/preprocessing.html)
+French CSV import, column names, visits and long format, outliers, log / Box-Cox transformations, composite scores.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+#### [Describing a cohort](https://clement-poupelin.github.io/vernissage/articles/describing.html)
+The cohort overview table, missing data, normality, correlations, principal component analysis, changes between visits.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+#### [Figures](https://clement-poupelin.github.io/vernissage/articles/figures.html)
+Theme and palettes, distributions with outliers and tests, paired visits, trajectories, radar and forest plots.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+#### [Tables and Quarto reports](https://clement-poupelin.github.io/vernissage/articles/reporting.html)
+Number and p-value formatting, `gt` tables with significance highlighting, Quarto tabsets and callouts.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+#### [Function reference](https://clement-poupelin.github.io/vernissage/reference/index.html)
+Every function, its arguments and runnable examples, grouped by family.
+:::
+:::
+:::
+
+:::
+
 ## Companion package
 
-[lodestar](lodestar.qmd) handles limits of detection and cut-offs (median
-split, tertiles, reclassification between visits).
+[lodestar](https://github.com/Clement-Poupelin/lodestar) handles limits of
+detection and cut-offs (median split, tertiles, reclassification between visits).
