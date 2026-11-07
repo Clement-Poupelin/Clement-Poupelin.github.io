@@ -343,6 +343,13 @@
     "text": "Example\nlibrary(vernissage)\n\n# the cohort at a glance\ndescribe_cohort(cohort_sim, vars = c(AGE, SEX, BMI, NFL_V0, MOCA_V0, FALL_V0),\n                by = GROUP, id_col = ID)\nplot_na_map(cohort_sim, vars = c(NFL_V0:CRP_V3), id_col = ID)\n\n# distributions with outliers and group tests\nplot_distribution(cohort_sim, c(NFL_V0, MOCA_V0, SEX), group = GROUP, outlier_mad = TRUE)\n\n# how each subject moves between visits\nplot_paired_visits(cohort_sim, c(NFL_V0, MOCA_V0), id_col = ID, transitions = TRUE)\n\n# group profiles\nplot_radar(cohort_sim, c(AGE, BMI, NFL_V0, IL6_V0, MOCA_V0, UPDRS_V0, SEX),\n           group = GROUP, normalize = \"zscore\", quali_levels = list(SEX = \"Female\"))\nThe rendered figures are in the articles of the documentation: Describing a cohort, Figures, Preprocessing and Tables and Quarto reports."
   },
   {
+    "objectID": "packages/vernissage.html#tutorials",
+    "href": "packages/vernissage.html#tutorials",
+    "title": "vernissage",
+    "section": "Tutorials",
+    "text": "Tutorials\nEach tutorial runs on the simulated cohort cohort_sim shipped with the package, with all outputs and figures.\n\n\n\n\nGetting started\nThe example cohort, a first look in three lines, the families of functions and how to select columns.\n\n\n\n\n\n\nPreprocessing\nFrench CSV import, column names, visits and long format, outliers, log / Box-Cox transformations, composite scores.\n\n\n\n\n\n\nDescribing a cohort\nThe cohort overview table, missing data, normality, correlations, principal component analysis, changes between visits.\n\n\n\n\n\n\nFigures\nTheme and palettes, distributions with outliers and tests, paired visits, trajectories, radar and forest plots.\n\n\n\n\n\n\nTables and Quarto reports\nNumber and p-value formatting, gt tables with significance highlighting, Quarto tabsets and callouts.\n\n\n\n\n\n\nFunction reference\nEvery function, its arguments and runnable examples, grouped by family."
+  },
+  {
     "objectID": "packages/vernissage.html#companion-package",
     "href": "packages/vernissage.html#companion-package",
     "title": "vernissage",
