@@ -140,6 +140,258 @@
     "text": "Computational informations\n\n\nSession informations\n\n\n\nShow the code\ndevtools::session_info()\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.4.2 (2024-10-31)\n os       Ubuntu 24.04.1 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  fr_FR.UTF-8\n ctype    fr_FR.UTF-8\n tz       Europe/Paris\n date     2026-06-18\n pandoc   3.2 @ /usr/lib/rstudio/resources/app/bin/quarto/bin/tools/x86_64/ (via rmarkdown)\n quarto   1.9.38 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package      * version    date (UTC) lib source\n abind          1.4-8      2024-09-12 [1] CRAN (R 4.4.2)\n askpass        1.2.1      2024-10-04 [2] CRAN (R 4.3.3)\n bslib          0.11.0     2026-05-16 [1] CRAN (R 4.4.2)\n cachem         1.1.0      2024-05-16 [2] CRAN (R 4.3.3)\n car            3.1-5      2026-02-03 [1] CRAN (R 4.4.2)\n carData        3.0-6      2026-01-30 [1] CRAN (R 4.4.2)\n cli            3.6.6      2026-04-09 [1] CRAN (R 4.4.2)\n crosstalk      1.2.2      2025-08-26 [1] CRAN (R 4.4.2)\n devtools       2.5.0      2026-03-14 [1] CRAN (R 4.4.2)\n digest         0.6.39     2025-11-19 [1] CRAN (R 4.4.2)\n dplyr        * 1.2.1      2026-04-03 [1] CRAN (R 4.4.2)\n DT             0.34.0     2025-09-02 [1] CRAN (R 4.4.2)\n ellipsis       0.3.3      2026-04-04 [1] CRAN (R 4.4.2)\n evaluate       1.0.5      2025-08-27 [1] CRAN (R 4.4.2)\n farver         2.1.2      2024-05-13 [1] CRAN (R 4.4.2)\n fastmap        1.2.0      2024-05-15 [2] CRAN (R 4.3.3)\n Formula        1.2-5      2023-02-24 [1] CRAN (R 4.4.2)\n fs             2.0.1      2026-03-24 [1] CRAN (R 4.4.2)\n generics       0.1.4      2025-05-09 [1] CRAN (R 4.4.2)\n ggplot2      * 4.0.3      2026-04-22 [1] CRAN (R 4.4.2)\n glue           1.8.1      2026-04-17 [1] CRAN (R 4.4.2)\n gridExtra      2.3        2017-09-09 [1] CRAN (R 4.4.2)\n gtable         0.3.6      2024-10-25 [1] CRAN (R 4.4.2)\n htmltools      0.5.9      2025-12-04 [1] CRAN (R 4.4.2)\n htmlwidgets    1.6.4      2023-12-06 [2] CRAN (R 4.3.3)\n jquerylib      0.1.4      2021-04-26 [2] CRAN (R 4.3.3)\n jsonlite       2.0.0      2025-03-27 [1] CRAN (R 4.4.2)\n knitr          1.51       2025-12-20 [1] CRAN (R 4.4.2)\n labeling       0.4.3      2023-08-29 [1] CRAN (R 4.4.2)\n lavaan       * 0.6-21     2025-12-21 [1] CRAN (R 4.4.2)\n lifecycle      1.0.5      2026-01-08 [1] CRAN (R 4.4.2)\n magick         2.9.1      2026-02-28 [1] CRAN (R 4.4.2)\n magrittr       2.0.5      2026-04-04 [1] CRAN (R 4.4.2)\n MASS           7.3-60.0.1 2024-01-13 [4] CRAN (R 4.3.2)\n memoise        2.0.1      2021-11-26 [2] CRAN (R 4.3.3)\n mnormt         2.1.2      2026-01-27 [1] CRAN (R 4.4.2)\n otel           0.2.0      2025-08-29 [1] CRAN (R 4.4.2)\n pbivnorm       0.6.0      2015-01-23 [1] CRAN (R 4.4.2)\n pdftools       3.9.0      2026-05-14 [1] CRAN (R 4.4.2)\n pillar         1.11.1     2025-09-17 [1] CRAN (R 4.4.2)\n pkgbuild       1.4.8      2025-05-26 [1] CRAN (R 4.4.2)\n pkgconfig      2.0.3      2019-09-22 [2] CRAN (R 4.3.3)\n pkgload        1.5.2      2026-04-22 [1] CRAN (R 4.4.2)\n purrr          1.2.2      2026-04-10 [1] CRAN (R 4.4.2)\n qpdf           1.4.1      2025-07-02 [1] CRAN (R 4.4.2)\n quadprog       1.5-8      2019-11-20 [1] CRAN (R 4.4.2)\n R6             2.6.1      2025-02-15 [1] CRAN (R 4.4.2)\n RColorBrewer   1.1-3      2022-04-03 [1] CRAN (R 4.4.2)\n Rcpp           1.1.1-1.1  2026-04-24 [1] CRAN (R 4.4.2)\n rlang          1.2.0      2026-04-06 [1] CRAN (R 4.4.2)\n rmarkdown      2.31       2026-03-26 [1] CRAN (R 4.4.2)\n rstudioapi     0.18.0     2026-01-16 [1] CRAN (R 4.4.2)\n S7             0.2.2      2026-04-22 [1] CRAN (R 4.4.2)\n sass           0.4.10     2025-04-11 [1] CRAN (R 4.4.2)\n scales         1.4.0      2025-04-24 [1] CRAN (R 4.4.2)\n semPower       2.1.3      2025-08-22 [1] CRAN (R 4.4.2)\n sessioninfo    1.2.4      2026-06-04 [1] CRAN (R 4.4.2)\n tibble         3.3.1      2026-01-11 [1] CRAN (R 4.4.2)\n tidyr        * 1.3.2      2025-12-19 [1] CRAN (R 4.4.2)\n tidyselect     1.2.1      2024-03-11 [1] CRAN (R 4.4.2)\n tinytex        0.59       2026-03-28 [1] CRAN (R 4.4.2)\n usethis        3.2.1      2025-09-06 [1] CRAN (R 4.4.2)\n vctrs          0.7.3      2026-04-11 [1] CRAN (R 4.4.2)\n viridis      * 0.6.5      2024-01-29 [1] CRAN (R 4.4.2)\n viridisLite  * 0.4.3      2026-02-04 [1] CRAN (R 4.4.2)\n withr          3.0.2      2024-10-28 [2] CRAN (R 4.3.3)\n xfun           0.58       2026-06-01 [1] CRAN (R 4.4.2)\n yaml           2.3.12     2025-12-10 [1] CRAN (R 4.4.2)\n\n [1] /home/clement/R/x86_64-pc-linux-gnu-library/4.4\n [2] /usr/local/lib/R/site-library\n [3] /usr/lib/R/site-library\n [4] /usr/lib/R/library\n * ── Packages attached to the search path.\n\n──────────────────────────────────────────────────────────────────────────────"
   },
   {
+    "objectID": "inference_causale_gcomputation.html",
+    "href": "inference_causale_gcomputation.html",
+    "title": "Inférence causale et G-computation",
+    "section": "",
+    "text": "Packages\n# install.packages(c(\"tidyverse\", \"broom\", \"boot\", \"ggdag\", \"causaldata\",\n#                    \"marginaleffects\", \"stdReg\", \"gcomputation\"))\n# Version de développement de gcomputation :\n# remotes::install_github(\"chupverse/gcomputation\")\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(boot)\nlibrary(ggdag)\nlibrary(causaldata)       # données NHEFS\nlibrary(marginaleffects)  # G-computation \"généraliste\"\nlibrary(stdReg)           # standardisation par régression\nlibrary(gcomputation)     # package dédié (chupverse)\n\ntheme_set(theme_minimal(base_size = 13))\nset.seed(2026)"
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#le-facteur-de-confusion",
+    "href": "inference_causale_gcomputation.html#le-facteur-de-confusion",
+    "title": "Inférence causale et G-computation",
+    "section": "2.1 Le facteur de confusion",
+    "text": "2.1 Le facteur de confusion\nOn simule un traitement x dont l’effet réel sur y vaut 2. Une variable z influence à la fois la probabilité d’être traité et l’issue.\n\n\nCode\nn &lt;- 5000\nz &lt;- rnorm(n)\nx &lt;- rbinom(n, 1, plogis(1.5 * z))   # z pousse vers le traitement\ny &lt;- 2 * x + 3 * z + rnorm(n)        # effet causal de x : 2\n\nm1 &lt;- lm(y ~ x)\nm2 &lt;- lm(y ~ x + z)\n\nrbind(\n  \"y ~ x\"     = summary(m1)$coefficients[\"x\", c(\"Estimate\", \"Std. Error\")],\n  \"y ~ x + z\" = summary(m2)$coefficients[\"x\", c(\"Estimate\", \"Std. Error\")]\n)\n\n\n          Estimate Std. Error\ny ~ x     5.160527 0.07713444\ny ~ x + z 1.991161 0.03346982\n\n\nLe modèle y ~ x renvoie un coefficient très supérieur à 2 : les traités ont en moyenne un z plus élevé, et la comparaison brute mélange l’effet de x et celui de z. Le modèle n’est pas « faux » : il estime correctement la différence de moyennes entre traités et non traités. C’est cette différence qui n’est pas l’effet causal."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#le-collisionneur-ajuster-nest-pas-toujours-une-bonne-idée",
+    "href": "inference_causale_gcomputation.html#le-collisionneur-ajuster-nest-pas-toujours-une-bonne-idée",
+    "title": "Inférence causale et G-computation",
+    "section": "2.2 Le collisionneur : ajuster n’est pas toujours une bonne idée",
+    "text": "2.2 Le collisionneur : ajuster n’est pas toujours une bonne idée\nOn pourrait conclure « ajustons sur tout ce qu’on a ». Contre-exemple : ici x est randomisé (aucune confusion), et c est une conséquence commune de x et de y.\n\n\nCode\nx &lt;- rbinom(n, 1, 0.5)\ny &lt;- 2 * x + rnorm(n)                # effet causal de x : 2\nc &lt;- x + y + rnorm(n)                # c est causé par x ET par y\n\nm1 &lt;- lm(y ~ x)\nm2 &lt;- lm(y ~ x + c)\n\nrbind(\n  \"y ~ x\"     = summary(m1)$coefficients[\"x\", c(\"Estimate\", \"Std. Error\")],\n  \"y ~ x + c\" = summary(m2)$coefficients[\"x\", c(\"Estimate\", \"Std. Error\")]\n)\n\n\n          Estimate Std. Error\ny ~ x     1.997231 0.02857458\ny ~ x + c 0.518548 0.02853671\n\n\nCette fois c’est le modèle ajusté qui est biaisé, alors que son \\(R^2\\) est meilleur. Aucun critère de qualité d’ajustement (AIC, \\(R^2\\), validation croisée) ne permet de choisir entre les deux : ces critères mesurent la capacité à prédire y, pas à isoler l’effet de x.\n\n\n\n\n\n\nImportantCe qu’il faut retenir\n\n\n\nLe choix des variables d’ajustement repose sur un modèle causal du problème (connaissance métier), pas sur les données. On ajuste sur les causes communes du traitement et de l’issue ; on n’ajuste ni sur les conséquences du traitement (médiateurs), ni sur les conséquences communes (collisionneurs)."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#représenter-ses-hypothèses-le-dag",
+    "href": "inference_causale_gcomputation.html#représenter-ses-hypothèses-le-dag",
+    "title": "Inférence causale et G-computation",
+    "section": "2.3 Représenter ses hypothèses : le DAG",
+    "text": "2.3 Représenter ses hypothèses : le DAG\nUn graphe orienté acyclique (DAG) rend ces hypothèses explicites. Une flèche signifie « peut causer ».\n\n\nCode\ndagify(\n  Y ~ A + Z,\n  A ~ Z,\n  C ~ A + Y,\n  exposure = \"A\", outcome = \"Y\",\n  coords = list(x = c(A = 0, Y = 2, Z = 1, C = 1),\n                y = c(A = 0, Y = 0, Z = 1, C = -1))\n) |&gt;\n  ggdag() +\n  theme_dag()\n\n\n\n\n\n\n\n\n\n\nZ est un facteur de confusion : il ouvre un chemin non causal \\(A \\leftarrow Z \\rightarrow Y\\) (dit « porte dérobée »). Ajuster sur Z le ferme.\nC est un collisionneur : le chemin \\(A \\rightarrow C \\leftarrow Y\\) est fermé par défaut. Ajuster sur C l’ouvre."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#même-sans-confusion-un-coefficient-nest-pas-toujours-leffet-recherché",
+    "href": "inference_causale_gcomputation.html#même-sans-confusion-un-coefficient-nest-pas-toujours-leffet-recherché",
+    "title": "Inférence causale et G-computation",
+    "section": "2.4 Même sans confusion, un coefficient n’est pas toujours l’effet recherché",
+    "text": "2.4 Même sans confusion, un coefficient n’est pas toujours l’effet recherché\nDernière simulation, avec une issue binaire et un traitement randomisé. Le coefficient de a dans le modèle logistique vaut 1 par construction.\n\n\nCode\nz &lt;- rnorm(n)\na &lt;- rbinom(n, 1, 0.5)                          # randomisé\ny &lt;- rbinom(n, 1, plogis(-1 + 1 * a + 2 * z))\n\nfit &lt;- glm(y ~ a + z, family = binomial)\n\n# OR conditionnel (coefficient du modèle)\nexp(coef(fit)[\"a\"])\n\n\n      a \n2.66721 \n\n\nCode\n# OR marginal : on prédit pour tout le monde sous a = 1 puis sous a = 0\np1 &lt;- mean(predict(fit, newdata = data.frame(a = 1, z = z), type = \"response\"))\np0 &lt;- mean(predict(fit, newdata = data.frame(a = 0, z = z), type = \"response\"))\nc(risque_traite = p1, risque_non_traite = p0,\n  difference_de_risque = p1 - p0,\n  OR_marginal = (p1 / (1 - p1)) / (p0 / (1 - p0)))\n\n\n       risque_traite    risque_non_traite difference_de_risque \n           0.4978684            0.3513602            0.1465082 \n         OR_marginal \n           1.8304088 \n\n\nL’odds ratio conditionnel (proche de \\(e^1 \\approx 2{,}7\\)) et l’odds ratio marginal (nettement plus faible) diffèrent, alors qu’il n’y a ni confusion ni erreur de spécification. C’est la non-collapsibilité de l’odds ratio : l’effet « à z fixé » et l’effet « en population » sont deux quantités différentes. Il en va de même dès qu’un modèle linéaire contient une interaction traitement × covariable : il n’y a plus un coefficient qui résume l’effet.\nLes deux lignes p1 / p0 ci-dessus sont déjà une G-computation. Le reste du tutoriel formalise ce qu’elles calculent et à quelles conditions le résultat est causal."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#issues-potentielles",
+    "href": "inference_causale_gcomputation.html#issues-potentielles",
+    "title": "Inférence causale et G-computation",
+    "section": "3.1 Issues potentielles",
+    "text": "3.1 Issues potentielles\nOn note \\(A \\in \\{0, 1\\}\\) le traitement, \\(Y\\) l’issue, \\(Z\\) les covariables. Pour chaque individu \\(i\\) on définit deux issues potentielles :\n\n\\(Y_i^{1}\\) : l’issue qu’on observerait si \\(i\\) était traité ;\n\\(Y_i^{0}\\) : l’issue qu’on observerait s’il ne l’était pas.\n\nL’effet causal individuel est \\(Y_i^{1} - Y_i^{0}\\). On n’observe jamais qu’une seule des deux issues : c’est le problème fondamental de l’inférence causale. On vise donc des moyennes :\n\n\n\n\n\n\n\n\nEstimand\nDéfinition\nQuestion\n\n\n\n\nATE\n\\(E[Y^1 - Y^0]\\)\nQue se passerait-il si on traitait toute la population plutôt que personne ?\n\n\nATT\n\\(E[Y^1 - Y^0 \\mid A = 1]\\)\nQuel a été l’effet du traitement chez ceux qui l’ont reçu ?\n\n\nATU\n\\(E[Y^1 - Y^0 \\mid A = 0]\\)\nQuel serait l’effet chez ceux qui ne l’ont pas reçu ?\n\n\n\nCes trois quantités ne coïncident que si l’effet est homogène."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#hypothèses-didentification",
+    "href": "inference_causale_gcomputation.html#hypothèses-didentification",
+    "title": "Inférence causale et G-computation",
+    "section": "3.2 Hypothèses d’identification",
+    "text": "3.2 Hypothèses d’identification\nPour exprimer \\(E[Y^a]\\) à partir de la loi des données observées, on a besoin de trois hypothèses.\n\nCohérence (consistency) : si \\(A_i = a\\) alors \\(Y_i = Y_i^{a}\\). Le traitement est bien défini et l’issue d’un individu ne dépend pas du traitement des autres.\nÉchangeabilité conditionnelle : \\(Y^a \\perp A \\mid Z\\) pour \\(a = 0, 1\\). À covariables égales, traités et non traités sont comparables — autrement dit, pas de facteur de confusion non mesuré. C’est l’hypothèse forte, et elle est invérifiable sur les données.\nPositivité : \\(0 &lt; P(A = 1 \\mid Z = z) &lt; 1\\) pour tout \\(z\\) rencontré. Dans chaque profil de covariables, on doit pouvoir trouver des traités et des non traités.\n\nDans un essai randomisé, (2) et (3) sont garanties par le tirage au sort. Dans une étude observationnelle, ce sont des paris qu’on argumente."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#la-g-formule",
+    "href": "inference_causale_gcomputation.html#la-g-formule",
+    "title": "Inférence causale et G-computation",
+    "section": "3.3 La G-formule",
+    "text": "3.3 La G-formule\nSous ces hypothèses :\n\\[\n\\begin{aligned}\nE[Y^a] &= E_Z\\big[\\,E[Y^a \\mid Z]\\,\\big] \\\\\n       &= E_Z\\big[\\,E[Y^a \\mid A = a, Z]\\,\\big] && \\text{(échangeabilité, positivité)} \\\\\n       &= E_Z\\big[\\,E[Y \\mid A = a, Z]\\,\\big]   && \\text{(cohérence)}\n\\end{aligned}\n\\]\nLe membre de droite ne contient plus que des quantités observables. C’est la G-formule (Robins 1986), aussi appelée standardisation. Point essentiel : l’espérance extérieure est prise sur la loi marginale de \\(Z\\), pas sur la loi de \\(Z\\) dans le groupe \\(A = a\\). C’est toute la différence avec la moyenne brute du groupe traité, \\(E[Y \\mid A = 1] = E_{Z \\mid A = 1}\\big[E[Y \\mid A = 1, Z]\\big]\\)."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#lalgorithme-de-g-computation",
+    "href": "inference_causale_gcomputation.html#lalgorithme-de-g-computation",
+    "title": "Inférence causale et G-computation",
+    "section": "3.4 L’algorithme de G-computation",
+    "text": "3.4 L’algorithme de G-computation\nOn remplace \\(E[Y \\mid A, Z]\\) par un modèle de régression \\(\\hat{Q}(A, Z)\\), appelé Q-model, et l’espérance sur \\(Z\\) par une moyenne empirique :\n\\[\n\\widehat{ATE} = \\frac{1}{n} \\sum_{i=1}^{n} \\Big[ \\hat{Q}(1, Z_i) - \\hat{Q}(0, Z_i) \\Big]\n\\]\nEn pratique :\n\najuster le Q-model de \\(Y\\) sur \\(A\\) et \\(Z\\) (linéaire, logistique, Cox, pénalisé…) ;\ndupliquer le jeu de données en fixant \\(A = 1\\) pour tout le monde, prédire ;\nfaire de même avec \\(A = 0\\) ;\nmoyenner les deux séries de prédictions et les contraster (différence, ratio, OR) ;\nobtenir la variance par bootstrap (en répétant les étapes 1 à 4) ou par méthode delta.\n\nPour l’ATT (resp. l’ATU), on ne moyenne à l’étape 4 que sur les individus réellement traités (resp. non traités).\n\n\n\n\n\n\nNoteLien avec ce que vous connaissez déjà\n\n\n\n\nSi le Q-model est linéaire sans interaction avec \\(A\\), alors \\(\\hat{Q}(1, Z_i) - \\hat{Q}(0, Z_i) = \\hat\\beta_A\\) pour tout \\(i\\) : la G-computation redonne exactement le coefficient. Elle ne devient utile qu’avec des interactions, des liens non linéaires, ou des modèles de survie.\nLes « moyennes marginales estimées » (emmeans, moyennes ajustées) relèvent de la même mécanique, à ceci près qu’elles moyennent souvent sur une grille équilibrée plutôt que sur la distribution observée de \\(Z\\)."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#une-quatrième-hypothèse-le-q-model-est-bien-spécifié",
+    "href": "inference_causale_gcomputation.html#une-quatrième-hypothèse-le-q-model-est-bien-spécifié",
+    "title": "Inférence causale et G-computation",
+    "section": "3.5 Une quatrième hypothèse : le Q-model est bien spécifié",
+    "text": "3.5 Une quatrième hypothèse : le Q-model est bien spécifié\nLa G-computation repose entièrement sur le modèle de l’issue. S’il est mal spécifié (forme fonctionnelle, interactions oubliées), l’estimateur est biaisé, et il extrapole silencieusement dans les zones où la positivité est fragile. D’où l’intérêt de la comparer à une méthode qui modélise autre chose — la pondération par score de propension (IPW), qui modélise \\(P(A \\mid Z)\\) — ou à un estimateur doublement robuste (AIPW, TMLE) qui combine les deux."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#les-données",
+    "href": "inference_causale_gcomputation.html#les-données",
+    "title": "Inférence causale et G-computation",
+    "section": "4.1 Les données",
+    "text": "4.1 Les données\nOn utilise les données NHEFS (NHANES I Epidemiologic Follow-up Study), distribuées librement et fil rouge du livre de référence Causal Inference: What If (Hernán et Robins 2020). Elles sont disponibles dans le package causaldata.\nQuestion : quel est l’effet moyen de l’arrêt du tabac (qsmk, entre 1971 et 1982) sur la variation de poids en kg sur la même période (wt82_71) ?\n\n\nCode\ndata(\"nhefs_complete\", package = \"causaldata\")\n\nnum01 &lt;- function(v) as.numeric(as.character(v))\n\nnhefs &lt;- nhefs_complete |&gt;\n  transmute(\n    wt82_71,\n    qsmk           = num01(qsmk),          # 1 = a arrêté de fumer\n    sex            = num01(sex),           # 1 = femme\n    race           = num01(race),          # 1 = noir ou autre\n    age,\n    education      = factor(education),    # 5 niveaux\n    smokeintensity,                        # cigarettes / jour en 1971\n    smokeyrs,                              # années de tabagisme\n    exercise       = factor(exercise),     # 3 niveaux\n    active         = factor(active),       # 3 niveaux\n    wt71                                   # poids en 1971 (kg)\n  ) |&gt;\n  drop_na() |&gt;\n  mutate(\n    age2            = age^2,\n    smokeintensity2 = smokeintensity^2,\n    smokeyrs2       = smokeyrs^2,\n    wt71_2          = wt71^2\n  )\n\ndim(nhefs)\n\n\n[1] 1566   15\n\n\nCode\ncount(nhefs, qsmk)\n\n\n\n  \n\n\n\nOn attend 1 566 individus, dont 403 ayant arrêté de fumer.\n\n\n\n\n\n\nNote\n\n\n\nLes termes quadratiques sont créés comme colonnes plutôt qu’écrits I(age^2) dans la formule : tous les packages utilisés plus bas reçoivent ainsi exactement le même modèle, sans dépendre de la façon dont chacun interprète la formule. C’est sans conséquence ici car seul qsmk est modifié lors des prédictions."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#le-modèle-causal-supposé",
+    "href": "inference_causale_gcomputation.html#le-modèle-causal-supposé",
+    "title": "Inférence causale et G-computation",
+    "section": "4.2 Le modèle causal supposé",
+    "text": "4.2 Le modèle causal supposé\nOn reprend le jeu d’ajustement de Hernán et Robins : sexe, origine, âge, niveau d’études, intensité et durée du tabagisme, activité physique, et poids initial. Tous sont mesurés avant la décision d’arrêter et sont des causes plausibles à la fois de l’arrêt et de la prise de poids.\n\n\nCode\ndagify(\n  prise_poids ~ arret + age + sexe + tabagisme + activite + poids71,\n  arret       ~ age + sexe + tabagisme + activite + poids71,\n  exposure = \"arret\", outcome = \"prise_poids\"\n) |&gt;\n  ggdag(layout = \"circle\") +\n  theme_dag()"
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#analyse-naïve",
+    "href": "inference_causale_gcomputation.html#analyse-naïve",
+    "title": "Inférence causale et G-computation",
+    "section": "4.3 Analyse naïve",
+    "text": "4.3 Analyse naïve\n\n\nCode\nnhefs |&gt;\n  group_by(qsmk) |&gt;\n  summarise(n = n(), moyenne = mean(wt82_71), ecart_type = sd(wt82_71))\n\n\n\n  \n\n\n\nCode\nfit_naif &lt;- lm(wt82_71 ~ qsmk, data = nhefs)\ntidy(fit_naif, conf.int = TRUE) |&gt; filter(term == \"qsmk\")\n\n\n\n  \n\n\n\nLa différence brute attendue est d’environ 2,5 kg (IC 95 % : 1,7 à 3,4). Mais les deux groupes ne se ressemblent pas :\n\n\nCode\nnhefs |&gt;\n  group_by(qsmk) |&gt;\n  summarise(across(c(age, sex, race, smokeintensity, smokeyrs, wt71), mean))\n\n\n\n  \n\n\n\nCeux qui arrêtent sont notamment plus âgés et plus souvent des hommes : la comparaison brute n’est pas causale."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#vérifier-la-positivité",
+    "href": "inference_causale_gcomputation.html#vérifier-la-positivité",
+    "title": "Inférence causale et G-computation",
+    "section": "4.4 Vérifier la positivité",
+    "text": "4.4 Vérifier la positivité\nOn estime le score de propension \\(P(A = 1 \\mid Z)\\) uniquement pour regarder le recouvrement des deux groupes.\n\n\nCode\nfit_ps &lt;- glm(\n  qsmk ~ sex + race + age + age2 + education + smokeintensity + smokeintensity2 +\n    smokeyrs + smokeyrs2 + exercise + active + wt71 + wt71_2,\n  family = binomial, data = nhefs\n)\nnhefs$ps &lt;- predict(fit_ps, type = \"response\")\n\nggplot(nhefs, aes(ps, fill = factor(qsmk))) +\n  geom_density(alpha = 0.5) +\n  labs(x = \"Score de propension\", y = \"Densité\", fill = \"Arrêt du tabac\")\n\n\n\n\n\n\n\n\n\nCode\nnhefs |&gt; group_by(qsmk) |&gt; summarise(min = min(ps), max = max(ps))\n\n\n\n  \n\n\n\nLes deux distributions doivent se recouvrir largement. Des scores collés à 0 ou à 1 dans un seul groupe signaleraient des profils pour lesquels le Q-model extrapole."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#g-computation-à-la-main",
+    "href": "inference_causale_gcomputation.html#g-computation-à-la-main",
+    "title": "Inférence causale et G-computation",
+    "section": "4.5 G-computation à la main",
+    "text": "4.5 G-computation à la main\nÉtape 1 — le Q-model. On inclut une interaction entre l’arrêt et l’intensité du tabagisme : l’effet de l’arrêt peut dépendre de ce qu’on fumait.\n\n\nCode\nf_q &lt;- wt82_71 ~ qsmk + sex + race + age + age2 + education +\n  smokeintensity + smokeintensity2 + smokeyrs + smokeyrs2 +\n  exercise + active + wt71 + wt71_2 + qsmk:smokeintensity\n\nfit_q &lt;- glm(f_q, family = gaussian, data = nhefs)\ntidy(fit_q) |&gt; filter(str_detect(term, \"qsmk\"))\n\n\n\n  \n\n\n\nAvec l’interaction, le coefficient de qsmk est l’effet chez quelqu’un qui fume 0 cigarette par jour : il n’est plus interprétable seul.\nÉtapes 2 à 4 — prédire sous chaque scénario et moyenner.\n\n\nCode\nd1 &lt;- mutate(nhefs, qsmk = 1)   # tout le monde arrête\nd0 &lt;- mutate(nhefs, qsmk = 0)   # personne n'arrête\n\ny1 &lt;- predict(fit_q, newdata = d1)\ny0 &lt;- predict(fit_q, newdata = d0)\n\nc(E_Y1 = mean(y1), E_Y0 = mean(y0), ATE = mean(y1 - y0))\n\n\n    E_Y1     E_Y0      ATE \n5.273587 1.756213 3.517374 \n\n\nCode\n# ATT et ATU : même calcul, moyenné sur un sous-groupe\nc(ATT = mean((y1 - y0)[nhefs$qsmk == 1]),\n  ATU = mean((y1 - y0)[nhefs$qsmk == 0]))\n\n\n     ATT      ATU \n3.427662 3.548461 \n\n\nL’ATE attendu est d’environ 3,5 kg : c’est la valeur publiée par Hernán et Robins (chapitre 13) avec ce modèle, et un bon point de contrôle.\nÉtape 5 — intervalle de confiance par bootstrap. Il faut ré-ajuster le Q-model dans chaque rééchantillon.\n\n\nCode\ngcomp_ate &lt;- function(data, indices) {\n  d   &lt;- data[indices, ]\n  fit &lt;- glm(f_q, family = gaussian, data = d)\n  mean(predict(fit, newdata = mutate(d, qsmk = 1)) -\n       predict(fit, newdata = mutate(d, qsmk = 0)))\n}\n\nboot_ate &lt;- boot(nhefs, gcomp_ate, R = 1000)\nci_main  &lt;- boot.ci(boot_ate, type = \"perc\")$percent[4:5]\n\nres_main &lt;- tibble(methode = \"À la main + bootstrap\",\n                   estimate = boot_ate$t0,\n                   conf.low = ci_main[1], conf.high = ci_main[2])\nres_main"
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#avec-marginaleffects",
+    "href": "inference_causale_gcomputation.html#avec-marginaleffects",
+    "title": "Inférence causale et G-computation",
+    "section": "4.6 Avec marginaleffects",
+    "text": "4.6 Avec marginaleffects\nmarginaleffects (Arel-Bundock et al. 2024) est aujourd’hui le package généraliste le plus utilisé pour ce calcul : il fonctionne avec la plupart des classes de modèles et calcule les erreurs standard par méthode delta.\n\n\nCode\n# Moyennes contrefactuelles E[Y^0] et E[Y^1]\navg_predictions(fit_q, variables = \"qsmk\")\n\n\n\n qsmk Estimate Std. Error    z Pr(&gt;|z|)     S 2.5 % 97.5 %\n    0     1.76      0.217  8.1   &lt;0.001  50.7  1.33   2.18\n    1     5.27      0.377 14.0   &lt;0.001 144.9  4.53   6.01\n\nType: response\n\n\nCode\n# ATE\nme_ate &lt;- avg_comparisons(fit_q, variables = \"qsmk\")\nme_ate\n\n\n\n Estimate Std. Error    z Pr(&gt;|z|)    S 2.5 % 97.5 %\n     3.52       0.44 7.99   &lt;0.001 49.4  2.65   4.38\n\nTerm: qsmk\nType: response\nComparison: 1 - 0\n\n\nCode\n# ATT et ATU\navg_comparisons(fit_q, variables = \"qsmk\", newdata = subset(nhefs, qsmk == 1))\n\n\n\n Estimate Std. Error    z Pr(&gt;|z|)    S 2.5 % 97.5 %\n     3.43      0.439 7.81   &lt;0.001 47.3  2.57   4.29\n\nTerm: qsmk\nType: response\nComparison: 1 - 0\n\n\nCode\navg_comparisons(fit_q, variables = \"qsmk\", newdata = subset(nhefs, qsmk == 0))\n\n\n\n Estimate Std. Error    z Pr(&gt;|z|)    S 2.5 % 97.5 %\n     3.55      0.443 8.01   &lt;0.001 49.6  2.68   4.42\n\nTerm: qsmk\nType: response\nComparison: 1 - 0\n\n\nCode\nres_me &lt;- tibble(methode = \"marginaleffects (delta)\",\n                 estimate = me_ate$estimate,\n                 conf.low = me_ate$conf.low, conf.high = me_ate$conf.high)\n\n\nPour une variance robuste à l’hétéroscédasticité, ajouter vcov = \"HC3\" ; pour un bootstrap, enchaîner avec |&gt; inferences(method = \"boot\", R = 1000).\nAvec un modèle logistique, la même fonction donne la différence de risque par défaut, le risque relatif avec comparison = \"ratio\" et l’OR marginal avec comparison = \"lnoravg\", transform = \"exp\"."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#avec-stdreg",
+    "href": "inference_causale_gcomputation.html#avec-stdreg",
+    "title": "Inférence causale et G-computation",
+    "section": "4.7 Avec stdReg",
+    "text": "4.7 Avec stdReg\nstdReg (Sjölander 2016) est le package historique de standardisation par régression (GLM et Cox). Son successeur stdReg2 propose une interface par formule ; la logique est identique.\n\n\nCode\nstd &lt;- stdGlm(fit = fit_q, data = as.data.frame(nhefs), X = \"qsmk\", x = c(0, 1))\nsummary(std)                                        # E[Y^0] et E[Y^1]\n\n\n\nFormula: wt82_71 ~ qsmk + sex + race + age + age2 + education + smokeintensity + \n    smokeintensity2 + smokeyrs + smokeyrs2 + exercise + active + \n    wt71 + wt71_2 + qsmk:smokeintensity\nFamily: gaussian \nLink function: identity \nExposure:  qsmk \n\n  Estimate Std. Error lower 0.95 upper 0.95\n0     1.76      0.217       1.33       2.18\n1     5.27      0.435       4.42       6.13\n\n\nCode\ns_std &lt;- summary(std, contrast = \"difference\", reference = 0)\ns_std\n\n\n\nFormula: wt82_71 ~ qsmk + sex + race + age + age2 + education + smokeintensity + \n    smokeintensity2 + smokeyrs + smokeyrs2 + exercise + active + \n    wt71 + wt71_2 + qsmk:smokeintensity\nFamily: gaussian \nLink function: identity \nExposure:  qsmk \nReference level:  qsmk = 0 \nContrast:  difference \n\n  Estimate Std. Error lower 0.95 upper 0.95\n0     0.00      0.000       0.00       0.00\n1     3.52      0.478       2.58       4.45\n\n\nCode\nres_std &lt;- tibble(methode = \"stdReg (sandwich)\",\n                  estimate  = s_std$est.table[2, 1],\n                  conf.low  = s_std$est.table[2, 3],\n                  conf.high = s_std$est.table[2, 4])"
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#avec-gcomputation",
+    "href": "inference_causale_gcomputation.html#avec-gcomputation",
+    "title": "Inférence causale et G-computation",
+    "section": "4.8 Avec gcomputation",
+    "text": "4.8 Avec gcomputation\nLe package gcomputation (organisation GitHub chupverse) est dédié à la méthode. Il propose une fonction par type d’issue — gc_continuous, gc_binary, gc_count, gc_times — et ajoute ce que les précédents n’ont pas nativement :\n\nun Q-model pénalisé (\"lasso\", \"ridge\", \"elasticnet\") ou sélectionné (\"aic\", \"bic\"), en plus du modèle complet (\"all\") ;\nle choix direct de l’estimand (effect = \"ATE\", \"ATT\", \"ATU\") ;\nun bootstrap intégré, classique (\"boot\") ou avec validation croisée (\"bcv\") ;\nl’imputation multiple (boot.mi = TRUE) et la transportabilité (transport()).\n\nContrainte : la variable de traitement doit être codée 0/1 et figurer dans la formule.\n\n\nCode\ngc_all &lt;- gc_continuous(\n  formula     = f_q,\n  data        = as.data.frame(dplyr::select(nhefs, -ps)),\n  group       = \"qsmk\",\n  effect      = \"ATE\",\n  model       = \"all\",        # Q-model complet, non pénalisé\n  boot.type   = \"boot\",\n  boot.number = 1000,\n  progress    = FALSE,\n  seed        = 2026\n)\n\nsummary(gc_all, ci.type = \"perc\")\n\n\nall model \nfamily: poisson(link = 'log')\nCall:\nwt82_71 ~ qsmk + sex + race + age + age2 + education + smokeintensity + \n    smokeintensity2 + smokeyrs + smokeyrs2 + exercise + active + \n    wt71 + wt71_2 + qsmk:smokeintensity\n\nG-computation: \n      Estimate Lower CI Upper CI Std. Error z value Pr(&gt;|z|)    \nm0      1.7593   1.3391   2.1686     0.2184   8.055             \nm1      5.2579   4.4259   6.1910     0.4463  11.780             \nm1-m0   3.4986   2.5625   4.4880     0.4946   7.074 1.50e-12 ***\nm1/m0   3.0364   2.2593   4.0553     0.4682   6.485 8.87e-11 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nUnadjusted: \n      Estimate Lower CI Upper CI Std. Error z value Pr(&gt;|z|)    \nm0      1.9893   1.5921   2.3959     0.2175   9.147             \nm1      4.5115   3.6785   5.3990     0.4433  10.176             \nm1-m0   2.5222   1.5418   3.5101     0.4975   5.070 3.98e-07 ***\nm1/m0   2.2962   1.6735   3.0595     0.3458   6.641 3.11e-11 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nn= 1566\n\n\nAvec model = \"all\" et le même Q-model, l’estimation ponctuelle doit coïncider avec celle obtenue à la main ; seules les bornes de l’intervalle varient avec le tirage bootstrap.\nOn peut ensuite laisser un lasso choisir parmi un modèle plus riche, où toutes les covariables interagissent avec le traitement :\n\n\nCode\nf_riche &lt;- wt82_71 ~ qsmk * (sex + race + age + age2 + education +\n  smokeintensity + smokeintensity2 + smokeyrs + smokeyrs2 +\n  exercise + active + wt71 + wt71_2)\n\ngc_lasso &lt;- gc_continuous(\n  formula     = f_riche,\n  data        = as.data.frame(dplyr::select(nhefs, -ps)),\n  group       = \"qsmk\",\n  effect      = \"ATE\",\n  model       = \"lasso\",\n  cv          = 10,\n  boot.type   = \"bcv\",\n  boot.number = 500,\n  boot.tune   = FALSE,       # lambda estimé une fois sur l'échantillon complet\n  progress    = FALSE,\n  seed        = 2026\n)\n\nsummary(gc_lasso, ci.type = \"perc\")\n\n\nmodel: lasso, tuning parameters: lambda=  0.1958\nfamily: poisson(link = 'log')\nCall:\nwt82_71 ~ qsmk * (sex + race + age + age2 + education + smokeintensity + \n    smokeintensity2 + smokeyrs + smokeyrs2 + exercise + active + \n    wt71 + wt71_2)\n\nG-computation: \n      Estimate Lower CI Upper CI Std. Error z value Pr(&gt;|z|)    \nm0      1.8094   1.3984   2.2722     0.2256   8.022             \nm1      5.0921   4.2994   5.9930     0.4542  11.212             \nm1-m0   3.2827   2.3328   4.2143     0.4824   6.804 1.01e-11 ***\nm1/m0   2.8565   2.1163   3.7843     0.4291   6.656 2.80e-11 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nUnadjusted: \n      Estimate Lower CI Upper CI Std. Error z value Pr(&gt;|z|)    \nm0      1.9890   1.5263   2.4065     0.2239   8.885             \nm1      4.4947   3.6861   5.3707     0.4414  10.182             \nm1-m0   2.5057   1.5487   3.4259     0.4855   5.161 2.46e-07 ***\nm1/m0   2.2885   1.6799   2.9984     0.3416   6.699 2.10e-11 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nn= 1566\n\n\nCode\nplot(gc_lasso)               # graphique de calibration du Q-model\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAvertissementSélection de variables et causalité\n\n\n\nUn lasso sélectionne ce qui prédit bien \\(Y\\). Il peut donc écarter un facteur de confusion fortement lié au traitement mais faiblement à l’issue. La pénalisation sert à stabiliser un Q-model flexible, pas à remplacer le choix raisonné du jeu d’ajustement."
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#contrôle-croisé-par-pondération-ipw",
+    "href": "inference_causale_gcomputation.html#contrôle-croisé-par-pondération-ipw",
+    "title": "Inférence causale et G-computation",
+    "section": "4.9 Contrôle croisé par pondération (IPW)",
+    "text": "4.9 Contrôle croisé par pondération (IPW)\nL’IPW modélise le traitement plutôt que l’issue. Si les deux approches concordent, le résultat ne tient pas à la spécification d’un seul modèle.\n\n\nCode\nnhefs &lt;- nhefs |&gt;\n  mutate(w = if_else(qsmk == 1, 1 / ps, 1 / (1 - ps)))\n\nipw_ate &lt;- function(data, indices) {\n  d  &lt;- data[indices, ]\n  ps &lt;- predict(glm(formula(fit_ps), family = binomial, data = d), type = \"response\")\n  w  &lt;- ifelse(d$qsmk == 1, 1 / ps, 1 / (1 - ps))\n  weighted.mean(d$wt82_71[d$qsmk == 1], w[d$qsmk == 1]) -\n    weighted.mean(d$wt82_71[d$qsmk == 0], w[d$qsmk == 0])\n}\n\nboot_ipw &lt;- boot(nhefs, ipw_ate, R = 1000)\nci_ipw   &lt;- boot.ci(boot_ipw, type = \"perc\")$percent[4:5]\n\nres_ipw &lt;- tibble(methode = \"IPW + bootstrap\",\n                  estimate = boot_ipw$t0,\n                  conf.low = ci_ipw[1], conf.high = ci_ipw[2])"
+  },
+  {
+    "objectID": "inference_causale_gcomputation.html#synthèse",
+    "href": "inference_causale_gcomputation.html#synthèse",
+    "title": "Inférence causale et G-computation",
+    "section": "4.10 Synthèse",
+    "text": "4.10 Synthèse\n\n\nCode\nci_naif &lt;- tidy(fit_naif, conf.int = TRUE) |&gt; filter(term == \"qsmk\")\n\nresultats &lt;- bind_rows(\n  tibble(methode = \"Différence brute\", estimate = ci_naif$estimate,\n         conf.low = ci_naif$conf.low, conf.high = ci_naif$conf.high),\n  res_main, res_me, res_std, res_ipw\n) |&gt;\n  mutate(methode = fct_rev(fct_inorder(methode)))\n\nresultats\n\n\n\n  \n\n\n\nCode\nggplot(resultats, aes(estimate, methode)) +\n  geom_pointrange(aes(xmin = conf.low, xmax = conf.high)) +\n  labs(x = \"Effet de l'arrêt du tabac sur la prise de poids (kg)\", y = NULL)\n\n\n\n\n\n\n\n\n\nLes résultats de gcomputation se lisent dans les summary() plus haut.\nLecture attendue. Les trois implémentations de la G-computation donnent la même estimation ponctuelle (elles partagent le Q-model) et des intervalles proches ; l’IPW tombe dans la même zone. L’effet ajusté, autour de 3,5 kg, est plus élevé que la différence brute : la confusion masquait ici une partie de l’effet, notamment parce que ceux qui arrêtent sont plus âgés et que les plus âgés prennent moins de poids.\nFormulation. « Sous les hypothèses de cohérence, d’absence de confusion non mesurée conditionnellement aux covariables retenues, de positivité et de bonne spécification du modèle, si tous les individus avaient arrêté de fumer, la prise de poids moyenne sur dix ans aurait été supérieure d’environ 3,5 kg à celle observée si aucun n’avait arrêté. »"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Clément Poupelin",
+    "section": "",
+    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building 4th floor - Lille, France\n\n\nAcademic status\nIngénieur d'étude\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "Clément Poupelin",
+    "section": "Skills",
+    "text": "Skills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nstatistical analysis of Omic data\nApplication of data science skills to microbial ecology\nResearch on microbiome network inference methods\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods\nUse of statistical methods for meta-analyses"
+  },
+  {
+    "objectID": "about.html#course",
+    "href": "about.html#course",
+    "title": "Clément Poupelin",
+    "section": "Course",
+    "text": "Course\nAfter earning a Scientific Baccalaureate (BAC S SVT) with a Mathematics specialization, I pursued a Bachelor’s degree in Mathematics at Nantes University, followed by a Master’s in Statistical Engineering, which I obtained with honors (mention bien).\nMy interest in research grew through my final-year internship, leading to my first position as engineer at the UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster.\nI was thus able to participate in a pilot project (open16s project) promoting open science via the meta-analysis of public datasets of different ecosystems in line with the food chain. My participation focused mainly on the analysis of 16S metagenomic data ranging from cleaning, improvement and descriptive analysis to diversity analysis and inference of microbial networks (more information about my work is available in the dedicated project page).\nI then joined the Bilille platform (Bioinformatics, biostatistics and bioanalysis) within the UAR 2014 - US 41 PLBS unit at the University of Lille, working under an RHU-funded research program focused on neurodegenerative diseases. My primary objective is to identify biomarkers for amyotrophic lateral sclerosis (ALS)."
+  },
+  {
+    "objectID": "Open16S.html",
+    "href": "Open16S.html",
+    "title": "Open16S | MaIAGE - INRAE",
+    "section": "",
+    "text": "Context of my contribution\nMy contribution to this project took place in two phases over the course of 2024. From April to September, I worked on it as part of my final-year internship. Then, from October to December, I continued working on the same project—starting from the beginning again—to obtain more robust results for potential publication.\nUnfortunately, as my contract ended before the writing phase of the paper began, I had to leave some aspects of the work partially unfinished.\nHowever, the details of my accomplishments can be found in two Quarto blogs:\n\nInternship Open16s project (completed during my internship)\nINRAE Open16S (completed during my three-month contract)\n\nOf course, the second blog reboot all my previous work so if you want to check only one, feel free to go with INRAE Open16S\n\n\n\nOpen16S project\nINRAE has been a pioneer in open science and established a dedicated department for this domain in 2020.\nThe Open16S project, led by the MICA department at INRAE, is an innovative proof-of-concept (POC) initiative developed as part of the department’s policy. Its goal is to address challenges related to the reuse of public data in metagenomics, particularly to generate new, testable biological hypotheses through the integration of datasets.\nThe primary objective of the project is to take a cross-disciplinary approach to microbial ecosystems associated with the human food chain by utilizing 16S metagenomic datasets from various biotopes.\nThis project involves 12 research units from the MICA department, covering a complete range of targeted ecosystems, including food, digesters, human gut samples, and animal samples (specifically cow teat microbiomes).\n\n\n\n\n\n\n\n\n\nYear of Submission\n2022\n\n\nTeams Involved\nBibliome\nMigale\nStatInfOmics\n\n\nCoordinators\nStéphane Chaillou, Marie Champomier Vergès, Hélène Chiapello, Marion Leclerc, François Marras\n\n\nParticipants from MaIAGE\nHélène Chiapello, Robert Bossy, Mouhamadou Ba, Olivier Rué, Cédric Midoux\n\n\nPartners (outside MaIAGE)\nCATI BOOM\n\n\nSupervisors during my work\nChristelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, Julien Tap\n\n\n\n\n\nAt the time of my arrival, the project’s roadmap included several key steps:\n\nExploring cross-cutting questions in microbial ecology using two statistical approaches:\n\nA hypothesis-driven approach (hypothesis-guided analysis)\n\nA data-driven approach (data-guided analysis)\n\nIntegrating and thoroughly analyzing datasets to understand and formulate new hypotheses about the determinants of microbial community structuring.\n\nMy work primarily focused on conducting exploratory and integrative statistical analyses on 16S metagenomic data. Additionally, I worked on inferring association networks between microbial species.\n\n\n\nExemple of visual results\n\n\n\n\n\n\n\\(\\alpha-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\\(\\beta-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\n\nPLN network without covariable from INRAE Open16S\n\n\n\n\n\n\n\nPLN network with the biotope as covariable from INRAE Open16S\n\n\n\n\n\n\n\n\nAcknowledgments\nI would like to express my gratitude to the collaborators on this project Christelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, and Julien Tap for their guidance and expertise.\nI would also like to express my gratitude to everyone in the MaIAGE unit for their warm welcome and kindness. Their team spirit and friendliness greatly contributed to making this work a unique and enriching professional experience."
+  },
+  {
+    "objectID": "secret_gift.html",
+    "href": "secret_gift.html",
+    "title": "RHU Secret Gift | LilNCog - Bilille",
+    "section": "",
+    "text": "Work in progress !!!!!\nhttps://ufr3s.univ-lille.fr/fileufr3s/user_upload/ufr3s-actualites/2023/recherche/2023-11-28-rhu-laureat-lillois-projet-gift-v4.pdf"
+  },
+  {
+    "objectID": "packages/vernissage.html",
+    "href": "packages/vernissage.html",
+    "title": "vernissage",
+    "section": "",
+    "text": "Documentation Get started  GitHub\nA vernissage is the opening of an exhibition, when the works are hung and shown at their best. This package prepares clinical cohort data and shows them: publication-ready figures with a common theme and colour-blind safe palettes, and polished gt tables.\nData are in wide format: one row per subject, one column per variable and visit (NFL_V0, NFL_V3). Columns can be given as strings, bare names or tidyselect helpers."
+  },
+  {
+    "objectID": "packages/vernissage.html#installation",
+    "href": "packages/vernissage.html#installation",
+    "title": "vernissage",
+    "section": "Installation",
+    "text": "Installation\n# install.packages(\"remotes\")\nremotes::install_github(\"Clement-Poupelin/vernissage\")\n\n# optional features\ninstall.packages(c(\"gt\", \"car\", \"DT\", \"ggrepel\", \"nortest\", \"stringi\"))"
+  },
+  {
+    "objectID": "packages/vernissage.html#what-it-does",
+    "href": "packages/vernissage.html#what-it-does",
+    "title": "vernissage",
+    "section": "What it does",
+    "text": "What it does\n\n\n\n\n\n\n\n\nFamily\nMain functions\nPurpose\n\n\n\n\nImport\nread_cohort_csv(), clean_colnames(), rename_with_map(), catalog_vars()\nFrench CSV exports (;, , decimals, Latin-1), clean names, variable catalogue\n\n\nVisits\nvisit_to_long(), visit_add_deltas(), visit_map_suffix(), combine_bilateral()\nlong format, changes between visits, left / right means\n\n\nOutliers\noutlier_detect(), outlier_mask(), outlier_flag_mad(), outlier_flag_iqr()\nmodified z-score and Tukey fences, documented and referenced\n\n\nTransformations\ntransform_compare(), transform_choose(), transform_apply(), transform_boxcox()\nlog / Box-Cox decided at baseline, applied at follow-up\n\n\nDescription\ndescribe_cohort(), describe_normality(), na_summary(), cor_matrix_test(), pca_compute()\ncohort overview table, normality, missing data, correlations, PCA\n\n\nFigures\nplot_distribution(), plot_na_map(), plot_paired_visits(), plot_trajectories(), plot_cor_heatmap(), plot_pca_*(), plot_radar(), plot_forest()\none function per figure of a cohort report\n\n\nStyle\ntheme_pub(), pal_levels(), fmt_p(), label_expand()\npublication theme, Okabe-Ito palette, p-value and label formatting\n\n\nReports\ngt_pub(), gt_signif(), qmd_tabset(), qmd_callout_raw()\ngt tables with significance highlighting, Quarto tabsets and callouts"
+  },
+  {
+    "objectID": "packages/vernissage.html#example",
+    "href": "packages/vernissage.html#example",
+    "title": "vernissage",
+    "section": "Example",
+    "text": "Example\nlibrary(vernissage)\n\n# the cohort at a glance\ndescribe_cohort(cohort_sim, vars = c(AGE, SEX, BMI, NFL_V0, MOCA_V0, FALL_V0),\n                by = GROUP, id_col = ID)\nplot_na_map(cohort_sim, vars = c(NFL_V0:CRP_V3), id_col = ID)\n\n# distributions with outliers and group tests\nplot_distribution(cohort_sim, c(NFL_V0, MOCA_V0, SEX), group = GROUP, outlier_mad = TRUE)\n\n# how each subject moves between visits\nplot_paired_visits(cohort_sim, c(NFL_V0, MOCA_V0), id_col = ID, transitions = TRUE)\n\n# group profiles\nplot_radar(cohort_sim, c(AGE, BMI, NFL_V0, IL6_V0, MOCA_V0, UPDRS_V0, SEX),\n           group = GROUP, normalize = \"zscore\", quali_levels = list(SEX = \"Female\"))\nThe rendered figures are in the articles of the documentation: Describing a cohort, Figures, Preprocessing and Tables and Quarto reports."
+  },
+  {
+    "objectID": "packages/vernissage.html#companion-package",
+    "href": "packages/vernissage.html#companion-package",
+    "title": "vernissage",
+    "section": "Companion package",
+    "text": "Companion package\nlodestar handles limits of detection and cut-offs (median split, tertiles, reclassification between visits)."
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "V. Huin, E. Cailliau, C. Poupelin, et al., Blood-based biomarkers of ferroptosis in Parkinson’s disease, Neurobiology of Disease (2024), Open Access, DOI: 10.1016/j.nbd.2026.107414."
+  },
+  {
+    "objectID": "publications.html#journal-papers",
+    "href": "publications.html#journal-papers",
+    "title": "Publications",
+    "section": "",
+    "text": "V. Huin, E. Cailliau, C. Poupelin, et al., Blood-based biomarkers of ferroptosis in Parkinson’s disease, Neurobiology of Disease (2024), Open Access, DOI: 10.1016/j.nbd.2026.107414."
+  },
+  {
+    "objectID": "publications.html#student-papers",
+    "href": "publications.html#student-papers",
+    "title": "Publications",
+    "section": "Student papers",
+    "text": "Student papers\n\n2024\n\nMeta-analyse exploratoire de jeux de données métagénomiques publiques de différents écosystèmes microbiens en lien avec la chaı̂ne alimentaire, Submitted on 14 Nov 2024\n\n\n\n2023\n\nStructural equation modeling and application in psychology, Submitted on 23 May 2023 (report available on my website)"
+  },
+  {
+    "objectID": "projects.html#project-2",
+    "href": "projects.html#project-2",
+    "title": "Projects",
+    "section": "Project 2",
+    "text": "Project 2"
+  },
+  {
+    "objectID": "projects.html#project-3",
+    "href": "projects.html#project-3",
+    "title": "Projects",
+    "section": "Project 3",
+    "text": "Project 3"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Clément Poupelin",
+    "section": "",
+    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building - Lille, France\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille\n\n\n\n\n\n\nSkills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of statistical skills to microbial ecology\n\n\n\nStatistical analysis of Omic data\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods"
+  },
+  {
     "objectID": "survival_analysis.html",
     "href": "survival_analysis.html",
     "title": "Survival Analysis: From Censoring to the Cox Model",
@@ -222,83 +474,6 @@
     "title": "Survival Analysis: From Censoring to the Cox Model",
     "section": "Computational informations",
     "text": "Computational informations\n\n\nSession informations\n\n\n\nShow the code\ndevtools::session_info()\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.4.2 (2024-10-31)\n os       Ubuntu 24.04.1 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  fr_FR.UTF-8\n ctype    fr_FR.UTF-8\n tz       Europe/Paris\n date     2026-07-20\n pandoc   3.2 @ /usr/lib/rstudio/resources/app/bin/quarto/bin/tools/x86_64/ (via rmarkdown)\n quarto   1.9.38 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package      * version date (UTC) lib source\n abind          1.4-8   2024-09-12 [1] CRAN (R 4.4.2)\n backports      1.5.1   2026-04-03 [1] CRAN (R 4.4.2)\n broom        * 1.0.13  2026-05-14 [1] CRAN (R 4.4.2)\n bslib          0.11.0  2026-05-16 [1] CRAN (R 4.4.2)\n cachem         1.1.0   2024-05-16 [2] CRAN (R 4.3.3)\n car            3.1-5   2026-02-03 [1] CRAN (R 4.4.2)\n carData        3.0-6   2026-01-30 [1] CRAN (R 4.4.2)\n cli            3.6.6   2026-04-09 [1] CRAN (R 4.4.2)\n crosstalk      1.2.2   2025-08-26 [1] CRAN (R 4.4.2)\n devtools       2.5.2   2026-04-30 [1] CRAN (R 4.4.2)\n digest         0.6.39  2025-11-19 [1] CRAN (R 4.4.2)\n dplyr        * 1.2.1   2026-04-03 [1] CRAN (R 4.4.2)\n DT             0.34.0  2025-09-02 [1] CRAN (R 4.4.2)\n ellipsis       0.3.3   2026-04-04 [1] CRAN (R 4.4.2)\n evaluate       1.0.5   2025-08-27 [1] CRAN (R 4.4.2)\n farver         2.1.2   2024-05-13 [1] CRAN (R 4.4.2)\n fastmap        1.2.0   2024-05-15 [2] CRAN (R 4.3.3)\n Formula        1.2-5   2023-02-24 [1] CRAN (R 4.4.2)\n fs             2.1.0   2026-04-18 [1] CRAN (R 4.4.2)\n generics       0.1.4   2025-05-09 [1] CRAN (R 4.4.2)\n ggplot2      * 4.0.3   2026-04-22 [1] CRAN (R 4.4.2)\n ggpubr       * 1.0.0   2026-07-06 [1] CRAN (R 4.4.2)\n ggsignif       0.6.4   2022-10-13 [1] CRAN (R 4.4.2)\n ggtext         0.1.2   2022-09-16 [1] CRAN (R 4.4.2)\n glue           1.8.1   2026-04-17 [1] CRAN (R 4.4.2)\n gridExtra      2.3.1   2026-06-25 [1] CRAN (R 4.4.2)\n gridtext       0.1.6   2026-02-19 [1] CRAN (R 4.4.2)\n gtable         0.3.6   2024-10-25 [1] CRAN (R 4.4.2)\n htmltools      0.5.9   2025-12-04 [1] CRAN (R 4.4.2)\n htmlwidgets    1.6.4   2023-12-06 [2] CRAN (R 4.3.3)\n jquerylib      0.1.4   2021-04-26 [2] CRAN (R 4.3.3)\n jsonlite       2.0.0   2025-03-27 [1] CRAN (R 4.4.2)\n kableExtra   * 1.4.1   2026-07-08 [1] CRAN (R 4.4.2)\n knitr        * 1.51    2025-12-20 [1] CRAN (R 4.4.2)\n labeling       0.4.3   2023-08-29 [1] CRAN (R 4.4.2)\n lattice        0.22-6  2024-03-20 [4] CRAN (R 4.3.3)\n lifecycle      1.0.5   2026-01-08 [1] CRAN (R 4.4.2)\n magrittr       2.0.5   2026-04-04 [1] CRAN (R 4.4.2)\n Matrix         1.6-5   2024-01-11 [4] CRAN (R 4.3.2)\n memoise        2.0.1   2021-11-26 [2] CRAN (R 4.3.3)\n mgcv           1.9-1   2023-12-21 [4] CRAN (R 4.3.2)\n nlme           3.1-166 2024-08-14 [4] CRAN (R 4.3.3)\n otel           0.2.0   2025-08-29 [1] CRAN (R 4.4.2)\n pillar         1.11.1  2025-09-17 [1] CRAN (R 4.4.2)\n pkgbuild       1.4.8   2025-05-26 [1] CRAN (R 4.4.2)\n pkgconfig      2.0.3   2019-09-22 [2] CRAN (R 4.3.3)\n pkgload        1.5.3   2026-06-15 [1] CRAN (R 4.4.2)\n purrr          1.2.2   2026-04-10 [1] CRAN (R 4.4.2)\n R6             2.6.1   2025-02-15 [1] CRAN (R 4.4.2)\n RColorBrewer   1.1-3   2022-04-03 [1] CRAN (R 4.4.2)\n Rcpp           1.1.2   2026-07-05 [1] CRAN (R 4.4.2)\n rlang          1.3.0   2026-07-05 [1] CRAN (R 4.4.2)\n rmarkdown      2.31    2026-03-26 [1] CRAN (R 4.4.2)\n rstatix        1.0.0   2026-07-03 [1] CRAN (R 4.4.2)\n rstudioapi     0.19.0  2026-06-11 [1] CRAN (R 4.4.2)\n S7             0.2.2   2026-04-22 [1] CRAN (R 4.4.2)\n sass           0.4.10  2025-04-11 [1] CRAN (R 4.4.2)\n scales         1.4.0   2025-04-24 [1] CRAN (R 4.4.2)\n sessioninfo    1.2.4   2026-06-04 [1] CRAN (R 4.4.2)\n stringi        1.8.7   2025-03-27 [1] CRAN (R 4.4.2)\n stringr        1.6.0   2025-11-04 [1] CRAN (R 4.4.2)\n survival     * 3.8-3   2024-12-17 [4] CRAN (R 4.3.3)\n survminer    * 0.5.2   2026-02-25 [1] CRAN (R 4.4.2)\n svglite        2.2.2   2025-10-21 [1] CRAN (R 4.4.2)\n systemfonts    1.3.2   2026-03-05 [1] CRAN (R 4.4.2)\n textshaping    1.0.5   2026-03-06 [1] CRAN (R 4.4.2)\n tibble         3.3.1   2026-01-11 [1] CRAN (R 4.4.2)\n tidyr        * 1.3.2   2025-12-19 [1] CRAN (R 4.4.2)\n tidyselect     1.2.1   2024-03-11 [1] CRAN (R 4.4.2)\n usethis        3.2.1   2025-09-06 [1] CRAN (R 4.4.2)\n vctrs          0.7.3   2026-04-11 [1] CRAN (R 4.4.2)\n viridis      * 0.6.5   2024-01-29 [1] CRAN (R 4.4.2)\n viridisLite  * 0.4.3   2026-02-04 [1] CRAN (R 4.4.2)\n withr          3.0.2   2024-10-28 [2] CRAN (R 4.3.3)\n xfun           0.60    2026-07-09 [1] CRAN (R 4.4.2)\n xml2           1.6.0   2026-06-22 [1] CRAN (R 4.4.2)\n yaml           2.3.12  2025-12-10 [1] CRAN (R 4.4.2)\n\n [1] /home/clement/R/x86_64-pc-linux-gnu-library/4.4\n [2] /usr/local/lib/R/site-library\n [3] /usr/lib/R/site-library\n [4] /usr/lib/R/library\n * ── Packages attached to the search path.\n\n──────────────────────────────────────────────────────────────────────────────"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Clément Poupelin",
-    "section": "",
-    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building - Lille, France\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille\n\n\n\n\n\n\nSkills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nApplication of statistical skills to microbial ecology\n\n\n\nStatistical analysis of Omic data\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods"
-  },
-  {
-    "objectID": "projects.html#project-2",
-    "href": "projects.html#project-2",
-    "title": "Projects",
-    "section": "Project 2",
-    "text": "Project 2"
-  },
-  {
-    "objectID": "projects.html#project-3",
-    "href": "projects.html#project-3",
-    "title": "Projects",
-    "section": "Project 3",
-    "text": "Project 3"
-  },
-  {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Publications",
-    "section": "",
-    "text": "V. Huin, E. Cailliau, C. Poupelin, et al., Blood-based biomarkers of ferroptosis in Parkinson’s disease, Neurobiology of Disease (2024), Open Access, DOI: 10.1016/j.nbd.2026.107414."
-  },
-  {
-    "objectID": "publications.html#journal-papers",
-    "href": "publications.html#journal-papers",
-    "title": "Publications",
-    "section": "",
-    "text": "V. Huin, E. Cailliau, C. Poupelin, et al., Blood-based biomarkers of ferroptosis in Parkinson’s disease, Neurobiology of Disease (2024), Open Access, DOI: 10.1016/j.nbd.2026.107414."
-  },
-  {
-    "objectID": "publications.html#student-papers",
-    "href": "publications.html#student-papers",
-    "title": "Publications",
-    "section": "Student papers",
-    "text": "Student papers\n\n2024\n\nMeta-analyse exploratoire de jeux de données métagénomiques publiques de différents écosystèmes microbiens en lien avec la chaı̂ne alimentaire, Submitted on 14 Nov 2024\n\n\n\n2023\n\nStructural equation modeling and application in psychology, Submitted on 23 May 2023 (report available on my website)"
-  },
-  {
-    "objectID": "secret_gift.html",
-    "href": "secret_gift.html",
-    "title": "RHU Secret Gift | LilNCog - Bilille",
-    "section": "",
-    "text": "Work in progress !!!!!\nhttps://ufr3s.univ-lille.fr/fileufr3s/user_upload/ufr3s-actualites/2023/recherche/2023-11-28-rhu-laureat-lillois-projet-gift-v4.pdf"
-  },
-  {
-    "objectID": "Open16S.html",
-    "href": "Open16S.html",
-    "title": "Open16S | MaIAGE - INRAE",
-    "section": "",
-    "text": "Context of my contribution\nMy contribution to this project took place in two phases over the course of 2024. From April to September, I worked on it as part of my final-year internship. Then, from October to December, I continued working on the same project—starting from the beginning again—to obtain more robust results for potential publication.\nUnfortunately, as my contract ended before the writing phase of the paper began, I had to leave some aspects of the work partially unfinished.\nHowever, the details of my accomplishments can be found in two Quarto blogs:\n\nInternship Open16s project (completed during my internship)\nINRAE Open16S (completed during my three-month contract)\n\nOf course, the second blog reboot all my previous work so if you want to check only one, feel free to go with INRAE Open16S\n\n\n\nOpen16S project\nINRAE has been a pioneer in open science and established a dedicated department for this domain in 2020.\nThe Open16S project, led by the MICA department at INRAE, is an innovative proof-of-concept (POC) initiative developed as part of the department’s policy. Its goal is to address challenges related to the reuse of public data in metagenomics, particularly to generate new, testable biological hypotheses through the integration of datasets.\nThe primary objective of the project is to take a cross-disciplinary approach to microbial ecosystems associated with the human food chain by utilizing 16S metagenomic datasets from various biotopes.\nThis project involves 12 research units from the MICA department, covering a complete range of targeted ecosystems, including food, digesters, human gut samples, and animal samples (specifically cow teat microbiomes).\n\n\n\n\n\n\n\n\n\nYear of Submission\n2022\n\n\nTeams Involved\nBibliome\nMigale\nStatInfOmics\n\n\nCoordinators\nStéphane Chaillou, Marie Champomier Vergès, Hélène Chiapello, Marion Leclerc, François Marras\n\n\nParticipants from MaIAGE\nHélène Chiapello, Robert Bossy, Mouhamadou Ba, Olivier Rué, Cédric Midoux\n\n\nPartners (outside MaIAGE)\nCATI BOOM\n\n\nSupervisors during my work\nChristelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, Julien Tap\n\n\n\n\n\nAt the time of my arrival, the project’s roadmap included several key steps:\n\nExploring cross-cutting questions in microbial ecology using two statistical approaches:\n\nA hypothesis-driven approach (hypothesis-guided analysis)\n\nA data-driven approach (data-guided analysis)\n\nIntegrating and thoroughly analyzing datasets to understand and formulate new hypotheses about the determinants of microbial community structuring.\n\nMy work primarily focused on conducting exploratory and integrative statistical analyses on 16S metagenomic data. Additionally, I worked on inferring association networks between microbial species.\n\n\n\nExemple of visual results\n\n\n\n\n\n\n\\(\\alpha-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\\(\\beta-\\)diversity from INRAE Open16S\n\n\n\n\n\n\n\n\n\nPLN network without covariable from INRAE Open16S\n\n\n\n\n\n\n\nPLN network with the biotope as covariable from INRAE Open16S\n\n\n\n\n\n\n\n\nAcknowledgments\nI would like to express my gratitude to the collaborators on this project Christelle Hennequet-Antier, Cédric Midoux, Hélène Chiapello, Éric Dugat-Bony, and Julien Tap for their guidance and expertise.\nI would also like to express my gratitude to everyone in the MaIAGE unit for their warm welcome and kindness. Their team spirit and friendliness greatly contributed to making this work a unique and enriching professional experience."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Clément Poupelin",
-    "section": "",
-    "text": "Title\nIngeneer\n\n\nE-mail (professionnal)\nclement.poupelin@univ-lille.fr\n\n\nE-mail (personnal)\nclementjc.poupelin@gmail.com\n\n\nAddress\nCité Scientifique / ESPRIT Building - desks S3.39/S3.41/S3.43 - Villeneuve d'Ascq, France\nCampus Santé / Plateformes-Cancer Building - Lille, France\nCampus Pasteur Lille / Calmette Building 4th floor - Lille, France\n\n\nAcademic status\nIngénieur d'étude\n\n\nMain field of expertise\nStatistic\n\n\nUnit // Team\nPlateformes Lilloises en Biologie et Santé (PLBS) - UAR CNRS 2014 - US Inserm 41 // Plateforme Bilille Bioinformatique et Biostatistique de Lille"
-  },
-  {
-    "objectID": "about.html#skills",
-    "href": "about.html#skills",
-    "title": "Clément Poupelin",
-    "section": "Skills",
-    "text": "Skills\n\nAnalysis and mathematical modeling of large-scale datasets (Big Data)\nstatistical analysis of Omic data\nApplication of data science skills to microbial ecology\nResearch on microbiome network inference methods\nTime series modeling and forecasting\nImplementation of Bayesian techniques and machine learning methods\nUse of statistical methods for meta-analyses"
-  },
-  {
-    "objectID": "about.html#course",
-    "href": "about.html#course",
-    "title": "Clément Poupelin",
-    "section": "Course",
-    "text": "Course\nAfter earning a Scientific Baccalaureate (BAC S SVT) with a Mathematics specialization, I pursued a Bachelor’s degree in Mathematics at Nantes University, followed by a Master’s in Statistical Engineering, which I obtained with honors (mention bien).\nMy interest in research grew through my final-year internship, leading to my first position as engineer at the UR 1404 Applied Mathematics and Computer Science from Genome to Environment (MaIAGE) unit of INRAE, located in Jouy-en-Josas within the Paris-Saclay research cluster.\nI was thus able to participate in a pilot project (open16s project) promoting open science via the meta-analysis of public datasets of different ecosystems in line with the food chain. My participation focused mainly on the analysis of 16S metagenomic data ranging from cleaning, improvement and descriptive analysis to diversity analysis and inference of microbial networks (more information about my work is available in the dedicated project page).\nI then joined the Bilille platform (Bioinformatics, biostatistics and bioanalysis) within the UAR 2014 - US 41 PLBS unit at the University of Lille, working under an RHU-funded research program focused on neurodegenerative diseases. My primary objective is to identify biomarkers for amyotrophic lateral sclerosis (ALS)."
   },
   {
     "objectID": "challenge_data.html",

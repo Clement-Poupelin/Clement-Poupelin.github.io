@@ -1,0 +1,694 @@
+---
+title: "Inférence causale et G-computation"
+subtitle: "De la régression linéaire à l'effet causal moyen, avec application sur les données NHEFS"
+author: "Clément Poupelin"
+date: today
+lang: fr
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    code-fold: show
+    code-tools: true
+    embed-resources: true
+    df-print: paged
+execute:
+  warning: false
+  message: false
+bibliography: references.bib
+nocite: "@*"
+---
+
+```{r}
+#| label: setup
+#| code-summary: "Packages"
+
+# install.packages(c("tidyverse", "broom", "boot", "ggdag", "causaldata",
+#                    "marginaleffects", "stdReg", "gcomputation"))
+# Version de développement de gcomputation :
+# remotes::install_github("chupverse/gcomputation")
+
+library(tidyverse)
+library(broom)
+library(boot)
+library(ggdag)
+library(causaldata)       # données NHEFS
+library(marginaleffects)  # G-computation "généraliste"
+library(stdReg)           # standardisation par régression
+library(gcomputation)     # package dédié (chupverse)
+
+theme_set(theme_minimal(base_size = 13))
+set.seed(2026)
+```
+
+# Introduction
+
+Quand on ajuste `lm(y ~ x + z)`, le coefficient de `x` répond à une question
+**descriptive** : *parmi des individus ayant le même `z`, de combien diffère en
+moyenne `y` entre ceux qui ont `x` et ceux qui ont `x + 1` ?*
+
+La question **causale** est différente : *si j'intervenais pour faire passer `x`
+à `x + 1` chez tout le monde, de combien `y` changerait-il en moyenne ?*
+
+Les deux questions n'ont la même réponse que sous des hypothèses qui ne sont
+**pas** des hypothèses statistiques (elles ne se lisent pas sur les résidus) mais
+des hypothèses sur le mécanisme qui a généré les données. L'inférence causale,
+c'est essentiellement trois choses :
+
+1. un **langage** pour écrire la question (les issues potentielles) ;
+2. des **hypothèses d'identification** pour relier cette question aux données observées ;
+3. des **estimateurs** — dont la G-computation — pour calculer la réponse.
+
+Ce tutoriel suit cet ordre, puis applique le tout à un jeu de données réel.
+
+# De la régression à la causalité : trois simulations
+
+L'avantage d'une simulation : on connaît l'effet causal, puisqu'on l'a écrit.
+
+## Le facteur de confusion
+
+On simule un traitement `x` dont l'effet réel sur `y` vaut **2**. Une variable
+`z` influence à la fois la probabilité d'être traité et l'issue.
+
+```{r}
+#| label: sim-confusion
+n <- 5000
+z <- rnorm(n)
+x <- rbinom(n, 1, plogis(1.5 * z))   # z pousse vers le traitement
+y <- 2 * x + 3 * z + rnorm(n)        # effet causal de x : 2
+
+m1 <- lm(y ~ x)
+m2 <- lm(y ~ x + z)
+
+rbind(
+  "y ~ x"     = summary(m1)$coefficients["x", c("Estimate", "Std. Error")],
+  "y ~ x + z" = summary(m2)$coefficients["x", c("Estimate", "Std. Error")]
+)
+```
+
+Le modèle `y ~ x` renvoie un coefficient très supérieur à 2 : les traités ont en
+moyenne un `z` plus élevé, et la comparaison brute mélange l'effet de `x` et
+celui de `z`. Le modèle n'est pas « faux » : il estime correctement la différence
+de moyennes entre traités et non traités. C'est cette différence qui n'est pas
+l'effet causal.
+
+## Le collisionneur : ajuster n'est pas toujours une bonne idée
+
+On pourrait conclure « ajustons sur tout ce qu'on a ». Contre-exemple : ici `x`
+est **randomisé** (aucune confusion), et `c` est une *conséquence* commune de
+`x` et de `y`.
+
+```{r}
+#| label: sim-collider
+x <- rbinom(n, 1, 0.5)
+y <- 2 * x + rnorm(n)                # effet causal de x : 2
+c <- x + y + rnorm(n)                # c est causé par x ET par y
+
+m1 <- lm(y ~ x)
+m2 <- lm(y ~ x + c)
+
+rbind(
+  "y ~ x"     = summary(m1)$coefficients["x", c("Estimate", "Std. Error")],
+  "y ~ x + c" = summary(m2)$coefficients["x", c("Estimate", "Std. Error")]
+)
+```
+
+Cette fois c'est le modèle **ajusté** qui est biaisé, alors que son $R^2$ est
+meilleur. Aucun critère de qualité d'ajustement (AIC, $R^2$, validation croisée)
+ne permet de choisir entre les deux : ces critères mesurent la capacité à
+*prédire* `y`, pas à isoler l'effet de `x`.
+
+::: {.callout-important}
+## Ce qu'il faut retenir
+Le choix des variables d'ajustement repose sur un **modèle causal du problème**
+(connaissance métier), pas sur les données. On ajuste sur les causes communes du
+traitement et de l'issue ; on n'ajuste ni sur les conséquences du traitement
+(médiateurs), ni sur les conséquences communes (collisionneurs).
+:::
+
+## Représenter ses hypothèses : le DAG
+
+Un graphe orienté acyclique (DAG) rend ces hypothèses explicites. Une flèche
+signifie « peut causer ».
+
+```{r}
+#| label: dag-theorie
+#| fig-height: 3.5
+dagify(
+  Y ~ A + Z,
+  A ~ Z,
+  C ~ A + Y,
+  exposure = "A", outcome = "Y",
+  coords = list(x = c(A = 0, Y = 2, Z = 1, C = 1),
+                y = c(A = 0, Y = 0, Z = 1, C = -1))
+) |>
+  ggdag() +
+  theme_dag()
+```
+
+- `Z` est un **facteur de confusion** : il ouvre un chemin non causal
+  $A \leftarrow Z \rightarrow Y$ (dit « porte dérobée »). Ajuster sur `Z` le ferme.
+- `C` est un **collisionneur** : le chemin $A \rightarrow C \leftarrow Y$ est
+  fermé par défaut. Ajuster sur `C` l'ouvre.
+
+## Même sans confusion, un coefficient n'est pas toujours l'effet recherché
+
+Dernière simulation, avec une issue binaire et un traitement **randomisé**. Le
+coefficient de `a` dans le modèle logistique vaut 1 par construction.
+
+```{r}
+#| label: sim-noncollapsible
+z <- rnorm(n)
+a <- rbinom(n, 1, 0.5)                          # randomisé
+y <- rbinom(n, 1, plogis(-1 + 1 * a + 2 * z))
+
+fit <- glm(y ~ a + z, family = binomial)
+
+# OR conditionnel (coefficient du modèle)
+exp(coef(fit)["a"])
+
+# OR marginal : on prédit pour tout le monde sous a = 1 puis sous a = 0
+p1 <- mean(predict(fit, newdata = data.frame(a = 1, z = z), type = "response"))
+p0 <- mean(predict(fit, newdata = data.frame(a = 0, z = z), type = "response"))
+c(risque_traite = p1, risque_non_traite = p0,
+  difference_de_risque = p1 - p0,
+  OR_marginal = (p1 / (1 - p1)) / (p0 / (1 - p0)))
+```
+
+L'odds ratio conditionnel (proche de $e^1 \approx 2{,}7$) et l'odds ratio
+marginal (nettement plus faible) diffèrent, alors qu'il n'y a ni confusion ni
+erreur de spécification. C'est la **non-collapsibilité** de l'odds ratio : l'effet
+« à `z` fixé » et l'effet « en population » sont deux quantités différentes. Il en
+va de même dès qu'un modèle linéaire contient une interaction traitement ×
+covariable : il n'y a plus *un* coefficient qui résume l'effet.
+
+Les deux lignes `p1` / `p0` ci-dessus sont déjà une G-computation. Le reste du
+tutoriel formalise ce qu'elles calculent et à quelles conditions le résultat est
+causal.
+
+# Cadre théorique
+
+## Issues potentielles
+
+On note $A \in \{0, 1\}$ le traitement, $Y$ l'issue, $Z$ les covariables. Pour
+chaque individu $i$ on définit deux **issues potentielles** :
+
+- $Y_i^{1}$ : l'issue qu'on observerait si $i$ était traité ;
+- $Y_i^{0}$ : l'issue qu'on observerait s'il ne l'était pas.
+
+L'effet causal individuel est $Y_i^{1} - Y_i^{0}$. On n'observe jamais qu'une
+seule des deux issues : c'est le *problème fondamental de l'inférence causale*.
+On vise donc des moyennes :
+
+| Estimand | Définition | Question |
+|---|---|---|
+| **ATE** | $E[Y^1 - Y^0]$ | Que se passerait-il si on traitait toute la population plutôt que personne ? |
+| **ATT** | $E[Y^1 - Y^0 \mid A = 1]$ | Quel a été l'effet du traitement chez ceux qui l'ont reçu ? |
+| **ATU** | $E[Y^1 - Y^0 \mid A = 0]$ | Quel serait l'effet chez ceux qui ne l'ont pas reçu ? |
+
+Ces trois quantités ne coïncident que si l'effet est homogène.
+
+## Hypothèses d'identification
+
+Pour exprimer $E[Y^a]$ à partir de la loi des données observées, on a besoin de
+trois hypothèses.
+
+1. **Cohérence** (*consistency*) : si $A_i = a$ alors $Y_i = Y_i^{a}$. Le
+   traitement est bien défini et l'issue d'un individu ne dépend pas du
+   traitement des autres.
+2. **Échangeabilité conditionnelle** : $Y^a \perp A \mid Z$ pour $a = 0, 1$.
+   À covariables égales, traités et non traités sont comparables — autrement dit,
+   **pas de facteur de confusion non mesuré**. C'est l'hypothèse forte, et elle
+   est invérifiable sur les données.
+3. **Positivité** : $0 < P(A = 1 \mid Z = z) < 1$ pour tout $z$ rencontré. Dans
+   chaque profil de covariables, on doit pouvoir trouver des traités et des non
+   traités.
+
+Dans un essai randomisé, (2) et (3) sont garanties par le tirage au sort. Dans
+une étude observationnelle, ce sont des paris qu'on argumente.
+
+## La G-formule
+
+Sous ces hypothèses :
+
+$$
+\begin{aligned}
+E[Y^a] &= E_Z\big[\,E[Y^a \mid Z]\,\big] \\
+       &= E_Z\big[\,E[Y^a \mid A = a, Z]\,\big] && \text{(échangeabilité, positivité)} \\
+       &= E_Z\big[\,E[Y \mid A = a, Z]\,\big]   && \text{(cohérence)}
+\end{aligned}
+$$
+
+Le membre de droite ne contient plus que des quantités observables. C'est la
+**G-formule** [@robins1986], aussi appelée *standardisation*. Point essentiel :
+l'espérance extérieure est prise sur la loi **marginale** de $Z$, pas sur la loi
+de $Z$ dans le groupe $A = a$. C'est toute la différence avec la moyenne brute
+du groupe traité, $E[Y \mid A = 1] = E_{Z \mid A = 1}\big[E[Y \mid A = 1, Z]\big]$.
+
+## L'algorithme de G-computation
+
+On remplace $E[Y \mid A, Z]$ par un modèle de régression $\hat{Q}(A, Z)$, appelé
+**Q-model**, et l'espérance sur $Z$ par une moyenne empirique :
+
+$$
+\widehat{ATE} = \frac{1}{n} \sum_{i=1}^{n} \Big[ \hat{Q}(1, Z_i) - \hat{Q}(0, Z_i) \Big]
+$$
+
+En pratique :
+
+1. ajuster le Q-model de $Y$ sur $A$ et $Z$ (linéaire, logistique, Cox, pénalisé…) ;
+2. dupliquer le jeu de données en fixant $A = 1$ pour tout le monde, prédire ;
+3. faire de même avec $A = 0$ ;
+4. moyenner les deux séries de prédictions et les contraster (différence, ratio, OR) ;
+5. obtenir la variance par **bootstrap** (en répétant les étapes 1 à 4) ou par
+   méthode delta.
+
+Pour l'ATT (resp. l'ATU), on ne moyenne à l'étape 4 que sur les individus
+réellement traités (resp. non traités).
+
+::: {.callout-note}
+## Lien avec ce que vous connaissez déjà
+- Si le Q-model est linéaire **sans interaction** avec $A$, alors
+  $\hat{Q}(1, Z_i) - \hat{Q}(0, Z_i) = \hat\beta_A$ pour tout $i$ : la
+  G-computation redonne exactement le coefficient. Elle ne devient utile qu'avec
+  des interactions, des liens non linéaires, ou des modèles de survie.
+- Les « moyennes marginales estimées » (*emmeans*, moyennes ajustées) relèvent de
+  la même mécanique, à ceci près qu'elles moyennent souvent sur une grille
+  équilibrée plutôt que sur la distribution observée de $Z$.
+:::
+
+## Une quatrième hypothèse : le Q-model est bien spécifié
+
+La G-computation repose entièrement sur le modèle de l'issue. S'il est mal
+spécifié (forme fonctionnelle, interactions oubliées), l'estimateur est biaisé,
+et il **extrapole** silencieusement dans les zones où la positivité est fragile.
+D'où l'intérêt de la comparer à une méthode qui modélise autre chose — la
+pondération par score de propension (IPW), qui modélise $P(A \mid Z)$ — ou à un
+estimateur doublement robuste (AIPW, TMLE) qui combine les deux.
+
+# Application : arrêt du tabac et prise de poids (NHEFS)
+
+## Les données
+
+On utilise les données NHEFS (*NHANES I Epidemiologic Follow-up Study*),
+distribuées librement et fil rouge du livre de référence *Causal Inference: What
+If* [@hernan2020]. Elles sont disponibles dans le package `causaldata`.
+
+**Question** : quel est l'effet moyen de l'arrêt du tabac (`qsmk`, entre 1971 et
+1982) sur la variation de poids en kg sur la même période (`wt82_71`) ?
+
+```{r}
+#| label: donnees
+data("nhefs_complete", package = "causaldata")
+
+num01 <- function(v) as.numeric(as.character(v))
+
+nhefs <- nhefs_complete |>
+  transmute(
+    wt82_71,
+    qsmk           = num01(qsmk),          # 1 = a arrêté de fumer
+    sex            = num01(sex),           # 1 = femme
+    race           = num01(race),          # 1 = noir ou autre
+    age,
+    education      = factor(education),    # 5 niveaux
+    smokeintensity,                        # cigarettes / jour en 1971
+    smokeyrs,                              # années de tabagisme
+    exercise       = factor(exercise),     # 3 niveaux
+    active         = factor(active),       # 3 niveaux
+    wt71                                   # poids en 1971 (kg)
+  ) |>
+  drop_na() |>
+  mutate(
+    age2            = age^2,
+    smokeintensity2 = smokeintensity^2,
+    smokeyrs2       = smokeyrs^2,
+    wt71_2          = wt71^2
+  )
+
+dim(nhefs)
+count(nhefs, qsmk)
+```
+
+On attend 1 566 individus, dont 403 ayant arrêté de fumer.
+
+::: {.callout-note}
+Les termes quadratiques sont créés comme colonnes plutôt qu'écrits `I(age^2)`
+dans la formule : tous les packages utilisés plus bas reçoivent ainsi exactement
+le même modèle, sans dépendre de la façon dont chacun interprète la formule.
+C'est sans conséquence ici car seul `qsmk` est modifié lors des prédictions.
+:::
+
+## Le modèle causal supposé
+
+On reprend le jeu d'ajustement de Hernán et Robins : sexe, origine, âge, niveau
+d'études, intensité et durée du tabagisme, activité physique, et poids initial.
+Tous sont mesurés **avant** la décision d'arrêter et sont des causes plausibles à
+la fois de l'arrêt et de la prise de poids.
+
+```{r}
+#| label: dag-nhefs
+#| fig-height: 4
+dagify(
+  prise_poids ~ arret + age + sexe + tabagisme + activite + poids71,
+  arret       ~ age + sexe + tabagisme + activite + poids71,
+  exposure = "arret", outcome = "prise_poids"
+) |>
+  ggdag(layout = "circle") +
+  theme_dag()
+```
+
+## Analyse naïve
+
+```{r}
+#| label: naif
+nhefs |>
+  group_by(qsmk) |>
+  summarise(n = n(), moyenne = mean(wt82_71), ecart_type = sd(wt82_71))
+
+fit_naif <- lm(wt82_71 ~ qsmk, data = nhefs)
+tidy(fit_naif, conf.int = TRUE) |> filter(term == "qsmk")
+```
+
+La différence brute attendue est d'environ **2,5 kg** (IC 95 % : 1,7 à 3,4).
+Mais les deux groupes ne se ressemblent pas :
+
+```{r}
+#| label: desequilibre
+nhefs |>
+  group_by(qsmk) |>
+  summarise(across(c(age, sex, race, smokeintensity, smokeyrs, wt71), mean))
+```
+
+Ceux qui arrêtent sont notamment plus âgés et plus souvent des hommes : la
+comparaison brute n'est pas causale.
+
+## Vérifier la positivité
+
+On estime le score de propension $P(A = 1 \mid Z)$ uniquement pour regarder le
+recouvrement des deux groupes.
+
+```{r}
+#| label: positivite
+#| fig-height: 3.5
+fit_ps <- glm(
+  qsmk ~ sex + race + age + age2 + education + smokeintensity + smokeintensity2 +
+    smokeyrs + smokeyrs2 + exercise + active + wt71 + wt71_2,
+  family = binomial, data = nhefs
+)
+nhefs$ps <- predict(fit_ps, type = "response")
+
+ggplot(nhefs, aes(ps, fill = factor(qsmk))) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Score de propension", y = "Densité", fill = "Arrêt du tabac")
+
+nhefs |> group_by(qsmk) |> summarise(min = min(ps), max = max(ps))
+```
+
+Les deux distributions doivent se recouvrir largement. Des scores collés à 0 ou
+à 1 dans un seul groupe signaleraient des profils pour lesquels le Q-model
+extrapole.
+
+## G-computation à la main
+
+**Étape 1 — le Q-model.** On inclut une interaction entre l'arrêt et l'intensité
+du tabagisme : l'effet de l'arrêt peut dépendre de ce qu'on fumait.
+
+```{r}
+#| label: qmodel
+f_q <- wt82_71 ~ qsmk + sex + race + age + age2 + education +
+  smokeintensity + smokeintensity2 + smokeyrs + smokeyrs2 +
+  exercise + active + wt71 + wt71_2 + qsmk:smokeintensity
+
+fit_q <- glm(f_q, family = gaussian, data = nhefs)
+tidy(fit_q) |> filter(str_detect(term, "qsmk"))
+```
+
+Avec l'interaction, le coefficient de `qsmk` est l'effet chez quelqu'un qui fume
+0 cigarette par jour : il n'est plus interprétable seul.
+
+**Étapes 2 à 4 — prédire sous chaque scénario et moyenner.**
+
+```{r}
+#| label: gcomp-main
+d1 <- mutate(nhefs, qsmk = 1)   # tout le monde arrête
+d0 <- mutate(nhefs, qsmk = 0)   # personne n'arrête
+
+y1 <- predict(fit_q, newdata = d1)
+y0 <- predict(fit_q, newdata = d0)
+
+c(E_Y1 = mean(y1), E_Y0 = mean(y0), ATE = mean(y1 - y0))
+
+# ATT et ATU : même calcul, moyenné sur un sous-groupe
+c(ATT = mean((y1 - y0)[nhefs$qsmk == 1]),
+  ATU = mean((y1 - y0)[nhefs$qsmk == 0]))
+```
+
+L'ATE attendu est d'environ **3,5 kg** : c'est la valeur publiée par Hernán et
+Robins (chapitre 13) avec ce modèle, et un bon point de contrôle.
+
+**Étape 5 — intervalle de confiance par bootstrap.** Il faut ré-ajuster le
+Q-model dans chaque rééchantillon.
+
+```{r}
+#| label: gcomp-boot
+gcomp_ate <- function(data, indices) {
+  d   <- data[indices, ]
+  fit <- glm(f_q, family = gaussian, data = d)
+  mean(predict(fit, newdata = mutate(d, qsmk = 1)) -
+       predict(fit, newdata = mutate(d, qsmk = 0)))
+}
+
+boot_ate <- boot(nhefs, gcomp_ate, R = 1000)
+ci_main  <- boot.ci(boot_ate, type = "perc")$percent[4:5]
+
+res_main <- tibble(methode = "À la main + bootstrap",
+                   estimate = boot_ate$t0,
+                   conf.low = ci_main[1], conf.high = ci_main[2])
+res_main
+```
+
+## Avec `marginaleffects`
+
+`marginaleffects` [@arelbundock2024] est aujourd'hui le package généraliste le
+plus utilisé pour ce calcul : il fonctionne avec la plupart des classes de
+modèles et calcule les erreurs standard par méthode delta.
+
+```{r}
+#| label: marginaleffects
+# Moyennes contrefactuelles E[Y^0] et E[Y^1]
+avg_predictions(fit_q, variables = "qsmk")
+
+# ATE
+me_ate <- avg_comparisons(fit_q, variables = "qsmk")
+me_ate
+
+# ATT et ATU
+avg_comparisons(fit_q, variables = "qsmk", newdata = subset(nhefs, qsmk == 1))
+avg_comparisons(fit_q, variables = "qsmk", newdata = subset(nhefs, qsmk == 0))
+
+res_me <- tibble(methode = "marginaleffects (delta)",
+                 estimate = me_ate$estimate,
+                 conf.low = me_ate$conf.low, conf.high = me_ate$conf.high)
+```
+
+Pour une variance robuste à l'hétéroscédasticité, ajouter `vcov = "HC3"` ; pour
+un bootstrap, enchaîner avec `|> inferences(method = "boot", R = 1000)`.
+
+Avec un modèle logistique, la même fonction donne la différence de risque par
+défaut, le risque relatif avec `comparison = "ratio"` et l'OR marginal avec
+`comparison = "lnoravg", transform = "exp"`.
+
+## Avec `stdReg`
+
+`stdReg` [@sjolander2016] est le package historique de standardisation par
+régression (GLM et Cox). Son successeur `stdReg2` propose une interface par
+formule ; la logique est identique.
+
+```{r}
+#| label: stdreg
+std <- stdGlm(fit = fit_q, data = as.data.frame(nhefs), X = "qsmk", x = c(0, 1))
+summary(std)                                        # E[Y^0] et E[Y^1]
+s_std <- summary(std, contrast = "difference", reference = 0)
+s_std
+
+res_std <- tibble(methode = "stdReg (sandwich)",
+                  estimate  = s_std$est.table[2, 1],
+                  conf.low  = s_std$est.table[2, 3],
+                  conf.high = s_std$est.table[2, 4])
+```
+
+## Avec `gcomputation`
+
+Le package `gcomputation` (organisation GitHub *chupverse*) est dédié à la
+méthode. Il propose une fonction par type d'issue — `gc_continuous`,
+`gc_binary`, `gc_count`, `gc_times` — et ajoute ce que les précédents n'ont pas
+nativement :
+
+- un Q-model **pénalisé** (`"lasso"`, `"ridge"`, `"elasticnet"`) ou sélectionné
+  (`"aic"`, `"bic"`), en plus du modèle complet (`"all"`) ;
+- le choix direct de l'estimand (`effect = "ATE"`, `"ATT"`, `"ATU"`) ;
+- un bootstrap intégré, classique (`"boot"`) ou avec validation croisée (`"bcv"`) ;
+- l'imputation multiple (`boot.mi = TRUE`) et la transportabilité (`transport()`).
+
+Contrainte : la variable de traitement doit être codée 0/1 et figurer dans la
+formule.
+
+```{r}
+#| label: gcomputation-all
+gc_all <- gc_continuous(
+  formula     = f_q,
+  data        = as.data.frame(dplyr::select(nhefs, -ps)),
+  group       = "qsmk",
+  effect      = "ATE",
+  model       = "all",        # Q-model complet, non pénalisé
+  boot.type   = "boot",
+  boot.number = 1000,
+  progress    = FALSE,
+  seed        = 2026
+)
+
+summary(gc_all, ci.type = "perc")
+```
+
+Avec `model = "all"` et le même Q-model, l'estimation ponctuelle doit coïncider
+avec celle obtenue à la main ; seules les bornes de l'intervalle varient avec le
+tirage bootstrap.
+
+On peut ensuite laisser un lasso choisir parmi un modèle plus riche, où toutes
+les covariables interagissent avec le traitement :
+
+```{r}
+#| label: gcomputation-lasso
+f_riche <- wt82_71 ~ qsmk * (sex + race + age + age2 + education +
+  smokeintensity + smokeintensity2 + smokeyrs + smokeyrs2 +
+  exercise + active + wt71 + wt71_2)
+
+gc_lasso <- gc_continuous(
+  formula     = f_riche,
+  data        = as.data.frame(dplyr::select(nhefs, -ps)),
+  group       = "qsmk",
+  effect      = "ATE",
+  model       = "lasso",
+  cv          = 10,
+  boot.type   = "bcv",
+  boot.number = 500,
+  boot.tune   = FALSE,       # lambda estimé une fois sur l'échantillon complet
+  progress    = FALSE,
+  seed        = 2026
+)
+
+summary(gc_lasso, ci.type = "perc")
+plot(gc_lasso)               # graphique de calibration du Q-model
+```
+
+::: {.callout-warning}
+## Sélection de variables et causalité
+Un lasso sélectionne ce qui prédit bien $Y$. Il peut donc écarter un facteur de
+confusion fortement lié au traitement mais faiblement à l'issue. La pénalisation
+sert à stabiliser un Q-model flexible, pas à remplacer le choix raisonné du jeu
+d'ajustement.
+:::
+
+## Contrôle croisé par pondération (IPW)
+
+L'IPW modélise le traitement plutôt que l'issue. Si les deux approches
+concordent, le résultat ne tient pas à la spécification d'un seul modèle.
+
+```{r}
+#| label: ipw
+nhefs <- nhefs |>
+  mutate(w = if_else(qsmk == 1, 1 / ps, 1 / (1 - ps)))
+
+ipw_ate <- function(data, indices) {
+  d  <- data[indices, ]
+  ps <- predict(glm(formula(fit_ps), family = binomial, data = d), type = "response")
+  w  <- ifelse(d$qsmk == 1, 1 / ps, 1 / (1 - ps))
+  weighted.mean(d$wt82_71[d$qsmk == 1], w[d$qsmk == 1]) -
+    weighted.mean(d$wt82_71[d$qsmk == 0], w[d$qsmk == 0])
+}
+
+boot_ipw <- boot(nhefs, ipw_ate, R = 1000)
+ci_ipw   <- boot.ci(boot_ipw, type = "perc")$percent[4:5]
+
+res_ipw <- tibble(methode = "IPW + bootstrap",
+                  estimate = boot_ipw$t0,
+                  conf.low = ci_ipw[1], conf.high = ci_ipw[2])
+```
+
+## Synthèse
+
+```{r}
+#| label: synthese
+#| fig-height: 3.5
+ci_naif <- tidy(fit_naif, conf.int = TRUE) |> filter(term == "qsmk")
+
+resultats <- bind_rows(
+  tibble(methode = "Différence brute", estimate = ci_naif$estimate,
+         conf.low = ci_naif$conf.low, conf.high = ci_naif$conf.high),
+  res_main, res_me, res_std, res_ipw
+) |>
+  mutate(methode = fct_rev(fct_inorder(methode)))
+
+resultats
+
+ggplot(resultats, aes(estimate, methode)) +
+  geom_pointrange(aes(xmin = conf.low, xmax = conf.high)) +
+  labs(x = "Effet de l'arrêt du tabac sur la prise de poids (kg)", y = NULL)
+```
+
+Les résultats de `gcomputation` se lisent dans les `summary()` plus haut.
+
+**Lecture attendue.** Les trois implémentations de la G-computation donnent la
+même estimation ponctuelle (elles partagent le Q-model) et des intervalles
+proches ; l'IPW tombe dans la même zone. L'effet ajusté, autour de 3,5 kg, est
+plus élevé que la différence brute : la confusion masquait ici une partie de
+l'effet, notamment parce que ceux qui arrêtent sont plus âgés et que les plus
+âgés prennent moins de poids.
+
+**Formulation.** « Sous les hypothèses de cohérence, d'absence de confusion non
+mesurée conditionnellement aux covariables retenues, de positivité et de bonne
+spécification du modèle, si tous les individus avaient arrêté de fumer, la prise
+de poids moyenne sur dix ans aurait été supérieure d'environ 3,5 kg à celle
+observée si aucun n'avait arrêté. »
+
+# Limites et prolongements
+
+- **Confusion non mesurée.** Aucune méthode d'ajustement n'y répond. On peut en
+  quantifier l'impact par une analyse de sensibilité (E-value, package `EValue`).
+- **Sélection.** `nhefs_complete` ne contient que les individus dont le poids de
+  1982 est connu. Si la sortie d'étude dépend du traitement et de l'issue, on
+  conditionne sur un collisionneur ; *What If* traite ce point par pondération
+  de censure.
+- **Spécification du Q-model.** Pour s'en protéger : estimateurs doublement
+  robustes (AIPW via `marginaleffects` + `WeightIt`, TMLE via `tmle` ou `lmtp`),
+  éventuellement avec apprentissage automatique (`SuperLearner`).
+- **Issues de survie.** `gc_times` et `stdReg::stdCoxph` standardisent des
+  courbes de survie et donnent des différences de survie ou de RMST marginales,
+  plus interprétables qu'un hazard ratio.
+- **Traitements variant dans le temps.** Avec des facteurs de confusion
+  eux-mêmes affectés par le traitement passé, la régression classique échoue ;
+  il faut la G-formule paramétrique complète (`gfoRmula`) ou `lmtp`.
+
+# Quel package choisir ?
+
+| Package | Maturité | Points forts | Limites |
+|---|---|---|---|
+| `marginaleffects` | Très utilisé, CRAN, article JSS | Presque toutes les classes de modèles, méthode delta rapide, bootstrap, documentation abondante | Ne construit pas le Q-model : sélection et pénalisation à gérer soi-même |
+| `stdReg` / `stdReg2` | Établi, CRAN | GLM et Cox, variance sandwich, courbes standardisées | Périmètre de modèles plus étroit |
+| `gcomputation` | Récent, peu d'utilisateurs visibles (7 étoiles GitHub en octobre 2026) | Tout-en-un : Q-model pénalisé, ATE/ATT/ATU, bootstrap, imputation multiple, survie, transportabilité | Peu de recul extérieur ; API susceptible d'évoluer ; coût de calcul du bootstrap |
+
+Une stratégie raisonnable : produire le résultat principal avec un outil éprouvé
+et utiliser `gcomputation` pour ce qu'il apporte en propre (pénalisation,
+imputation, survie), en vérifiant comme ici que les deux concordent sur un
+modèle commun.
+
+# Session
+
+```{r}
+#| label: session
+sessionInfo()
+```
+
+# Références

@@ -1,0 +1,75 @@
+---
+title: "vernissage"
+subtitle: "Show clinical cohort data at their best"
+image: ../img/packages/vernissage.png
+---
+
+![](../img/packages/vernissage.png){fig-alt="vernissage hex logo" width="170" style="float: right; margin: 0 0 1rem 1.5rem;"}
+
+[Documentation](https://clement-poupelin.github.io/vernissage/){.btn .btn-primary .btn-sm role="button"}
+[Get started](https://clement-poupelin.github.io/vernissage/articles/vernissage.html){.btn .btn-outline-primary .btn-sm role="button"}
+[<i class="bi bi-github"></i> GitHub](https://github.com/Clement-Poupelin/vernissage){.btn .btn-outline-secondary .btn-sm role="button"}
+
+A *vernissage* is the opening of an exhibition, when the works are hung and
+shown at their best. This package **prepares** clinical cohort data and
+**shows** them: publication-ready figures with a common theme and
+colour-blind safe palettes, and polished `gt` tables.
+
+Data are in wide format: one row per subject, one column per variable and
+visit (`NFL_V0`, `NFL_V3`). Columns can be given as strings, bare names or
+tidyselect helpers.
+
+## Installation
+
+```r
+# install.packages("remotes")
+remotes::install_github("Clement-Poupelin/vernissage")
+
+# optional features
+install.packages(c("gt", "car", "DT", "ggrepel", "nortest", "stringi"))
+```
+
+## What it does
+
+| Family | Main functions | Purpose |
+|---|---|---|
+| Import | `read_cohort_csv()`, `clean_colnames()`, `rename_with_map()`, `catalog_vars()` | French CSV exports (`;`, `,` decimals, Latin-1), clean names, variable catalogue |
+| Visits | `visit_to_long()`, `visit_add_deltas()`, `visit_map_suffix()`, `combine_bilateral()` | long format, changes between visits, left / right means |
+| Outliers | `outlier_detect()`, `outlier_mask()`, `outlier_flag_mad()`, `outlier_flag_iqr()` | modified z-score and Tukey fences, documented and referenced |
+| Transformations | `transform_compare()`, `transform_choose()`, `transform_apply()`, `transform_boxcox()` | log / Box-Cox decided at baseline, applied at follow-up |
+| Description | `describe_cohort()`, `describe_normality()`, `na_summary()`, `cor_matrix_test()`, `pca_compute()` | cohort overview table, normality, missing data, correlations, PCA |
+| Figures | `plot_distribution()`, `plot_na_map()`, `plot_paired_visits()`, `plot_trajectories()`, `plot_cor_heatmap()`, `plot_pca_*()`, `plot_radar()`, `plot_forest()` | one function per figure of a cohort report |
+| Style | `theme_pub()`, `pal_levels()`, `fmt_p()`, `label_expand()` | publication theme, Okabe-Ito palette, p-value and label formatting |
+| Reports | `gt_pub()`, `gt_signif()`, `qmd_tabset()`, `qmd_callout_raw()` | `gt` tables with significance highlighting, Quarto tabsets and callouts |
+
+## Example
+
+```r
+library(vernissage)
+
+# the cohort at a glance
+describe_cohort(cohort_sim, vars = c(AGE, SEX, BMI, NFL_V0, MOCA_V0, FALL_V0),
+                by = GROUP, id_col = ID)
+plot_na_map(cohort_sim, vars = c(NFL_V0:CRP_V3), id_col = ID)
+
+# distributions with outliers and group tests
+plot_distribution(cohort_sim, c(NFL_V0, MOCA_V0, SEX), group = GROUP, outlier_mad = TRUE)
+
+# how each subject moves between visits
+plot_paired_visits(cohort_sim, c(NFL_V0, MOCA_V0), id_col = ID, transitions = TRUE)
+
+# group profiles
+plot_radar(cohort_sim, c(AGE, BMI, NFL_V0, IL6_V0, MOCA_V0, UPDRS_V0, SEX),
+           group = GROUP, normalize = "zscore", quali_levels = list(SEX = "Female"))
+```
+
+The rendered figures are in the articles of the documentation:
+[Describing a cohort](https://clement-poupelin.github.io/vernissage/articles/describing.html),
+[Figures](https://clement-poupelin.github.io/vernissage/articles/figures.html),
+[Preprocessing](https://clement-poupelin.github.io/vernissage/articles/preprocessing.html)
+and [Tables and Quarto reports](https://clement-poupelin.github.io/vernissage/articles/reporting.html).
+
+## Companion package
+
+[lodestar](lodestar.qmd) handles limits of detection and cut-offs (median
+split, tertiles, reclassification between visits).

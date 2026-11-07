@@ -38,6 +38,12 @@ website:
             text: Séries temporelles (Quarto Blog)
           - href: https://clement-poupelin.github.io/Regression_lineaire_et_logistique/
             text: Régression linéaire et logistique (Quarto Blog)
+      - text: "R packages"
+        menu:
+          # - href: packages/lodestar.qmd
+          #   text: "lodestar: limits of detection and cut-offs"
+          - href: packages/vernissage.qmd
+            text: "vernissage: cohort description and figures"
     right: 
       # - icon: info-circle-fill
         # href: about.html
