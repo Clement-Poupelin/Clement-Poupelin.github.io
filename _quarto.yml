@@ -40,6 +40,8 @@ website:
             text: Régression linéaire et logistique (Quarto Blog)
       - text: "R packages"
         menu:
+          - href: packages/corrkit.qmd
+            text: "corrkit: correlation analysis"
           # - href: packages/lodestar.qmd
           #   text: "lodestar: limits of detection and cut-offs"
           - href: packages/vernissage.qmd

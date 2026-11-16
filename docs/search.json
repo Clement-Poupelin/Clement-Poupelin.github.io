@@ -357,6 +357,48 @@
     "text": "Companion package\nlodestar handles limits of detection and cut-offs (median split, tertiles, reclassification between visits)."
   },
   {
+    "objectID": "packages/corrkit.html",
+    "href": "packages/corrkit.html",
+    "title": "corrkit",
+    "section": "",
+    "text": "Documentation Get started  GitHub\nA correlation is one number, but which one, computed how, tested against what? corrkit computes nothing new: every coefficient, p-value and confidence interval comes from a validated engine (stats, ppcor, psych, correlation). On top of them it adds one way of working: one computing function, raw p-values by default and an explicit family when they are adjusted, a dedicated reading of binary variables, and heatmaps, forest plots and gt tables whose subtitles and captions state the method, the engine, the formula and how to read the result.\nThe notation follows Makowski et al. (2020), Methods and algorithms for correlation analysis in R, and is typeset in the figures (rs, rxy.z, rrb)."
+  },
+  {
+    "objectID": "packages/corrkit.html#installation",
+    "href": "packages/corrkit.html#installation",
+    "title": "corrkit",
+    "section": "Installation",
+    "text": "Installation\n# install.packages(\"remotes\")\nremotes::install_github(\"Clement-Poupelin/corrkit\")\n\n# recommended engines and features\ninstall.packages(c(\"ppcor\", \"psych\", \"correlation\", \"effectsize\", \"ggtext\"))"
+  },
+  {
+    "objectID": "packages/corrkit.html#what-it-does",
+    "href": "packages/corrkit.html#what-it-does",
+    "title": "corrkit",
+    "section": "What it does",
+    "text": "What it does\n\n\n\n\n\n\n\n\nFamily\nMain functions\nPurpose\n\n\n\n\nCompute\ncor_compute(), partial_cor_test()\nevery pair of a set of variables (matrix), predictors × outcomes (cross) or one pair; simple or partial; Pearson, Spearman, Kendall and robust coefficients\n\n\nExplore\nprint(), summary(), as.matrix(), as.data.frame()\nthe coefficients and their stars, the settings of the analysis, the strongest pairs, the numbers\n\n\nMultiple testing\np_adjust, adjust_by\nraw p-values by default; on request an adjustment over a named family (all pairs, the predictors of each outcome, the outcomes of each predictor)\n\n\nFigures\nplot(type = \"heatmap\" / \"forest\" / \"scatter\"), plot_cor_heatmap(), plot_cor_forest(), plot_cor_pair()\nannotated heatmap, each coefficient with its confidence interval, the scatter or added-variable plot of one pair\n\n\nTables\ntbl_cor(layout = \"matrix\" / \"wide\" / \"long\")\ngt tables with the colour scale of the heatmaps, confidence intervals and source notes\n\n\nBinary variables\ncor_binary_effects(), tbl_cor_binary(), cor_binary_note()\nseparate blocks in every output, rank-biserial correlation and mean difference to report, reading note in English or French\n\n\nStyle\ntheme_pub(), COR_PAL, p_to_stars()\npublication theme, diverging palette, significance stars"
+  },
+  {
+    "objectID": "packages/corrkit.html#example",
+    "href": "packages/corrkit.html#example",
+    "title": "corrkit",
+    "section": "Example",
+    "text": "Example\nlibrary(corrkit)\nd   &lt;- simulate_cor_data(200)            # biomarkers, scores and covariates of known structure\nlab &lt;- attr(d, \"labels\")\n\n# every pair of a set of variables\ncm &lt;- cor_compute(d, c(\"CRP\", \"IL6\", \"BDNF\", \"NfL\", \"depression\", \"fatigue\", \"BIN_CRP\"),\n                  labels = lab)\nsummary(cm)\nplot(cm)                                 # annotated heatmap\ntbl_cor(cm, layout = \"long\")             # one row per pair: n, coefficient, CI, p\n\n# biomarkers x scores, adjusted for age and sex, BH over the biomarkers of each score\ncc &lt;- cor_compute(d, x = c(\"CRP\", \"IL6\", \"NfL\", \"BIN_CRP\"), y = c(\"depression\", \"fatigue\", \"cognition\"),\n                  covariates = c(\"age\", \"sex\"), p_adjust = \"BH\", adjust_by = \"y\", labels = lab)\nplot(cc, type = \"forest\")                # each partial coefficient with its CI\nplot(cc, type = \"scatter\", pair = c(\"NfL\", \"cognition\"))\n\n# what to report for a binary biomarker instead of its correlation\ntbl_cor_binary(cor_binary_effects(cc))\nThe rendered figures and tables are in the articles of the documentation: Getting started, Full analysis of a matrix, Cross and partial correlations and Binary variables."
+  },
+  {
+    "objectID": "packages/corrkit.html#tutorials",
+    "href": "packages/corrkit.html#tutorials",
+    "title": "corrkit",
+    "section": "Tutorials",
+    "text": "Tutorials\nEach tutorial runs on the simulated data simulate_cor_data() shipped with the package, with all outputs and figures. The tutorials are written in French.\n\n\n\n\nGetting started\ncor_compute(), what the result contains, summary() and the correlation matrix.\n\n\n\n\n\n\nFull analysis of a matrix\nEvery output (heatmap, forest plot, scatter, tables), their options, the engines and the typesetting of the formulas.\n\n\n\n\n\n\nMultiple-testing corrections\nWhy raw p-values by default, FWER and FDR, the six methods of p.adjust(), a simulation of true and false positives, choosing the family.\n\n\n\n\n\n\nComparing correlation coefficients\nPearson, Spearman, Kendall and robust coefficients, in theory and on six simulated situations: outliers, heavy tails, non-monotone relations.\n\n\n\n\n\n\nCross and partial correlations\nPredictors × outcomes, adjustment for covariates, added-variable plots, ppcor / residuals / lm() equivalences.\n\n\n\n\n\n\nBinary variables\nPoint-biserial and rank-biserial correlations, why a cut biomarker correlates less, what to report instead.\n\n\n\n\n\n\nFunction reference\nEvery function, its arguments and runnable examples, grouped by family."
+  },
+  {
+    "objectID": "packages/corrkit.html#companion-packages",
+    "href": "packages/corrkit.html#companion-packages",
+    "title": "corrkit",
+    "section": "Companion packages",
+    "text": "Companion packages\nvernissage describes and draws clinical cohorts (overview tables, distributions, visits, radar and forest plots); lodestar handles limits of detection and cut-offs, the usual source of the binary biomarkers that corrkit treats apart."
+  },
+  {
     "objectID": "publications.html",
     "href": "publications.html",
     "title": "Publications",
